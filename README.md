@@ -14,3 +14,6 @@
 
 # Temática del sitio:
 	Venta de piezas de hardware y computadoras ya armadas.
+	
+# Descripción de producto/servicio:
+	Nuestro proyecto ofrece productos de hardware de distintas gamas (baja, media y alta) en lo referido a calidad y performance de la tecnología del producto. A su vez se ofrecen distintas marcas para que el público/cliente tenga opciones de compra.
