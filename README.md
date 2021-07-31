@@ -13,4 +13,5 @@
 	Personas desde los 16 años en adelante interesadas en comprar una pieza de hardware. 
 
 #Temática del sitio:
+
 	Venta de piezas de hardware y computadoras ya armadas.
