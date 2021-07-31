@@ -1,13 +1,16 @@
 # grupo-05
 
 # Referentes: 
-              https://www.compugarden.com.ar/
-              https://www.armytech.com.ar/
-              https://www.logg.com.ar/
-              https://www.maximus.com.ar/
-              https://compragamer.com/
-              https://www.hardgamers.com.ar/
+             1. https://www.compugarden.com.ar/
+             2. https://www.armytech.com.ar/
+             3. https://www.logg.com.ar/
+             4. https://www.maximus.com.ar/
+             5. https://compragamer.com/
+             6. https://www.hardgamers.com.ar/
 
 
-# Publico objetivo: 
-	Personas desde los 16 años en adelante interesadas en comprar una pieza de hardware 
+# Público objetivo: 
+	Personas desde los 16 años en adelante interesadas en comprar una pieza de hardware. 
+
+#Temática del sitio:
+	Venta de piezas de hardware y computadoras ya armadas.
