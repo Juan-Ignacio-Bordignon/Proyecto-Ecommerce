@@ -1,7 +1,7 @@
 # grupo-05
 
 # Referentes: 
-             1. https://www.compugarden.com.ar/
+             1. https://www.compugarden.com.ar/ // Se tomo de idea del menu de productos y sus sub-categorias.
              2. https://www.armytech.com.ar/
              3. https://www.logg.com.ar/
              4. https://www.maximus.com.ar/ // Se tomó la idea del header; y los productos "más vendidos".
