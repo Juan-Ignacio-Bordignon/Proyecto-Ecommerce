@@ -20,3 +20,5 @@
 
 # Descripción integrantes:
 - Capuozzo, Gustavo: Tengo 27 años, soy Tecnico Superior en Gestion de industria Automotriz, actualmente trabajo en una empresa de Telecomunicaciones como sub-gerente del área hace 6 meses. Siempre tuve gustos e interés por la rama de informática y tecnología, en mis años de secundaria seguí la modalidad de informática recibiendome como Técnico en Informática Profesional y Personal.
+
+- Brandon, Manuel: 18 años, termine la secundaria y no sabia que estudiar, pero siempre me gusto la idea de desarrollar paginas web de parte de front-end como back-end.
