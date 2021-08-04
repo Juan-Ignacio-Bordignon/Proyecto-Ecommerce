@@ -25,4 +25,4 @@
 
 - Bordignon, Juan Ignacio: Tengo 23 años, soy técnico electromecánico y tengo 2 años de la carrera de lic. en sistemas de información, desde chiquito me gusto la informática y siempre quise aprender a programar ya sean páginas web o aplicaciones de escritorio.
 
--Fabrizio, Tomás Agustin: Tengo 18 años, estoy curzando el ultimo año de la escuela, en mi caso estoy haciendo un año extra ya que es de orientación técnica, desde hace un timepo que estoy interesado en la programación y por eso decidi inscribirme al curso.
+- Fabrizio, Tomás Agustin: Tengo 18 años, estoy curzando el ultimo año de la escuela, en mi caso estoy haciendo un año extra ya que es de orientación técnica, desde hace un timepo que estoy interesado en la programación y por eso decidi inscribirme al curso.
