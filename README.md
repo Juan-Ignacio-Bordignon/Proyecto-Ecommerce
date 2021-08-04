@@ -2,10 +2,10 @@
 
 # Referentes: 
              1. https://www.compugarden.com.ar/ // Se tomo de idea del menu de productos y sus sub-categorias.
-             2. https://www.armytech.com.ar/
+             2. https://www.armytech.com.ar/ //
              3. https://www.logg.com.ar/	// Se tomó la idea de dar la opcion de "arma tu pc" y "arma tu combo"
              4. https://www.maximus.com.ar/ // Se tomó la idea del header; y los productos "más vendidos".
-             5. https://compragamer.com/
+             5. https://compragamer.com/ //Se tomó la idea de usar el logo como boton de inicio.
              6. https://www.hardgamers.com.ar/ // Se tomó la idea del Slide con las imágenes que van pasando cada "x" periodo de tiempo. Además de la idea de utilizar los iconos de redes sociales.
 
 
