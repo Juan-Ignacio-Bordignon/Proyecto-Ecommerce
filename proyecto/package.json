@@ -1,0 +1,22 @@
+{
+  "name": "grupo-05",
+  "version": "1.0.0",
+  "description": "1. https://www.compugarden.com.ar/ // Se tomo de idea del menu de productos y sus sub-categorias.\r              2. https://www.armytech.com.ar/ //\r              3. https://www.logg.com.ar/\t// Se tomó la idea de dar la opcion de \"arma tu pc\" y \"arma tu combo\"\r              4. https://www.maximus.com.ar/ // Se tomó la idea del header; y los productos \"más vendidos\".\r              5. https://compragamer.com/ //Se tomó la idea de usar el logo como boton de inicio.\r              6. https://www.hardgamers.com.ar/ // Se tomó la idea del Slide con las imágenes que van pasando cada \"x\" periodo de tiempo. Además de la idea de utilizar los iconos de redes sociales.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0621CDFSNCN12LAED/grupo-05.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0621CDFSNCN12LAED/grupo-05/issues"
+  },
+  "homepage": "https://github.com/0621CDFSNCN12LAED/grupo-05#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
