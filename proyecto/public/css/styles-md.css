@@ -1,3 +1,6 @@
 .show-md{
     display: initial;
 }
+.hide-md{
+    display: none;
+}
