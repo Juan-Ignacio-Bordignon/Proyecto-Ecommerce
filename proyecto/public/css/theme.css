@@ -1,0 +1,16 @@
+/* fonts & texts */
+
+body {
+    font-family: "Roboto";
+    font-size: 12px;
+}
+.font-size-20 {
+    font-size: 20px;
+}
+/*colors*/
+.red-bg {
+    background-color: #e60026;
+}
+.black-txt {
+    color: #000000;
+}

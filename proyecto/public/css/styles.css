@@ -1,0 +1,37 @@
+.burger-menu {
+}
+#logo{
+    width: 30%;
+    max-width: 160px;
+}
+.page-name {
+}
+.cart {
+}
+.log-in-button {
+    padding: 4px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+.search-bar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.fa-search {
+    background-color: #ffffff;
+    padding: 5px;
+}
+#main-nav ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style-type: none;
+    padding-left: 0;
+}
+#main-nav a {
+    text-decoration: none;
+    color: #000000;
+}
+.banner{
+    width: 100%;
+    display: block;
+}
