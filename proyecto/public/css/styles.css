@@ -90,3 +90,6 @@
 .login .button-form{
     width: 100%;
 }
+.register .button-form{
+    width: 40%;
+}
