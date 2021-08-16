@@ -7,6 +7,10 @@
     padding-right: 10px;
     box-shadow: none;
 }
-.product:hover{
+.product:hover {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+.cart-button-direction {
+    flex-direction: row;
 }

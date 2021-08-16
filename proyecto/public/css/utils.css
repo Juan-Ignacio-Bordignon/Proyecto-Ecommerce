@@ -14,35 +14,38 @@ body {
 .w-100 {
     width: 100%;
 }
-.margin-auto{
+.margin-auto {
     margin-left: auto;
     margin-right: auto;
 }
-.padding-8{
+.padding-8 {
     padding: 8px;
 }
 .flex {
     display: flex;
     flex-wrap: wrap;
 }
-.inline{
+.flex-item {
+    display: flex;
+}
+.inline {
     display: inline;
 }
-.direction-column{
+.direction-column {
     flex-direction: column;
 }
 .justify-space-between {
     justify-content: space-between;
 }
-.justify-space-around{
+.justify-space-around {
     justify-content: space-around;
 }
 .align-center {
     align-items: center;
 }
-.text-decoration-none{
+.text-decoration-none {
     text-decoration: none;
 }
-.hide{
+.hide {
     display: none;
 }

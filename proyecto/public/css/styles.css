@@ -6,7 +6,36 @@
 }
 .page-name {
 }
+/*~~~~~~~~~~~~~~~~~~CARTS~~~~~~~~~~~~~~~~  */
 .cart {
+}
+.box-position-relative {
+    position: relative;
+}
+.box-position-absolute {
+    position: absolute;
+}
+.justify-content-space-around {
+    justify-content: space-around;
+}
+.text-aling-center {
+    text-align: center;
+}
+.button-cart {
+    background-color: #1259c3;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 8px 3px;
+}
+.cart-button-direction {
+    flex-direction: column;
+}
+.padding-bottom {
+    padding-bottom: 80px;
+}
+.padding-top {
+    padding-top: 10px;
 }
 .link-header {
     padding: 4px;
@@ -87,9 +116,9 @@
     width: 30%;
     padding: 10px;
 }
-.login .button-form{
+.login .button-form {
     width: 100%;
 }
-.register .button-form{
+.register .button-form {
     width: 40%;
 }
