@@ -39,17 +39,19 @@
                     class="fas fa-ellipsis-v burger-menu font-size-20 black.txt"
                 ></i>
                 <img id="logo" class="" src="/images/logo.png" alt="Logo" />
-                <a
-                    class="
-                        page-name
-                        text-decoration-none
-                        font-size-20
-                        black-txt
-                    "
-                    href="/"
-                >
-                    Hard4Gamers
-                </a>
+                <div class="search-bar">
+                    <form action="POST">
+                        <label class="" for="search">
+                            <i class="fas fa-search"></i>
+                        </label>
+                        <input
+                            id="search"
+                            type="text"
+                            name="search"
+                            placeholder="Motherboards, gráficas, etc."
+                        />
+                    </form>
+                </div>
                 <a
                     class="cart text-decoration-none font-size-20 black-txt"
                     href="/cart"
@@ -77,26 +79,15 @@
                     <li><a href="#">Perifericos</a></li>
                 </ul>
             </nav>
-            <div class="search-bar">
-                <form action="POST">
-                    <label class="" for="search">
-                        <i class="fas fa-search"></i>
-                    </label>
-                    <input
-                        id="search"
-                        type="text"
-                        name="search"
-                        placeholder="Motherboards, gráficas, etc."
-                    />
-                </form>
-            </div>
         </header>
         <div class="banner">
-            <img src="/images/banner.jfif" alt="banner" width="100%"/>
+            <img src="/images/banner.jfif" alt="banner" width="100%" />
         </div>
         <main id="main-content">
             <div class="flex margin-auto">
-                <article class="flex product align-center justify-space-around w-100">
+                <article
+                    class="flex product align-center justify-space-around w-100"
+                >
                     <img
                         class="product-img"
                         src="/images/3060-TI.jfif"
@@ -108,7 +99,23 @@
                         <p>Gigabyte rtx 3060 Ti</p>
                     </div>
                 </article>
-                <article class="flex product align-center justify-space-around w-100">
+                <article
+                    class="flex product align-center justify-space-around w-100"
+                >
+                    <img
+                        class="product-img"
+                        src="/images/Rysen5-3600.jfif"
+                        alt="Ryzen 5 3600"
+                    />
+                    <div class="flex direction-column">
+                        <h2>Procesador</h2>
+                        <p>$30.000</p>
+                        <p>Ryzen 5 3600</p>
+                    </div>
+                </article>
+                <article
+                    class="flex product align-center justify-space-around w-100"
+                >
                     <img
                         class="product-img"
                         src="/images/Rysen5-3600.jfif"
@@ -122,5 +129,25 @@
                 </article>
             </div>
         </main>
+        <footer id="footer" class="red-bg">
+            <div class="flex justify-space-around">
+                <div class="flex direction-column align-center">
+                    <h2 class="footer-title">Contactos</h2>
+                    <a href="" class="text-decoration-none black-txt">Email</a>
+                    <a href="" class="text-decoration-none black-txt">
+                        Telefono
+                    </a>
+                </div>
+                <div class="flex direction-column align-center">
+                    <h2 class="footer-title">Redes sociales</h2>
+                    <a href="" class="text-decoration-none black-txt">
+                        Instagram
+                    </a>
+                    <a href="" class="text-decoration-none black-txt">
+                        Facebook
+                    </a>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

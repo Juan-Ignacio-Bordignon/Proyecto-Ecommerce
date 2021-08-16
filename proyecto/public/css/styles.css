@@ -14,8 +14,10 @@
     background-color: #ffffff;
 }
 .search-bar {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 40%;
+}
+.search-bar input {
+    width: 70%;
 }
 .fa-search {
     background-color: #ffffff;
@@ -46,4 +48,10 @@
     margin-top: 10px;
     margin-bottom: 10px;
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+#footer{
+    padding: 15px;
+}
+.footer-title{
+    margin-top: 0;
 }

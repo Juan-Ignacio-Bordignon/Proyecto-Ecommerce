@@ -25,6 +25,9 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
+.inline{
+    display: inline;
+}
 .direction-column{
     flex-direction: column;
 }
