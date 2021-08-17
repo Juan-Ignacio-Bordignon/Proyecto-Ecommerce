@@ -73,8 +73,18 @@
     margin-top: 50px;
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
+
+.product-detail{
+    margin-top: 50px;
+}
+
 .product-img {
     width: 40%;
+}
+
+.product-img-detail{
+    width: 40%;
+    padding: 30px;
 }
 #footer {
     margin-top: 40px;
@@ -121,4 +131,9 @@
 }
 .register .button-form {
     width: 40%;
+}
+
+.detail.button-form{
+    width: 45%;
+    border-radius: 5px;
 }

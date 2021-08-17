@@ -28,6 +28,16 @@ body {
 .flex-item {
     display: flex;
 }
+.flex-detail{
+    display: flex;
+    flex-wrap: nowrap;
+    
+}
+.flex-detail-text{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
 .inline {
     display: inline;
 }
