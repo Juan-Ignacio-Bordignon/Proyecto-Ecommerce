@@ -1,6 +1,12 @@
-.show-md{
+.show-md {
     display: initial;
 }
-.hide-md{
+.hide-md {
     display: none;
+}
+.product:hover {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    transform: scale(1.08);
+    position: relative;
+    z-index: 10;
 }
