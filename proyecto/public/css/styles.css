@@ -1,13 +1,28 @@
-.burger-menu {
-}
 #logo {
-    width: 30%;
+    width: 100%;
     max-width: 160px;
 }
-.page-name {
-}
+
 /*~~~~~~~~~~~~~~~~~~CARTS~~~~~~~~~~~~~~~~  */
-.cart {
+.main-logo {
+    width: 30%;
+}
+.hamburger-menu {
+    color: #000000;
+}
+.main-menu {
+    position: relative;
+}
+.menu-content {
+    display: none;
+    position: absolute;
+    z-index: 10;
+}
+.nav-menu li {
+    list-style-type: none;
+}
+.nav-menu a {
+    text-decoration: none;
 }
 .box-position-relative {
     position: relative;
@@ -74,7 +89,7 @@
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
-.product-detail{
+.product-detail {
     margin-top: 50px;
 }
 
@@ -82,7 +97,7 @@
     width: 40%;
 }
 
-.product-img-detail{
+.product-img-detail {
     width: 40%;
     padding: 30px;
 }
@@ -133,7 +148,7 @@
     width: 40%;
 }
 
-.detail.button-form{
+.detail.button-form {
     width: 45%;
     border-radius: 5px;
 }
