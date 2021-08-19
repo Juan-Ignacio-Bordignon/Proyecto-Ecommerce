@@ -2,7 +2,7 @@
 
 #Hacer más: Organizar las tareas o etapas que cada uno va ir haciendo.
 
-#Continuar haciendo: Énfasis en la resolución del sprint para entregarlo en tiempo y forma.
+#Continuar haciendo: Énfasis en la resolución del sprint para entregarlo en tiempo y forma. Trabajo en equipo, donde cada integrante está involucrado en la realización del proyecto grupal.
 
 #Hacer menos: Tener pocas reuniones.
 
