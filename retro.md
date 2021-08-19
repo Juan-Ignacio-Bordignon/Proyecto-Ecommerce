@@ -1,6 +1,6 @@
 # Comenzar a hacer: 
 Tener una mayor comunicación y organización a la hora de afrontar el proyecto.
-Usar el tablero de trelo.
+Usar el tablero de trello.
 # Hacer más: 
 Organizar las tareas o etapas que cada uno va ir haciendo.
 
