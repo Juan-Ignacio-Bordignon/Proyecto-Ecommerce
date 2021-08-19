@@ -27,6 +27,6 @@
 
 - Fabrizio, Tomás Agustin: Tengo 18 años, estoy curzando el ultimo año de la escuela, en mi caso estoy haciendo un año extra ya que es de orientación técnica, desde hace un timepo que estoy interesado en la programación y por eso decidi inscribirme al curso.
 
-#Tablero
+# Tablero
 
 https://trello.com/b/7PaQGhB3
