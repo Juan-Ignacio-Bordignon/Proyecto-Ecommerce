@@ -12,4 +12,4 @@ Trabajo en equipo, donde cada integrante está involucrado en la realización de
 Tener pocas reuniones.
 
 # Dejar de hacer: 
-Perder tiempo en la toma de desiciones
+Perder tiempo en la toma de desiciones.
