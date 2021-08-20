@@ -30,147 +30,152 @@
             rel="stylesheet"
             href="/css/styles-lg.css"
             media="(min-width:1280px)"
-            />
+        />
     </head>
-    <body> <header class="padding-8 red-bg">
-        <div class="flex justify-space-between align-center">
-            <i
-                class="
-                    fas
-                    fa-ellipsis-v
-                    burger-menu
-                    font-size-20
-                    black.txt
-                    hide-md
-                "
-            ></i>
-            <img id="logo" class="" src="/images/logo.png" alt="Logo" />
-            <div class="search-bar">
-                <form action="POST">
-                    <label class="" for="search">
-                        <i class="fas fa-search"></i>
-                    </label>
-                    <input
-                        id="search"
-                        type="text"
-                        name="search"
-                        placeholder="Motherboards, gráficas, etc."
+    <body>
+        <header class="padding-8 red-bg">
+            <div class="flex justify-space-between align-center">
+                <i
+                    class="
+                        fas
+                        fa-ellipsis-v
+                        burger-menu
+                        font-size-20
+                        black.txt
+                        hide-md
+                    "
+                ></i>
+                <a href="/" class="main-logo">
+                    <img id="logo" class="" src="/images/logo.png" alt="Logo" />
+                </a>
+                <div class="search-bar">
+                    <form action="POST">
+                        <label class="" for="search">
+                            <i class="fas fa-search"></i>
+                        </label>
+                        <input
+                            id="search"
+                            type="text"
+                            name="search"
+                            placeholder="Motherboards, gráficas, etc."
+                        />
+                    </form>
+                </div>
+                <a
+                    class="cart text-decoration-none font-size-20 black-txt"
+                    href="/cart"
+                >
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a
+                    class="
+                        link-header
+                        text-decoration-none
+                        font-size-20
+                        black-txt
+                    "
+                    href="/login"
+                >
+                    Log in
+                </a>
+                <a
+                    class="
+                        link-header
+                        text-decoration-none
+                        font-size-20
+                        black-txt
+                        hide
+                        show-md
+                    "
+                    href="/register"
+                >
+                    Registrarse
+                </a>
+            </div>
+            <nav id="main-nav" class="hide show-md">
+                <ul class="w-50 margin-auto flex justify-space-between">
+                    <li><a href="#">Mothers</a></li>
+                    <li><a href="#">Procesadores</a></li>
+                    <li><a href="#">Fuentes</a></li>
+                    <li><a href="#">Placa de video</a></li>
+                    <li><a href="#">Perifericos</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="banner">
+            <img src="/images/banner.jfif" alt="banner" width="100%" />
+        </div>
+
+        <main>
+            <div class="flex justify-space-around">
+                <article
+                    class="
+                        flex-detail
+                        product-detail
+                        align-center
+                        justify-space-around
+                        w-100
+                    "
+                >
+                    <img
+                        class="product-img-detail"
+                        src="/images/3060-TI.jfif"
+                        alt="3060 Ti"
                     />
-                </form>
+
+                    <div class="flex direction-column">
+                        <h2>Gigabyte rtx 3060 Ti</h2>
+                        <h3>Tarjeta Gráfica</h3>
+                        <p>$160.000</p>
+
+                        <p class="flex-detail-text">
+                            <button class="detail button-form" type="submit">
+                                Comprar
+                            </button>
+                            <button class="detail button-form" type="submit">
+                                Agregar al carrito
+                            </button>
+                        </p>
+
+                        <h1>Descripción</h1>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Cras metus leo, lacinia vitae blandit sed,
+                            faucibus ut erat. Ut nec magna sit amet lectus
+                            varius maximus. Nulla vehicula a leo eu vehicula. Ut
+                            ultrices fringilla tellus et luctus. Sed
+                            pellentesque erat sit amet nulla iaculis facilisis.
+                            Class aptent taciti sociosqu ad litora torquent per
+                            conubia nostra, per inceptos himenaeos. Duis et
+                            semper mi.
+                        </p>
+                    </div>
+                </article>
             </div>
-            <a
-                class="cart text-decoration-none font-size-20 black-txt"
-                href="/cart"
-            >
-                <i class="fas fa-shopping-cart"></i>
-            </a>
-            <a
-                class="
-                    link-header
-                    text-decoration-none
-                    font-size-20
-                    black-txt
-                "
-                href="/login"
-            >
-                Log in
-            </a>
-            <a
-                class="
-                    link-header
-                    text-decoration-none
-                    font-size-20
-                    black-txt
-                    hide
-                    show-md
-                "
-                href="/register"
-            >
-                Registrarse
-            </a>
-        </div>
-        <nav id="main-nav" class="hide show-md">
-            <ul class="w-50 margin-auto flex justify-space-between">
-                <li><a href="#">Mothers</a></li>
-                <li><a href="#">Procesadores</a></li>
-                <li><a href="#">Fuentes</a></li>
-                <li><a href="#">Placa de video</a></li>
-                <li><a href="#">Perifericos</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="banner">
-        <img src="/images/banner.jfif" alt="banner" width="100%" />
-    </div>
 
-    <main>
-    <div class="flex justify-space-around">
-        <article
-            class="
-                flex-detail
-                product-detail
-                align-center
-                justify-space-around
-                w-100
-            "
-        >
-            <img
-                class="product-img-detail"
-                src="/images/3060-TI.jfif"
-                alt="3060 Ti"
-            />
-
-                
-            <div class="flex direction-column">
-                <h2>Gigabyte rtx 3060 Ti</h2>
-                <h3>Tarjeta Gráfica</h3>
-                <p>$160.000</p>
-
-
-                <p class="flex-detail-text">
-                <button class="detail button-form" type="submit">Comprar</button>
-                <button class="detail button-form" type="submit">Agregar al carrito</button>
-                </p>
-
-                <h1>Descripción</h1>
-
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras metus leo,
-                    lacinia vitae blandit sed, faucibus ut erat. Ut nec magna sit amet lectus
-                    varius maximus. Nulla vehicula a leo eu vehicula. Ut ultrices fringilla tellus et luctus.
-                    Sed pellentesque erat sit amet nulla iaculis facilisis. Class aptent taciti sociosqu ad
-                    litora torquent per conubia nostra, per inceptos himenaeos. Duis et semper mi.
-                    </p>
-
-            </div>
-        </article>
-        
-    </div>
-
-    <footer id="footer" class="red-bg">
-        <div class="flex justify-space-around">
-            <div class="flex direction-column align-center">
-                <h2 class="footer-title">Contactos</h2>
-                <a href="" class="text-decoration-none black-txt">Email</a>
-                <a href="" class="text-decoration-none black-txt">
-                    Telefono
-                </a>
-            </div>
-            <div class="flex direction-column align-center">
-                <h2 class="footer-title">Redes sociales</h2>
-                <a href="" class="text-decoration-none black-txt">
-                    Instagram
-                </a>
-                <a href="" class="text-decoration-none black-txt">
-                    Facebook
-                </a>
-            </div>
-        </div>
-    </footer>
-    
-
-    </main>
-
-
-</body>
+            <footer id="footer" class="red-bg">
+                <div class="flex justify-space-around">
+                    <div class="flex direction-column align-center">
+                        <h2 class="footer-title">Contactos</h2>
+                        <a href="" class="text-decoration-none black-txt">
+                            Email
+                        </a>
+                        <a href="" class="text-decoration-none black-txt">
+                            Telefono
+                        </a>
+                    </div>
+                    <div class="flex direction-column align-center">
+                        <h2 class="footer-title">Redes sociales</h2>
+                        <a href="" class="text-decoration-none black-txt">
+                            Instagram
+                        </a>
+                        <a href="" class="text-decoration-none black-txt">
+                            Facebook
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </body>
 </html>
