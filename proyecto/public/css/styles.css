@@ -126,6 +126,9 @@
 .footer-title {
     margin-top: 0;
 }
+.icon-footer {
+    font-size: 20px;
+}
 
 /*form*/
 .form-title {
