@@ -118,31 +118,31 @@
             </nav>
         </header>
 
-        <div class="slide-show">
-            <ul class="slider">
-                <li id="slide1">
-                    <img src="/images/hardagamers.png" style="width: 100%" />
-                </li>
-                <li id="slide2">
-                    <img src="/images/banner.jfif" style="width: 100%" />
-                </li>
-                <li id="slide3">
-                    <img src="/images/hardagamers.png" style="width: 100%" />
-                </li>
-            </ul>
+        <div class="carousel">
+            <div class="container-all">
+                <input type="radio" id="1" name="image-slide" hidden />
+                <input type="radio" id="2" name="image-slide" hidden />
 
-            <ul class="menu">
-                <li>
-                    <a href="#slide1"></a>
-                </li>
-                <li>
-                    <a href="#slide2"></a>
-                </li>
-                <li>
-                    <a href="#slide3"></a>
-                </li>
-            </ul>
+                <div class="slide">
+                    <div class="item-slide">
+                        <img src="/images/hardagamers.png" />
+                    </div>
+                    <div class="item-slide">
+                        <img src="/images/Logo.png" />
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <label for="1" class="pagination-item">
+                        <img src="/images/hardagamers.png" />
+                    </label>
+                    <label for="2" class="pagination-item">
+                        <img src="/images/Logo.png" />
+                    </label>
+                </div>
+            </div>
         </div>
+
         <main id="main-content">
             <div class="rapid-search-icons">
                 <a
