@@ -169,6 +169,20 @@ input[id="2"]:checked ~ .slide {
 input[id="2"]:checked ~ .pagination .pagination-item[for="2"] {
     background: white;
 }
+input[id="3"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 2), 0, 0);
+}
+input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
+    background: white;
+}
+input[id="4"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 3), 0, 0);
+}
+input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
+    background: white;
+}
 @keyframes autoplay {
     33% {
         transform: translate3d(calc(-100% * 0), 0, 0);
