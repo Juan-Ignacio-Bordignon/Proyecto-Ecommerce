@@ -35,30 +35,33 @@
     <body>
         <header class="padding-8 red-bg">
             <div class="flex justify-space-between align-center">
-                <div class="main-menu hide-md">
-                    <a href="#" class="hamburger-menu">
-                        <i
-                            class="
-                                fas
-                                fa-ellipsis-v
-                                burger-menu
-                                font-size-20
-                                black.txt
-                            "
-                        ></i>
-                    </a>
-                    <div class="menu-content">
-                        <ul class="nav-menu">
-                            <li><a href="#mother">Mothers</a></li>
-                            <li><a href="#procesadores">Procesadores</a></li>
-                            <li><a href="#fuentes">Fuentes</a></li>
-                            <li>
-                                <a href="#placas de video">Placas de video</a>
-                            </li>
-                            <li><a href="#perifericos">Perifericos</a></li>
-                        </ul>
-                    </div>
+                <input
+                    type="checkbox"
+                    class="toggle-check"
+                    id="toggle"
+                    hidden
+                />
+                <label class="toggle" for="toggle">
+                    <i
+                        class="
+                            fas
+                            fa-ellipsis-v
+                            burger-menu
+                            font-size-20
+                            black.txt
+                        "
+                    ></i>
+                </label>
+                <div class="container-menu">
+                    <nav class="menu">
+                        <a href="#" class="item">Mothers</a>
+                        <a href="#" class="item">Procesadores</a>
+                        <a href="#" class="item">Fuentes</a>
+                        <a href="#" class="item">Placas de video</a>
+                        <a href="#" class="item">Perifericos</a>
+                    </nav>
                 </div>
+
                 <a href="/" class="main-logo">
                     <img id="logo" src="/images/logo.png" alt="Logo" />
                 </a>
