@@ -54,7 +54,6 @@
     transition-delay: 150ms;
     transform: translateX(0);
 }
-
 /*~~~~~~~~~~~~~~~~~~CARTS~~~~~~~~~~~~~~~~  */
 .main-logo {
     width: 30%;
@@ -112,7 +111,7 @@
     text-decoration: none;
     color: #000000;
 }
-/*Carrusel*/
+/*-------------------Carrusel--------------------*/
 .carousel {
     display: flex;
     align-items: center;
@@ -226,7 +225,7 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
     }
 }
 #main-content {
-    padding: 0 5%;
+    padding: 0 15%;
 }
 .product {
     margin-top: 50px;
