@@ -112,6 +112,63 @@
     color: #000000;
 }
 /*-------------------Carrusel--------------------*/
+.main-logo {
+    width: 30%;
+}
+.box-position-relative {
+    position: relative;
+}
+.box-position-absolute {
+    position: absolute;
+}
+.justify-content-space-around {
+    justify-content: space-around;
+}
+.text-aling-center {
+    text-align: center;
+}
+.button-cart {
+    background-color: #1259c3;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 8px 3px;
+}
+.cart-button-direction {
+    flex-direction: column;
+}
+.padding-bottom {
+    padding-bottom: 80px;
+}
+.padding-top {
+    padding-top: 10px;
+}
+.link-header {
+    padding: 4px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+.search-bar {
+    width: 40%;
+}
+.search-bar input {
+    width: 70%;
+}
+.fa-search {
+    background-color: #ffffff;
+    padding: 5px;
+}
+#main-nav ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style-type: none;
+    padding-left: 0;
+}
+#main-nav a {
+    text-decoration: none;
+    color: #000000;
+}
+/*Carrusel*/
 .carousel {
     display: flex;
     align-items: center;
