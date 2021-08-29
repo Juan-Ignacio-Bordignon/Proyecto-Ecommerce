@@ -2,26 +2,61 @@
     width: 100%;
     max-width: 160px;
 }
+/*----------------Hamburger menu--------------*/
+.container-menu {
+    position: fixed;
+    max-width: 0px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 80px;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 6px;
+    transition: 300ms;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.item {
+    display: block;
+    text-decoration: none;
+    color: red;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px;
+    cursor: pointer;
+    transform: translateX(-30px);
+    position: relative;
+    opacity: 0;
+    transition: all 300ms;
+}
+.item::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    width: 0px;
+    height: 100%;
+    background: red;
+}
+.item:hover::before {
+    width: 6px;
+    color: royalblue;
+}
+.toggle-check:checked ~ .container-menu {
+    max-width: 200px;
+}
+.toggle-check:checked ~ .container-menu .item {
+    opacity: 1;
+    transition-delay: 150ms;
+    transform: translateX(0);
+}
 /*~~~~~~~~~~~~~~~~~~CARTS~~~~~~~~~~~~~~~~  */
 .main-logo {
     width: 30%;
-}
-.hamburger-menu {
-    color: #000000;
-}
-.main-menu {
-    position: relative;
-}
-.menu-content {
-    display: none;
-    position: absolute;
-    z-index: 10;
-}
-.nav-menu li {
-    list-style-type: none;
-}
-.nav-menu a {
-    text-decoration: none;
 }
 .box-position-relative {
     position: relative;
@@ -76,65 +111,121 @@
     text-decoration: none;
     color: #000000;
 }
-/*.banner {
+/*-------------------Carrusel--------------------*/
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slide .item-slide img {
     width: 100%;
-    display: block;
-}*/
-
-/*Carrusel*/
-.slide-show {
-    width: 100%;
-    margin: auto;
 }
-.menu {
-    list-style-type: none;
-    text-align: center;
-    margin: 20px;
-}
-.menu li {
-    display: inline-block;
-    text-align: center;
-}
-.menu li a {
-    display: inline-block;
-    background-color: gray;
-    padding: 10px;
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-}
-.menu li a:hover {
-    background-color: #e60026;
-    transition: 0.5s;
-}
-ul.slider {
+.container-all {
     position: relative;
-    list-style: none;
-    height: 250px;
+    max-width: 1300px;
     width: 100%;
-    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
 }
-ul.slider li {
+.slide {
+    display: flex;
+    transform: translate3d(0, 0, 0);
+    transition: all 600ms;
+    animation-name: autoplay;
+    animation-duration: 6.5s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+.item-slide {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-grow: 0;
+    max-width: 100%;
+}
+.pagination {
     position: absolute;
-    opacity: 0;
-    height: inherit;
-    transition: 0.5s;
-    background-color: white;
+    bottom: 20px;
     left: 0;
-    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
-ul.slider li:first-child {
+.pagination-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 2px #ffffff;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0 10px;
+    text-align: center;
+    transition: all 300ms;
+}
+.pagination-item:hover {
+    transform: scale(2);
+}
+.pagination-item img {
+    display: inline-block;
+    max-width: none;
+    height: 100%;
+    transform: scale(1);
+    opacity: 0;
+    transition: all 300ms;
+}
+.pagination-item:hover img {
     opacity: 1;
+    transform: scale(1);
 }
-ul.slider li:target {
-    opacity: 1;
+input[id="1"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(0, 0, 0);
 }
-/* banner 
-<div class="banner">
-            <img src="/images/hardagamers.png" alt="banner" width="100%" />
-        </div>*/
+input[id="1"]:checked ~ .pagination .pagination-item[for="1"] {
+    background: white;
+}
+input[id="2"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 1), 0, 0);
+}
+input[id="2"]:checked ~ .pagination .pagination-item[for="2"] {
+    background: white;
+}
+input[id="3"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 2), 0, 0);
+}
+input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
+    background: white;
+}
+input[id="4"]:checked ~ .slide {
+    animation: none;
+    transform: translate3d(calc(-100% * 3), 0, 0);
+}
+input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
+    background: white;
+}
+@keyframes autoplay {
+    33% {
+        transform: translate3d(calc(-100% * 0), 0, 0);
+    }
+    66% {
+        transform: translate3d(calc(-100% * 1), 0, 0);
+    }
+    100% {
+        transform: translate3d(calc(-100% * 2), 0, 0);
+    }
+}
 #main-content {
-    padding: 0 5%;
+    padding: 0 15%;
 }
 .product {
     margin-top: 50px;
@@ -156,11 +247,11 @@ ul.slider li:target {
 .rapid-search-icons {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 40px;
 }
 .rapid-search-icons i {
-    font-size: 60px;
+    font-size: 40px;
     color: #000000;
     text-decoration: none;
 }
