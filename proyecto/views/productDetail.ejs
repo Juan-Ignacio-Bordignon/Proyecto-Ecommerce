@@ -1,125 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Detalles del producto</title>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="/css/utils.css" />
-        <link rel="stylesheet" href="/css/theme.css" />
-        <link rel="stylesheet" href="/css/styles.css" />
-        <link
-            rel="stylesheet"
-            href="/css/styles-sm.css"
-            media="(min-width:480px)"
-        />
-        <link
-            rel="stylesheet"
-            href="/css/styles-md.css"
-            media="(min-width:768px)"
-        />
-        <link
-            rel="stylesheet"
-            href="/css/styles-lg.css"
-            media="(min-width:1280px)"
-        />
+        <%- include("./partials/head") %>
+        <title>Detail</title>
     </head>
     <body>
-        <header class="padding-8 red-bg">
-            <div class="flex justify-space-between align-center">
-                <div class="main-menu hide-md">
-                    <a href="#" class="hamburger-menu">
-                        <i
-                            class="
-                                fas
-                                fa-ellipsis-v
-                                burger-menu
-                                font-size-20
-                                black.txt
-                            "
-                        ></i>
-                    </a>
-                    <div class="menu-content">
-                        <ul class="nav-menu">
-                            <li><a href="#mother">Mothers</a></li>
-                            <li><a href="#procesadores">Procesadores</a></li>
-                            <li><a href="#fuentes">Fuentes</a></li>
-                            <li>
-                                <a href="#placas de video">Placas de video</a>
-                            </li>
-                            <li><a href="#perifericos">Perifericos</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <a href="/" class="main-logo">
-                    <img id="logo" src="/images/logo.png" alt="Logo" />
-                </a>
-                <div class="search-bar">
-                    <form action="POST">
-                        <label class="" for="search">
-                            <i class="fas fa-search"></i>
-                        </label>
-                        <input
-                            id="search"
-                            type="text"
-                            name="search"
-                            placeholder="Motherboards, gráficas, etc."
-                        />
-                    </form>
-                </div>
-                <a
-                    class="cart text-decoration-none font-size-20 black-txt"
-                    href="/cart"
-                >
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-                <a
-                    class="
-                        link-header
-                        text-decoration-none
-                        font-size-20
-                        black-txt
-                    "
-                    href="/login"
-                >
-                    Log in
-                </a>
-                <a
-                    class="
-                        link-header
-                        text-decoration-none
-                        font-size-20
-                        black-txt
-                        hide
-                        show-md
-                    "
-                    href="/register"
-                >
-                    Registrarse
-                </a>
-            </div>
-            <nav id="main-nav" class="hide show-md">
-                <ul class="w-50 margin-auto flex justify-space-between">
-                    <li><a href="#">Mothers</a></li>
-                    <li><a href="#">Procesadores</a></li>
-                    <li><a href="#">Fuentes</a></li>
-                    <li><a href="#">Placa de video</a></li>
-                    <li><a href="#">Perifericos</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="banner">
-            <img src="/images/hardagamers.png" alt="banner" width="100%" />
-        </div>
-
+        <%- include("./partials/header") %> <%- include("./partials/slide-show")
+        %>
         <main>
             <div class="flex justify-space-around">
                 <article
@@ -167,33 +54,7 @@
                     </div>
                 </article>
             </div>
-
-           <footer id="footer" class="red-bg">
-            <div class="flex justify-space-around">
-                <div class="flex direction-column align-center">
-                    <h2 class="footer-title">Contactos</h2>
-                    <a href="" class="text-decoration-none black-txt">
-                        Email
-                        <i class="fas fa-at icon-footer"></i>
-                    </a>
-                    <a href="" class="text-decoration-none black-txt">
-                        Telefono
-                        <i class="fas fa-phone icon-footer"></i>
-                    </a>
-                </div>
-                <div class="flex direction-column align-center">
-                    <h2 class="footer-title">Redes sociales</h2>
-                    <a href="" class="text-decoration-none black-txt">
-                        Instagram
-                        <i class="fab fa-instagram icon-footer"></i>
-                    </a>
-
-                    <a href="" class="text-decoration-none black-txt">
-                        Facebook
-                        <i class="fab fa-facebook icon-footer"></i>
-                    </a>
-                </div>
-            </div>
-        </footer>
+        </main>
+        <%- include("./partials/footer") %>
     </body>
 </html>
