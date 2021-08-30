@@ -5,8 +5,8 @@
         <title>Home</title>
     </head>
     <body>
-        <%- include("./partials/header") %>
-        <%- include("./partials/slide-show") %> 
+        <%- include("./partials/header") %> <%- include("./partials/slide-show")
+        %>
         <main id="main-content">
             <div class="rapid-search-icons">
                 <a
@@ -67,64 +67,21 @@
                 </a>
             </div>
             <div class="flex justify-space-around">
+                <% for (producto of productos) {%>
                 <article
                     class="flex product align-center justify-space-around w-100"
                 >
-                    <img
-                        class="product-img"
-                        src="/images/3060-TI.jfif"
-                        alt="3060 Ti"
-                    />
+                    <img class="product-img" src=<%=producto.img%>
+                    alt=<%= producto.title %> />
                     <div class="flex direction-column">
-                        <h2>Tarjeta Gráfica</h2>
-                        <p>$160.000</p>
-                        <p>Gigabyte rtx 3060 Ti</p>
+                        <h3><%= producto.title %></h3>
+                        <p><%= producto.price %></p>
+                        <p><%= producto.tipe %></p>
                     </div>
                 </article>
-                <article
-                    class="flex product align-center justify-space-around w-100"
-                >
-                    <img
-                        class="product-img"
-                        src="/images/Rysen5-3600.jfif"
-                        alt="Ryzen 5 3600"
-                    />
-                    <div class="flex direction-column">
-                        <h2>Procesador</h2>
-                        <p>$30.000</p>
-                        <p>Ryzen 5 3600</p>
-                    </div>
-                </article>
-                <article
-                    class="flex product align-center justify-space-around w-100"
-                >
-                    <img
-                        class="product-img"
-                        src="/images/Rysen5-3600.jfif"
-                        alt="Ryzen 5 3600"
-                    />
-                    <div class="flex direction-column">
-                        <h2>Procesador</h2>
-                        <p>$30.000</p>
-                        <p>Ryzen 5 3600</p>
-                    </div>
-                </article>
-                <article
-                    class="flex product align-center justify-space-around w-100"
-                >
-                    <img
-                        class="product-img"
-                        src="/images/3060-TI.jfif"
-                        alt="3060 Ti"
-                    />
-                    <div class="flex direction-column">
-                        <h2>Tarjeta Gráfica</h2>
-                        <p>$160.000</p>
-                        <p>Gigabyte rtx 3060 Ti</p>
-                    </div>
-                </article>
+                <% } %>
             </div>
         </main>
-        <%- include("./partials/footer") %> 
+        <%- include("./partials/footer") %>
     </body>
 </html>

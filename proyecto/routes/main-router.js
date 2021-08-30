@@ -4,7 +4,7 @@ const controller = require("../controller/main-controller");
 
 router.get("/", controller.index);
 
-router.get("/detail", controller.detail);
+router.get("/detalle/:id", controller.detail);
 
 router.get("/cart", controller.cart);
 

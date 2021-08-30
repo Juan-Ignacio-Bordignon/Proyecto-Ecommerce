@@ -20,14 +20,14 @@
                 >
                     <img
                         class="product-img-detail"
-                        src="/images/3060-TI.jfif"
+                        src=<%= producto.img %> 
                         alt="3060 Ti"
                     />
 
                     <div class="flex direction-column">
-                        <h2>Gigabyte rtx 3060 Ti</h2>
-                        <h3>Tarjeta Gráfica</h3>
-                        <p>$160.000</p>
+                        <h2><%= producto.title %></h2>
+                        <h3><%= producto.tipe %></h3>
+                        <p><%= producto.price %></p>
 
                         <p class="flex-detail-text">
                             <button class="detail button-form" type="submit">
@@ -40,17 +40,7 @@
 
                         <h1>Descripción</h1>
 
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Cras metus leo, lacinia vitae blandit sed,
-                            faucibus ut erat. Ut nec magna sit amet lectus
-                            varius maximus. Nulla vehicula a leo eu vehicula. Ut
-                            ultrices fringilla tellus et luctus. Sed
-                            pellentesque erat sit amet nulla iaculis facilisis.
-                            Class aptent taciti sociosqu ad litora torquent per
-                            conubia nostra, per inceptos himenaeos. Duis et
-                            semper mi.
-                        </p>
+                        <p><%= producto.desc %></p>
                     </div>
                 </article>
             </div>
