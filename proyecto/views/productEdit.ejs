@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("./partials/head") %>
+        <title>Carrito</title>
+    </head>
+    <body>
+        <%- include("./partials/header") %> <%-
+        include("./partials/slide-show")%>
+        <main id="main-content">
+            <h2>Edición de producto</h2>
+            <form action="" method="GET" class="flex justify-space-around">
+                <article
+                    class="
+                        flex-detail
+                        product-detail
+                        align-center
+                        justify-space-around
+                        w-100
+                    "
+                >
+                    <img
+                        class="product-img-detail"
+                        src=<%= producto.img %> 
+                        alt="3060 Ti"
+                    />
+
+                    <div class="flex direction-column">
+                        <label class="form-label">Nombre producto:</label>
+                        <input class="form-input" type="text" name="title" placeholder="<%= producto.title %>">
+                        <label class="form-label">Tipo de producto:</label>
+                        <input class="form-input" type="text" name="tipe" placeholder="<%= producto.tipe %>">
+                        <label class="form-label">Descripción del producto</label>
+                        <input class="form-input" type="text" name="price" placeholder="<%= producto.price %>">
+                        <label class="form-label">Imagen producto:</label>
+                        <input class="form-input" type="file" name="img" accept=".jpg">
+
+                        <h1>Descripción</h1>
+
+                        <textarea name="desc" placeholder="<%= producto.desc %>"></textarea>
+                    </div>
+                </article>
+            </form>
+        </main>
+        <%- include("./partials/footer") %>
+    </body>
+</html>
