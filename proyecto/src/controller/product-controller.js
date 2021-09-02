@@ -33,26 +33,21 @@ const listaProductos = [
     },
 ];
 
-const path = require("path");
-
 const controller = {
-    index: (req, res) => {
-        res.render("index", { productos: listaProductos });
+    creat: (req, res) => {
+        res.render("products/productCreat");
+    },
+    edit: (req, res) => {
+        const producto = listaProductos.find((producto) => {
+            return producto.id == req.params.id;
+        });
+        res.render("products/productEdit", { producto: producto });
     },
     detail: (req, res) => {
         const producto = listaProductos.find((producto) => {
             return producto.id == req.params.id;
         });
-        res.render("productDetail", { producto: producto });
-    },
-    cart: (req, res) => {
-        res.render("productCart");
-    },
-    register: (req, res) => {
-        res.render("register");
-    },
-    login: (req, res) => {
-        res.render("login");
+        res.render("products/productDetail", { producto: producto });
     },
 };
 

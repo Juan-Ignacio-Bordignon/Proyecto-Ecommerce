@@ -33,17 +33,10 @@ const listaProductos = [
     },
 ];
 
-const path = require("path");
 const controller = {
-    creat: (req, res) => {
-        res.render("productCreat");
-    },
-    edit: (req, res) => {
-        const producto = listaProductos.find((producto) => {
-            return producto.id == req.params.id;
-        });
-        res.render("productEdit", { producto: producto });
-    },
+    index: (req, res) => {
+        res.render("index", { productos: listaProductos });
+    }
 };
 
 module.exports = controller;

@@ -4,6 +4,8 @@ const controller = require("../controller/product-controller");
 
 router.get("/creat", controller.creat);
 
+router.get("/detail/:id", controller.detail);
+
 router.get("/edit/:id", controller.edit);
 
 module.exports = router;
