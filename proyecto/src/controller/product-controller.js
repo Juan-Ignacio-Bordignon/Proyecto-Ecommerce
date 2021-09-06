@@ -5,7 +5,7 @@ const listaProductos = [
         tipe: "Procesador",
         desc: "Clave en el rendimiento de tu computadora de escritorio, ya no tenés que pensar en cómo distribuir el tiempo y acciones porque ahora las tareas en simultáneo son posibles. AMD cuenta con un catálogo de productos que se adaptan a los requerimientos de todo tipo de usuarios: juegos en línea, edición a gran escala, contenido en múltiples plataformas y más.",
         price: "$37.999",
-        img: "/images/Rysen5-3600.jfif",
+        img: "/images/Ryzen5-3600.jpg",
     },
     {
         id: 2,
