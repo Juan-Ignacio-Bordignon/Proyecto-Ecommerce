@@ -9,7 +9,7 @@
         include("../partials/slide-show")%>
         <main id="main-content">
             <h2>Creación de producto</h2>
-            <form action="" method="GET" class="flex justify-space-around">
+            <form action="/product/creat" method="POST" class="flex justify-space-around" enctype="multipart/form-data">
                 <article
                     class="
                         flex-detail
@@ -24,9 +24,14 @@
                         <label class="form-label">Nombre producto:</label>
                         <input class="form-input" type="text" name="title" >
                         <label class="form-label">Tipo de producto:</label>
-                        <input class="form-input" type="text" name="tipe" >
-                        <label class="form-label">Descripción del producto</label>
-                        <input class="form-input" type="text" name="price" >
+                        <select class="form-input" name="tipe">
+                            <option value="Procesador">Procesador</option>
+                            <option value="Tarjeta Gráfica">Tarjeta Gráfica</option>
+                            <option value="Monitor">Monitor</option>
+                            <option value="Teclado Mecanico">Teclado Mecanico</option>
+                        </select>
+                        <label class="form-label">Precio del producto</label>
+                        <input class="form-input" type="number" name="price" >
                         <label class="form-label">Imagen producto:</label>
                         <input class="form-input" type="file" name="img" accept=".jpg">
 
@@ -35,6 +40,7 @@
                         <textarea name="desc"></textarea>
                     </div>
                 </article>
+                <button type="submit">Enviar</button>
             </form>
         </main>
         <%- include("../partials/footer") %>
