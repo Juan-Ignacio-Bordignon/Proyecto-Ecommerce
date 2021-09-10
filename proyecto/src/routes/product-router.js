@@ -15,11 +15,14 @@ const storage = multer.diskStorage({
 })
 const uploadFile = multer({storage});
 //
+//Create and save product
+router.get("/creat", controller.creat);
+router.post("/creat", uploadFile.single("img"), controller.save);
 
-router.get("/creat", uploadFile.single("img"), controller.creat);
+router.get("/detail/:id", controller.detail);
 
-router.get("/detail/:id", uploadFile.single("img"), controller.detail);
-
+//Edit and update
 router.get("/edit/:id", controller.edit);
+router.patch("/edit/:id", uploadFile.single("img"), controller.update)
 
 module.exports = router;

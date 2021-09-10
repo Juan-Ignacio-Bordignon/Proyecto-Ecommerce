@@ -9,7 +9,7 @@
         include("../partials/slide-show")%>
         <main id="main-content">
             <h2>Edición de producto</h2>
-            <form action="" method="GET" class="flex justify-space-around">
+            <form action="/product/edit/<%= producto.id%>?_method=PATCH" method="POST" class="flex justify-space-around">
                 <article
                     class="
                         flex-detail
@@ -27,7 +27,7 @@
 
                     <div class="flex direction-column">
                         <label class="form-label">Nombre producto:</label>
-                        <input class="form-input" type="text" name="title" placeholder="<%= producto.title %>">
+                        <input class="form-input" type="text" name="title" value="<%= producto.title %>">
                         <label class="form-label">Tipo de producto:</label>
                         <select class="form-input" name="tipe">
                             <option value="Procesador">Procesador</option>
@@ -36,13 +36,14 @@
                             <option value="Teclado Mecanico">Teclado Mecanico</option>
                         </select>
                         <label class="form-label">Precio del producto</label>
-                        <input class="form-input" type="text" name="price" placeholder="<%= producto.price %>">
+                        <input class="form-input" type="text" name="price" value="<%= producto.price %>">
                         <label class="form-label">Imagen producto:</label>
                         <input class="form-input" type="file" name="img" accept=".jpg">
 
                         <h1>Descripción</h1>
 
-                        <textarea name="desc" placeholder="<%= producto.desc %>"></textarea>
+                        <textarea name="desc" ><%= producto.desc %></textarea>
+                        <button type="submit">Enviar</button>
                     </div>
                 </article>
             </form>
