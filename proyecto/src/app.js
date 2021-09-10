@@ -15,4 +15,5 @@ app.listen(3000, () => {
 
 const mainRouter = require("./routes/main-router");
 
+app.locals.toThousand = (n) => n.toString().replace(".",",").replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 app.use("/", mainRouter);

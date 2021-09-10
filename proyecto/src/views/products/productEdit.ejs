@@ -9,7 +9,7 @@
         include("../partials/slide-show")%>
         <main id="main-content">
             <h2>Edición de producto</h2>
-            <form action="/product/edit/<%= producto.id%>?_method=PATCH" method="POST" class="flex justify-space-around">
+            <form action="/product/edit/<%= producto.id%>?_method=PATCH" method="POST" class="flex justify-space-around" enctype="multipart/form-data">
                 <article
                     class="
                         flex-detail

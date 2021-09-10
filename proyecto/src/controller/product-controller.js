@@ -31,16 +31,15 @@ const controller = {
         let product = listaProductos.find((prod) => {
           return prod.id == req.params.id;
         });
-        /*product.title = req.body.title;
-        product.price = req.body.price;
+        product.title = req.body.title;
+        product.price = Number(req.body.price);
         product.tipe = req.body.tipe;
         product.descr = req.body.desc;
         product.image = req.file ? req.file.filename : product.image;
     
         const jsonString = JSON.stringify(listaProductos, null, 4);
         fs.writeFileSync(pathToProducts, jsonString);
-        res.redirect("/");*/
-        res.send(req.body)
+        res.redirect("/");
       },
     detail: (req, res) => {
         const producto = listaProductos.find((producto) => {

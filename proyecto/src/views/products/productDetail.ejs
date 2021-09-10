@@ -27,7 +27,7 @@
                     <div class="flex direction-column">
                         <h2><%= producto.title %></h2>
                         <h3><%= producto.tipe %></h3>
-                        <p><%= producto.price %></p>
+                        <p>$<%= toThousand(producto.price) %></p>
 
                         <p class="flex-detail-text">
                             <button class="detail button-form" type="submit">
