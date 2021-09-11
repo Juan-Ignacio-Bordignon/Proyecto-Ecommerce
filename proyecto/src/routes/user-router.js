@@ -2,11 +2,11 @@ const express = require("express");
 const router = express.Router();
 const userController = require("../controller/user-controller");
 
-router.get("/cart", controller.cart);
+router.get("/cart", userController.cart);
 
-router.get("/register", controller.register);
+router.get("/register", userController.register);
 //router.post('/', userController.saveUser); 
 
-router.get("/login", controller.login);
+router.get("/login", userController.login);
 
 module.exports = router;
