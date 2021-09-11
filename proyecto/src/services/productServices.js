@@ -9,7 +9,6 @@ const produsctService = {
         const product = listaProductos.filter((prod)=>{
             return !prod.deleted;
         });
-        console.log(product);
         return product;
     },
     findOneById(id) {
@@ -42,6 +41,11 @@ const produsctService = {
     save() {
         const jsonString = JSON.stringify(listaProductos, null, 4);
         fs.writeFileSync(pathToProducts, jsonString);
+    },
+    destroyOne(id){
+        const product = this.findOneById(id);
+        product.deleted = true;
+        this.save();
     },
 };
 

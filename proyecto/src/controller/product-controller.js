@@ -1,3 +1,4 @@
+const produsctService = require("../services/productServices");
 const productService = require("../services/productServices")
 
 const controller = {
@@ -20,6 +21,10 @@ const controller = {
         const producto = productService.findOneById(req.params.id);
         res.render("products/productDetail", { producto: producto });
     },
+    destroy: (req,res)=>{
+        produsctService.destroyOne(req.params.id);
+        res.redirect("/");
+    }
 };
 
 module.exports = controller;

@@ -23,6 +23,9 @@ router.get("/detail/:id", controller.detail);
 
 //Edit and update
 router.get("/edit/:id", controller.edit);
-router.patch("/edit/:id", uploadFile.single("img"), controller.update)
+router.patch("/edit/:id", uploadFile.single("img"), controller.update);
+
+//delete
+router.delete("",controller.destroy);
 
 module.exports = router;
