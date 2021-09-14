@@ -26,6 +26,6 @@ router.get("/edit/:id", controller.edit);
 router.patch("/edit/:id", uploadFile.single("img"), controller.update);
 
 //delete
-router.delete("",controller.destroy);
+router.delete("/:id",controller.destroy);
 
 module.exports = router;

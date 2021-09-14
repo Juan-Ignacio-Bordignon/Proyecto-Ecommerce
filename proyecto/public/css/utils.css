@@ -30,7 +30,7 @@ body {
 }
 .flex-detail{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     
 }
 .flex-detail-text{

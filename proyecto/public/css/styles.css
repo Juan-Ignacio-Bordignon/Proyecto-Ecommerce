@@ -297,8 +297,9 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
 }
 
 .product-img-detail {
-    width: 40%;
+    width: 100%;
     padding: 30px;
+    max-width: 280px;
 }
 .rapid-search-icons {
     display: flex;
@@ -373,4 +374,5 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
 .detail.button-form {
     width: 45%;
     border-radius: 5px;
+    max-width: 160px;
 }

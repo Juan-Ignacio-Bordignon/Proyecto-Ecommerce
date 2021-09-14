@@ -24,23 +24,32 @@
                         alt="3060 Ti"
                     />
 
-                    <div class="flex direction-column">
+                    <div class="flex direction-column max-width-340px">
                         <h2><%= producto.title %></h2>
                         <h3><%= producto.tipe %></h3>
                         <p>$<%= toThousand(producto.price) %></p>
 
-                        <p class="flex-detail-text">
+                        <div class="flex justify-space-between w-100">
                             <button class="detail button-form" type="submit">
                                 Comprar
                             </button>
-                            <button class="detail button-form" type="submit">
+                            <button class="detail button-form" type="submit" >
                                 Agregar al carrito
                             </button>
-                        </p>
+                        </div>
 
                         <h1>Descripción</h1>
 
                         <p><%= producto.desc %></p>
+
+                        <div class="flex justify-space-between">
+                            <form action="/product/edit/<%= producto.id %> " method="GET" class="w-50">
+                                <button type="submit" class="detail button-form w-100">Editar</button>
+                            </form>
+                            <form action="/product/<%= producto.id %>?_method=DELETE " method="POST" class="w-50">
+                                <button type="submit" class="detail button-form w-100">Eliminar</button>
+                            </form>
+                        </div>
                     </div>
                 </article>
             </div>
