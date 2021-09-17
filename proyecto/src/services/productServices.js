@@ -24,7 +24,7 @@ const produsctService = {
             id: biggestProductId + 1,
             ...payload,
             price: Number(payload.price),
-            img: image ? image.filename : "",
+            img: image ? "/images/"+image.filename : "",
         };
         listaProductos.push(product);
         this.save();

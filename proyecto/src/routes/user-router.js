@@ -5,7 +5,7 @@ const userController = require("../controller/user-controller");
 router.get("/cart", userController.cart);
 
 router.get("/register", userController.register);
-//router.post('/', userController.saveUser); 
+router.post('/register', userController.saveUser); 
 
 router.get("/login", userController.login);
 
