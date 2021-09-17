@@ -3,7 +3,7 @@ const path = require("path");
 
 const pathToUsers = path.join(__dirname,"../data/usersDataBase.json");
 const listaUsers = JSON.parse(fs.readFileSync(pathToUsers), "utf-8");
-
+const {validationResult} = require("express-validator");
 
 const controller = {
     cart: (req, res) => {
@@ -12,8 +12,13 @@ const controller = {
     register: (req, res) => {
         res.render("users/register");
     },
-    saveUser:()=>{
-        //guarda el usuario en el JSON/base de datos
+    saveUser:(req, res)=>{
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+            res.redirect("/");
+        }else{
+            res.render("users/register", {errors: errors.errors, old: req.body})
+        }
     },
     login: (req, res) => {
         res.render("users/login");
