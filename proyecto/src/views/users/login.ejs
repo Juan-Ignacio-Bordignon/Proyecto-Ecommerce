@@ -9,6 +9,16 @@
         <%- include("../partials/slide-show") %>
         <main id="main-content">
             <div class="center">
+                <div class="feedback">
+                    <% if(typeof errors != "undefined") {%>
+                        <p>Errores</p>
+                        <ul>
+                            <% for(let i=0; i < errors.length; i++) {%>
+                                <li><%= errors[i].msg %> </li>
+                            <% } %>
+                        </ul>
+                    <% } %>  
+                </div>
                 <form action="/" method="GET" class="main-form login">
                     <h2 class="form-title">Log in:</h2>
                     <div class="form-box">

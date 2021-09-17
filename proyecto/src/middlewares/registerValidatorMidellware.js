@@ -9,7 +9,7 @@ let validateRegister = [
         .isEmail().withMessage("debes completar con un email válido"),
     check("password")
         .notEmpty().withMessage("debes completar la contraseña").bail()
-        .isLength({min: 8}).isLength("la contraseña debe tener como minimo 8 caracteres"),
+        .isLength({min: 8}).withMessage("la contraseña debe tener como minimo 8 caracteres"),
     check("confirmPassword")
         .notEmpty().withMessage("debes completar la confitmación de contraseña").bail()    
 ];
