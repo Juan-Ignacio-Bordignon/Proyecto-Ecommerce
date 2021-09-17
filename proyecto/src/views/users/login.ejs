@@ -19,17 +19,18 @@
                         </ul>
                     <% } %>  
                 </div>
-                <form action="/" method="GET" class="main-form login">
+                <form action="/user/login" method="POST" class="main-form login">
                     <h2 class="form-title">Log in:</h2>
                     <div class="form-box">
                         <label class="form-label" for="user-name">
-                            Nombre de usuario:
+                            Email:
                         </label>
                         <input
                             class="form-input"
-                            id="user-name"
-                            type="text"
-                            placeholder="Nombre de usuario"
+                            id="email"
+                            type="email"
+                            name="email"
+                            placeholder="Email"
                         />
                     </div>
                     <div class="form-box">
@@ -40,6 +41,7 @@
                             class="form-input"
                             id="password"
                             type="password"
+                            name="password"
                             placeholder="Contraseña"
                         />
                     </div>

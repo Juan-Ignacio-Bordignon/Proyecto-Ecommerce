@@ -23,6 +23,18 @@ const usersService = {
         const jsonString = JSON.stringify(listaUsers, null, 4);
         fs.writeFileSync(pathToUsers, jsonString);
     },
+    finduser(user) {
+        let userToLogin = undefined;
+        for(let i=0; i < listaUsers.length; i++){
+            if(listaUsers[i].email == user.email){
+                if(bcrypt.compareSync(user.password,listaUsers[i].password)){
+                    userToLogin = listaUsers[i];
+                    break;
+                }
+            }
+        }
+        return userToLogin;
+    },
 }
 
 module.exports = usersService;

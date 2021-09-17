@@ -1,42 +1,9 @@
 [
     {
         "id": 1,
-        "fistName": "Gustavo",
-        "lastName": "Capuozzo",
-        "email": "",
-        "password": "",
-        "category": "admin"
-    },
-    {
-        "id": 2,
-        "fistName": "Manuel",
-        "lastName": "Brandon",
-        "email": "",
-        "password": "",
-        "category": "admin"
-    },
-    {
-        "id": 3,
-        "fistName": "Juan Ignacio",
-        "lastName": "Bordignon",
-        "email": "",
-        "password": "321456",
-        "category": "admin"
-    },
-    {
-        "id": 4,
-        "fistName": "Tomás Agustin",
-        "lastName": "Fabrizio",
-        "email": "",
-        "password": "",
-        "category": "admin"
-    },
-    {
-        "id": 5,
-        "fistName": "Juan",
-        "lastName": "Perez",
-        "email": "juan-perez@gmail.com",
-        "password": "1234",
+        "userName": "Toto Fabrizio",
+        "email": "tomas.fabrizio02@gmail.com",
+        "password": "$2a$10$5vpakB/6N35LotGoWTyALeU7yJODP5sD3S/3iRz4yEPWAXcyOfu.a",
         "category": "client"
     }
 ]

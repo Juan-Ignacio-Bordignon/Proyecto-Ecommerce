@@ -20,6 +20,20 @@ const controller = {
     login: (req, res) => {
         res.render("users/login");
     },
+    proccesLogin: (req,res)=>{
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+            let userToLogin = userService.finduser(req.body);
+            console.log(userToLogin);
+            if(userToLogin == undefined){
+                res.render("users/login", {errors:[{msg:"credenciales invalidas"}]})  
+            }
+            req.session.userToLogin = userToLogin;
+            res.redirect("/");
+        }else{
+            res.render("users/login", {errors: errors.errors})
+        }
+    },
 };
 
 module.exports = controller;
