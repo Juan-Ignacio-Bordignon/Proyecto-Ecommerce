@@ -1,4 +1,3 @@
-const produsctService = require("../services/productServices");
 const productService = require("../services/productServices")
 
 const controller = {
@@ -22,7 +21,7 @@ const controller = {
         res.render("products/productDetail", { producto: producto });
     },
     destroy: (req,res)=>{
-        produsctService.destroyOne(req.params.id);
+        productService.destroyOne(req.params.id);
         res.redirect("/");
     }
 };

@@ -26,15 +26,16 @@
                         <% } %>  
                     </div>
                     <div class="form-box">
-                        <label class="form-label" for="user-name">
+                        <label class="form-label" for="userName">
                             Nombre de usuario:
                         </label>
                         <input
                             class="form-input"
-                            id="user-name"
-                            name="user-name"
+                            id="userName"
+                            name="userName"
                             type="text"
                             placeholder="Nombre de usuario"
+                            value="<%= locals.old && old.userName ? old.userName : "" %> "
                         />
                     </div>
                     <div class="form-box">
@@ -45,6 +46,7 @@
                             name="email"
                             type="email"
                             placeholder="Email"
+                            value="<%= locals.old && old.email ? old.email : "" %> "
                         />
                     </div>
                     <div class="form-box">
@@ -60,13 +62,13 @@
                         />
                     </div>
                     <div class="form-box">
-                        <label class="form-label" for="confirm-password">
+                        <label class="form-label" for="confirmPassword">
                             Confirmar contraseña:
                         </label>
                         <input
                             class="form-input"
-                            id="confirm-password"
-                            name="confirm-password"
+                            id="confirmPassword"
+                            name="confirmPassword"
                             type="password"
                             placeholder="Confrimar contraseña"
                         />
