@@ -2,6 +2,7 @@ const user = require("../services/usersService");
 
 function userLoggedMiddleware(req, res, next) {
     let isLogged = false;
+    let isAdmin = false;
 
     let emailInCookie = req.cookies.userEmail;
     let userInCookie = user.findUserByEmail(emailInCookie);
@@ -15,8 +16,12 @@ function userLoggedMiddleware(req, res, next) {
         res.locals.userLogged = req.session.userLogged;
     }
 
-    res.locals.isLogged = isLogged;
+    if(req.session.userLogged && req.session.userLogged.category == "admin"){
+        isAdmin = true;
+    }
 
+    res.locals.isLogged = isLogged;
+    res.locals.isAdmin = isAdmin;
     next();
 }
 module.exports = userLoggedMiddleware;
