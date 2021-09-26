@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcryptjs");
 
-const pathToUsers = path.join(__dirname,"../data/usersDataBase.json");
+const pathToUsers = path.join(__dirname, "../data/usersDataBase.json");
 const listaUsers = JSON.parse(fs.readFileSync(pathToUsers), "utf-8");
 
 const usersService = {
@@ -10,11 +10,11 @@ const usersService = {
         const lastUser = listaUsers[listaUsers.length - 1];
         const biggestuserId = listaUsers.length > 0 ? lastUser.id : 1;
         const user = {
-            id: biggestuserId +1,
+            id: biggestuserId + 1,
             userName: payload.userName,
             email: payload.email,
-            password: bcrypt.hashSync(payload.password,10),
-            category: "client"
+            password: bcrypt.hashSync(payload.password, 10),
+            category: "client",
         };
         listaUsers.push(user);
         this.save();
@@ -25,9 +25,9 @@ const usersService = {
     },
     finduser(user) {
         let userToLogin = undefined;
-        for(let i=0; i < listaUsers.length; i++){
-            if(listaUsers[i].email == user.email){
-                if(bcrypt.compareSync(user.password,listaUsers[i].password)){
+        for (let i = 0; i < listaUsers.length; i++) {
+            if (listaUsers[i].email == user.email) {
+                if (bcrypt.compareSync(user.password, listaUsers[i].password)) {
                     userToLogin = listaUsers[i];
                     break;
                 }
@@ -35,6 +35,16 @@ const usersService = {
         }
         return userToLogin;
     },
-}
+    findUserByEmail(email) {
+        let userToLogin = undefined;
+        for (let i = 0; i < listaUsers.length; i++) {
+            if (listaUsers[i].email == email) {
+                userToLogin = listaUsers[i];
+                break;
+            }
+        }
+        return userToLogin;
+    },
+};
 
 module.exports = usersService;

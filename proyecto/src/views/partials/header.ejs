@@ -50,6 +50,16 @@
         >
             <i class="fas fa-shopping-cart"></i>
         </a>
+        <% if (locals.isLogged) {%>
+            <a class="
+            link-header
+            text-decoration-none
+            font-size-20
+            black-txt
+            hide
+            show-md
+        "> <%= locals.userLogged.userName %> </a>
+        <% } else{%>  
         <a
             class="link-header text-decoration-none font-size-20 black-txt"
             href="/user/login"
@@ -69,6 +79,7 @@
         >
             Registrarse
         </a>
+        <% } %> 
     </div>
     <nav id="main-nav" class="hide show-md">
         <ul class="w-50 margin-auto flex justify-space-between">

@@ -9,9 +9,15 @@ let validateRegister = [
         .isEmail().withMessage("debes completar con un email válido"),
     check("password")
         .notEmpty().withMessage("debes completar la contraseña").bail()
-        .isLength({min: 8}).withMessage("la contraseña debe tener como minimo 8 caracteres"),
+        .isStrongPassword().withMessage("la contraseña debe tener como minimo 8 caracteres, una mayuscula, un numero y un caracter especial")
+        .custom((value, { req }) => {
+            if (value !== req.body.confirmPassword) {
+                throw new Error("Las contraseñas no coinciden");
+            }
+            return true;
+        }),
     check("confirmPassword")
-        .notEmpty().withMessage("debes completar la confitmación de contraseña").bail()    
+        .notEmpty().withMessage("debes completar la confitmación de contraseña").bail(),
 ];
 
 module.exports = validateRegister;

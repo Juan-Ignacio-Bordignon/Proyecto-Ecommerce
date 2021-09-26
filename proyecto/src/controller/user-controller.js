@@ -1,4 +1,4 @@
-const userService = require("../services/usersService.js")
+const userService = require("../services/usersService.js");
 const {validationResult} = require("express-validator");
 
 const controller = {
@@ -24,16 +24,24 @@ const controller = {
         let errors = validationResult(req);
         if(errors.isEmpty()){
             let userToLogin = userService.finduser(req.body);
-            console.log(userToLogin);
             if(userToLogin == undefined){
                 res.render("users/login", {errors:[{msg:"credenciales invalidas"}]})  
             }
-            req.session.userToLogin = userToLogin;
+            delete userToLogin.password;
+            req.session.userLogged = userToLogin;
+            if(req.body.remember){
+                res.cookie("userEmail", req.body.email, {maxAge: (1000*60)*2})
+            }
             res.redirect("/");
         }else{
             res.render("users/login", {errors: errors.errors})
         }
     },
+    logout: (req,res)=>{
+        req.session.destroy();
+        res.clearCookie("userEmail");
+        return res.redirect("/");
+    }
 };
 
 module.exports = controller;
