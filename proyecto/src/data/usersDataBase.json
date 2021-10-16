@@ -5,5 +5,12 @@
         "email": "tomas.fabrizio02@gmail.com",
         "password": "$2a$10$Dg4juHqOZihiPlDd6aUlQuH.LLuQCFYYvMZJQ0sqJmCEzWDcc9cVu",
         "category": "admin"
+    },
+    {
+        "id": 2,
+        "userName": "Juan Bordignon",
+        "email": "juanibordil@gmail.com",
+        "password": "$2a$10$otJjZB4dcgnt6.G0EAEXeuZJqoMuTlMXUFeRuJnV.wvM3vAyL22bm",
+        "category": "admin"
     }
 ]
