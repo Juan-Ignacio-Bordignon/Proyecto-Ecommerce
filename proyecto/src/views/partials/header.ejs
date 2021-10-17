@@ -1,21 +1,10 @@
 <header class="padding-8 red-bg">
     <div class="flex justify-space-between align-center">
         <div class="flex justify-space-between align-center hide-md">
-            <input
-                type="checkbox"
-                class="toggle-check"
-                id="toggle"
-                hidden
-            />
+            <input type="checkbox" class="toggle-check" id="toggle" hidden />
             <label class="toggle" for="toggle">
                 <i
-                    class="
-                        fas
-                        fa-ellipsis-v
-                        burger-menu
-                        font-size-20
-                        black.txt
-                    "
+                    class="fas fa-ellipsis-v burger-menu font-size-20 black.txt"
                 ></i>
             </label>
             <div class="container-menu">
@@ -51,15 +40,26 @@
             <i class="fas fa-shopping-cart"></i>
         </a>
         <% if (locals.isLogged) {%>
-            <p class="
+        <a
+            class="
                 link-header
                 text-decoration-none
                 font-size-20
                 black-txt
-                "> 
-                <%= locals.userLogged.userName %>
-            </p>
-        <% } else{%>  
+            "
+            href="#userMenu"
+            data-bs-toggle="collapse"
+            role="button"
+            aria-controls="userMenu"
+        >
+            <%= locals.userLogged.userName %>
+        </a>
+        <div class="collapse collapse-horizontal" id="userMenu">
+            <div class="card card-body" style="width: 300px;">
+                hola
+            </div>
+        </div>
+        <% } else{%>
         <a
             class="link-header text-decoration-none font-size-20 black-txt"
             href="/user/login"
@@ -79,7 +79,7 @@
         >
             Registrarse
         </a>
-        <% } %> 
+        <% } %>
     </div>
     <nav id="main-nav" class="hide show-md">
         <ul class="w-50 margin-auto flex justify-space-between">
@@ -90,4 +90,5 @@
             <li><a href="#">Perifericos</a></li>
         </ul>
     </nav>
+    <script type="text/javascript" src="/js/main.js"></script>
 </header>
