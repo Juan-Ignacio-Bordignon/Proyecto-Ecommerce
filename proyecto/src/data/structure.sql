@@ -6,7 +6,7 @@ CREATE TABLE users(
   user_name VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL UNIQUE,
   password VARCHAR(60) NOT NULL,
-  category VARCHAR(50) NOT NULL DEFAULT "client",
+  admin INT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY(id)
 );
 CREATE TABLE types(
@@ -53,14 +53,14 @@ VALUES(
     "Toto Fabrizio",
     "tomas.fabrizio02@gmail.com",
     "$2a$10$Dg4juHqOZihiPlDd6aUlQuH.LLuQCFYYvMZJQ0sqJmCEzWDcc9cVu",
-    "admin"
+    1
   ),
   (
     DEFAULT,
     "Juan Bordignon",
     "juanibordil@gmail.com",
     "$2a$10$otJjZB4dcgnt6.G0EAEXeuZJqoMuTlMXUFeRuJnV.wvM3vAyL22bm",
-    "admin"
+    1
   );
 INSERT INTO
   types
