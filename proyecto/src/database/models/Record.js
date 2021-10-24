@@ -14,5 +14,10 @@ module.exports = (sequelize,dataTypes)=>{
     {
         tableName: "records",
         timestamps: true
-    })
+    });
+    Record.associate = (models) => {
+        Record.belongsTo(models.User, { as: "userId", foreignKey: "user_id" });
+        Record.belongsTo(models.Product, { as: "productId", foreignKey: "product_id" });
+    };
+    return Record;
 }
