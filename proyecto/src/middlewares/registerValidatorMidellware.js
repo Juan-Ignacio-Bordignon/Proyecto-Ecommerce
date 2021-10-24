@@ -1,7 +1,7 @@
 const { check } = require("express-validator");
 
 let validateRegister = [
-    check("userName")
+    check("user_name")
         .notEmpty().withMessage("debes completar el nombre de usuario").bail()
         .isLength({ min: 5, max: 30 }).withMessage("El nombre de usuario debe tener entre 5 y 30 caracteres"),
     check("email")

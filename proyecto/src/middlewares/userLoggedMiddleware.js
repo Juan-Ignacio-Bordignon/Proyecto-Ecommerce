@@ -1,13 +1,17 @@
 const user = require("../services/usersService");
 
-function userLoggedMiddleware(req, res, next) {
+async function userLoggedMiddleware(req, res, next) {
     let isLogged = false;
     let isAdmin = false;
-
+    const userInCookie = undefined;
+    
     let emailInCookie = req.cookies.userEmail;
-    let userInCookie = user.findUserByEmail(emailInCookie);
+    if(emailInCookie != undefined){
+        userInCookie = await user.findUserByEmail(emailInCookie);
+    }
 
-    if(userInCookie){
+
+    if(userInCookie != undefined){
         req.session.userLogged = userInCookie;
     }
 
@@ -16,7 +20,7 @@ function userLoggedMiddleware(req, res, next) {
         res.locals.userLogged = req.session.userLogged;
     }
 
-    if(req.session.userLogged && req.session.userLogged.category == "admin"){
+    if(req.session.userLogged && req.session.userLogged.admin == "1"){
         isAdmin = true;
     }
 

@@ -8,10 +8,10 @@ const controller = {
     register: (req, res) => {
         res.render("users/register");
     },
-    saveUser:(req, res)=>{
+    saveUser:async (req, res)=>{
         let errors = validationResult(req);
         if(errors.isEmpty()){
-            userService.createUser(req.body);
+            await userService.createUser(req.body);
             res.redirect("/");
         }else{
             res.render("users/register", {errors: errors.errors, old: req.body})
@@ -20,11 +20,11 @@ const controller = {
     login: (req, res) => {
         res.render("users/login");
     },
-    proccesLogin: (req,res)=>{
+    proccesLogin: async (req,res)=>{
         let errors = validationResult(req);
         if(errors.isEmpty()){
-            let userToLogin = userService.finduser(req.body);
-            if(userToLogin == undefined){
+            let userToLogin = await userService.finduser(req.body);
+            if(userToLogin==undefined){
                 res.render("users/login", {errors:[{msg:"credenciales invalidas"}]})  
             }
             delete userToLogin.password;
