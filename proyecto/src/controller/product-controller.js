@@ -1,27 +1,30 @@
 const productService = require("../services/productServices")
+const db = require("../database/models")
 
 const controller = {
-    creat: (req, res) => {
-        res.render("products/productCreat");
+    creat: async (req, res) => {
+        const types = await db.Type.findAll();
+        res.render("products/productCreat",{types});
     },
-    save: (req,res)=>{
-        productService.createOne(req.body, req.file);
+    save: async (req,res)=>{
+        const newProduct = await productService.createOne(req.body, req.file);
         res.redirect("/");
     },
-    edit: (req, res) => {
-        const producto = productService.findOneById(req.params.id)
-        res.render("products/productEdit", { producto: producto });
+    edit: async (req, res) => {
+        const types = await db.Type.findAll();
+        const producto = await productService.findOneById(req.params.id)
+        res.render("products/productEdit", { producto: producto, types});
     },
-    update: (req, res) => {
-        productService.editOne(req.params.id, req.body, req.file);
+    update: async (req, res) => {
+        const updatedproduct = await productService.editOne(req.params.id, req.body, req.file);
         res.redirect("/");
       },
-    detail: (req, res) => {
-        const producto = productService.findOneById(req.params.id);
+    detail: async (req, res) => {
+        const producto = await productService.findOneById(req.params.id);
         res.render("products/productDetail", { producto: producto });
     },
-    destroy: (req,res)=>{
-        productService.destroyOne(req.params.id);
+    destroy: async (req,res)=>{
+        const detroyedProduct = await productService.destroyOne(req.params.id);
         res.redirect("/");
     }
 };

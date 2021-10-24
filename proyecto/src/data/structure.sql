@@ -17,13 +17,13 @@ CREATE TABLE types(
 CREATE TABLE products(
   id INT(10) AUTO_INCREMENT NOT NULL,
   title VARCHAR(50) NOT NULL,
-  type INT(10) NOT NULL,
+  type_id INT(10) NOT NULL,
   description TEXT NOT NULL,
   price DECIMAL NOT NULL,
-  image VARCHAR(100) NOT NULL,
+  img VARCHAR(100) NOT NULL,
   deleted TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY(id),
-  FOREIGN KEY (type) REFERENCES types (id)
+  FOREIGN KEY (type_id) REFERENCES types (id)
 );
 CREATE TABLE carts(
   id INT(10) AUTO_INCREMENT NOT NULL,
@@ -64,17 +64,17 @@ VALUES(
   );
 INSERT INTO
   types
-VALUES(DEFAULT, "mother board"),
-  (DEFAULT, "processor"),
-  (DEFAULT, "ram"),
+VALUES(DEFAULT, "Placa madre"),
+  (DEFAULT, "Precesador"),
+  (DEFAULT, "Ram"),
   (DEFAULT, "SSD"),
   (DEFAULT, "HDD"),
-  (DEFAULT, "grafic card"),
-  (DEFAULT, "ram"),
-  (DEFAULT, "keyboard"),
-  (DEFAULT, "mouse"),
-  (DEFAULT, "monitor"),
-  (DEFAULT, "headset");
+  (DEFAULT, "Tarjeta gráfica"),
+  (DEFAULT, "Parlantes"),
+  (DEFAULT, "Teclado"),
+  (DEFAULT, "Mouse"),
+  (DEFAULT, "Monitor"),
+  (DEFAULT, "Auriculares");
 INSERT INTO
   products
 VALUES(

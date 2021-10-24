@@ -4,48 +4,46 @@ const path = require("path");
 const pathToProducts = path.join(__dirname, "../data/productDataBase.json");
 const listaProductos = JSON.parse(fs.readFileSync(pathToProducts), "utf-8");
 
+const db = require("../database/models");
+
 const produsctService = {
     findAll(){
-        const product = listaProductos.filter((prod)=>{
-            return !prod.deleted;
-        });
+        const product = db.Product.findAll({
+            where:{deleted: 0},
+            include: [{association: "type"}]
+        }   
+        );
         return product;
     },
     findOneById(id) {
-        const producto = listaProductos.find((producto) => {
-            return producto.id == id;
-        });
+        const producto = db.Product.findByPk(id,{include: [{association: "type"}]});
         return producto;
     },
     createOne(payload, image) {
-        const lastProduct = listaProductos[listaProductos.length - 1];
-        const biggestProductId = listaProductos.length > 0 ? lastProduct.id : 1;
-        const product = {
-            id: biggestProductId + 1,
+        const product = db.Product.create({
             ...payload,
-            price: Number(payload.price),
             img: image ? "/images/"+image.filename : "",
-        };
-        listaProductos.push(product);
-        this.save();
+        });
     },
     editOne(id, payload, image) {
-        const product = this.findOneById(id);
-        product.title = payload.title;
-        product.price = Number(payload.price);
-        product.tipe = payload.tipe;
-        product.desc = payload.desc;
-        product.image = image ? image.filename : product.image;
-        this.save();
-    },
-    save() {
-        const jsonString = JSON.stringify(listaProductos, null, 4);
-        fs.writeFileSync(pathToProducts, jsonString);
+        db.Product.update({
+            title: payload.title,
+            price: Number(payload.price),
+            type_id: payload.type_id,
+            desc: payload.desc,
+            image: image ? image.filename : "",
+        },
+        {
+            where:{id:id}
+        });
     },
     destroyOne(id){
-        const product = this.findOneById(id);
-        product.deleted = true;
-        this.save();
+        db.Product.update({
+            deleted:1,
+        },
+        {
+            where:{id:id}
+        })
     },
 };
 

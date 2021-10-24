@@ -24,11 +24,10 @@
                         <label class="form-label">Nombre producto:</label>
                         <input class="form-input" type="text" name="title" >
                         <label class="form-label">Tipo de producto:</label>
-                        <select class="form-input" name="tipe">
-                            <option value="Procesador">Procesador</option>
-                            <option value="Tarjeta Gráfica">Tarjeta Gráfica</option>
-                            <option value="Monitor">Monitor</option>
-                            <option value="Teclado Mecanico">Teclado Mecanico</option>
+                        <select class="form-input" name="type_id">
+                            <% for(type of types) { %>
+                                <option value=<%= type.id %>><%= type.name %></option>
+                            <% } %>
                         </select>
                         <label class="form-label">Precio del producto</label>
                         <input class="form-input" type="number" name="price" >
@@ -37,7 +36,7 @@
 
                         <h1>Descripción</h1>
 
-                        <textarea name="desc"></textarea>
+                        <textarea name="description"></textarea>
                     </div>
                 </article>
                 <button type="submit">Enviar</button>

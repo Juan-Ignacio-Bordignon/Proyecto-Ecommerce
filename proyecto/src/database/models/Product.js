@@ -6,10 +6,10 @@ module.exports = (sequelize,dataTypes)=>{
             autoIncrement: true,
         },
         title: {type: dataTypes.STRING},
-        type: {type: dataTypes.INTEGER},
+        type_id: {type: dataTypes.INTEGER},
         description: {type: dataTypes.STRING},
         price: {type: dataTypes.INTEGER},
-        image: {type: dataTypes.STRING},
+        img: {type: dataTypes.STRING},
         deleted: {type: dataTypes.INTEGER}
     },
     {
@@ -18,7 +18,7 @@ module.exports = (sequelize,dataTypes)=>{
     });
 
     Product.associate = (models) => {
-        Product.belongsTo(models.Type, { as: "type", foreignKey: "type" });
+        Product.belongsTo(models.Type, { as: "type", foreignKey: "type_id" });
         Product.hasMany(models.Cart, { as: "CartId", foreignKey: "product_id" });
         Product.hasMany(models.Record, {as:"recordId", foreignKey: "product_id"});
 

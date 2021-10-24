@@ -1,9 +1,9 @@
 const productService = require("../services/productServices")
 
 const controller = {
-    index: (req, res) => {
-        const products = productService.findAll();
-        res.render("index", { productos: products });
+    index: async (req, res) => {
+        const products = await productService.findAll();
+        res.render("index", { productos: products});
     }
 };
 
