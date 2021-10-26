@@ -3,19 +3,21 @@ const user = require("../services/usersService");
 async function userLoggedMiddleware(req, res, next) {
     let isLogged = false;
     let isAdmin = false;
-    let userInCookie = undefined;
+    let userInCookie;
 
     let emailInCookie = req.cookies.userEmail;
-    if (emailInCookie != undefined) {
+
+    if (emailInCookie) {
         userInCookie = await user.findUserByEmail(emailInCookie);
     }
 
-    if (userInCookie != undefined) {
-        req.session.userLogged = userInCookie;
+    if (userInCookie) {
+        req.session.userLogged = userInCookie[0];
     }
 
     if (req.session.userLogged) {
         isLogged = true;
+        console.log(req.session.userLogged)
         res.locals.userLogged = req.session.userLogged;
     }
 
