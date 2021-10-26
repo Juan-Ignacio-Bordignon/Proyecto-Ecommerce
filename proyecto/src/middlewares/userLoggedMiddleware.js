@@ -12,7 +12,7 @@ async function userLoggedMiddleware(req, res, next) {
     }
 
     if (userInCookie) {
-        req.session.userLogged = userInCookie[0];
+        req.session.userLogged = userInCookie;
     }
 
     if (req.session.userLogged) {

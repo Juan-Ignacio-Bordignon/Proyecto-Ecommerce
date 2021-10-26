@@ -19,7 +19,7 @@ const usersService = {
         return userToLogin;
     },
     findUserByEmail(email) {
-        const userToLogin = db.User.findAll({ where: { email: email } });
+        const userToLogin = db.User.findOne({ where: { email: email } });
         return userToLogin;
     },
 };
