@@ -26,6 +26,10 @@ const controller = {
     destroy: async (req,res)=>{
         const detroyedProduct = await productService.destroyOne(req.params.id);
         res.redirect("/");
+    },
+    seacrh: async (req,res)=>{
+        const producto = await productService.findLike(req.query.search);
+        res.render("index", {productos: producto});
     }
 };
 

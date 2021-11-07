@@ -8,7 +8,6 @@ module.exports = (sequelize, dataTypes) => {
         user_id: { type: dataTypes.INTEGER },
         product_id: { type: dataTypes.INTEGER },
         cuantity: { type: dataTypes.INTEGER },
-        total_price: { type: dataTypes.INTEGER },
     },
     {
         tableName: "carts",

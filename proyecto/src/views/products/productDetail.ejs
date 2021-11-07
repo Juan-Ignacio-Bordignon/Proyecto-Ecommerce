@@ -5,6 +5,7 @@
         <title>Detail</title>
     </head>
     <body>
+        <script type="text/javascript" src="/js/cart.js"></script>
         <%- include("../partials/header") %> <%- include("../partials/slide-show")
         %>
         <main id="main-content">
@@ -25,7 +26,7 @@
                     />
 
                     <div class="flex direction-column max-width-340px">
-                        <h2><%= producto.title %></h2>
+                        <h1><%= producto.title %></h2>
                         <h3><%= producto.type.name %></h3>
                         <p>$<%= toThousand(producto.price) %></p>
 
@@ -33,12 +34,12 @@
                             <button class="detail button-form" type="submit">
                                 Comprar
                             </button>
-                            <button class="detail button-form" type="submit" >
+                            <button class="detail button-form" id="addCart" type="submit">
                                 Agregar al carrito
                             </button>
                         </div>
 
-                        <h1>Descripción</h1>
+                        <h2>Descripción</h1>
 
                         <p><%= producto.description %></p>
                         <% if (locals.isAdmin) { %>

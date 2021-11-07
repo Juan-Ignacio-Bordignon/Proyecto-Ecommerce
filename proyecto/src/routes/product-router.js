@@ -17,4 +17,7 @@ router.patch("/edit/:id", uploadFile.single("img"), controller.update);
 //delete
 router.delete("/:id",controller.destroy);
 
+//search
+router.get("/results",controller.seacrh)
+
 module.exports = router;

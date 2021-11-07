@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const Op = db.Sequelize.Op;
 
 const produsctService = {
     findAll(){
@@ -39,6 +40,17 @@ const produsctService = {
             where:{id:id}
         })
     },
+    findLike(search){
+        const product = db.Product.findAll({
+            where:{
+                deleted: 0,
+                title: {[Op.like]:"%"+ search +"%"}
+            },
+            include: [{association: "type"}]
+        }   
+        );
+        return product;
+    }
 };
 
 module.exports = produsctService;
