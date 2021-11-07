@@ -8,6 +8,7 @@ const guestMiddleware = require("../middlewares/guestMiddleware");
 
 //cart
 router.get("/cart", userController.cart);
+router.get("/cart/:id", userController.addCart);
 
 //register
 router.get("/register", guestMiddleware, userController.register);

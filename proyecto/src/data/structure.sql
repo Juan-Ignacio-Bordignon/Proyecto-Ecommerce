@@ -29,7 +29,6 @@ CREATE TABLE carts(
   id INT(10) AUTO_INCREMENT NOT NULL,
   user_id INT(10) NOT NULL,
   product_id INT(10) NOT NULL,
-  cuantity SMALLINT NOT NULL,
   PRIMARY KEY(id),
   FOREIGN KEY (product_id) REFERENCES products (id),
   FOREIGN KEY (user_id) REFERENCES users (id)

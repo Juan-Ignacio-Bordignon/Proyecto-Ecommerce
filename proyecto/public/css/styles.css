@@ -372,7 +372,7 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
 }
 
 .detail.button-form {
-    width: 45%;
+    width: 90%;
     border-radius: 5px;
     max-width: 160px;
 }

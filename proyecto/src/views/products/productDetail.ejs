@@ -31,12 +31,12 @@
                         <p>$<%= toThousand(producto.price) %></p>
 
                         <div class="flex justify-space-between w-100">
-                            <button class="detail button-form" type="submit">
-                                Comprar
-                            </button>
-                            <button class="detail button-form" id="addCart" type="submit">
-                                Agregar al carrito
-                            </button>
+                            <form action="" method="GET" class="w-50">
+                                <button type="submit" class="detail button-form w-50">Comprar</button>
+                            </form>
+                            <form action="/user/cart/<%= producto.id %> " method="get" class="w-50">
+                                <button type="submit" class="detail button-form w-50">Agregar carrito</button>
+                            </form>
                         </div>
 
                         <h2>Descripción</h1>
