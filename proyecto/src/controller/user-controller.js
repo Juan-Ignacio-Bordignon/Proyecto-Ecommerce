@@ -15,24 +15,7 @@ const controller = {
             });
             res.redirect("/");
         }else{
-            let cart = [];
-            let storage = req.cookies.cart;
-            if(!storage){
-                cart.push(req.params.id);
-                res.cookie("cart", JSON.stringify(cart), {
-                    maxAge: 1000 * 60 * 60*60*5000,
-                });
-            }else{
-                storage = JSON.parse(storage);
-                for (let i = 0; i < storage.length; i++) {
-                    cart.push(storage[i]);
-                }
-                cart.push(req.params.id);
-                res.cookie("cart", JSON.stringify(cart), {
-                    maxAge: 1000 * 60 * 60*60*5000,
-                });
-            }
-            res.redirect("/")
+            res.redirect("/user/login");
         }
     },
     register: (req, res) => {

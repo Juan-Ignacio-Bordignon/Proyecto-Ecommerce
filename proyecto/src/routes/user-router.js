@@ -5,10 +5,11 @@ const userController = require("../controller/user-controller");
 const validationRegister = require("../middlewares/registerValidatorMidellware");
 const validationLogin = require("../middlewares/loginValidationMiddleware.js");
 const guestMiddleware = require("../middlewares/guestMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
 
 //cart
 router.get("/cart", userController.cart);
-router.get("/cart/:id", userController.addCart);
+router.get("/cart/:id", authMiddleware,userController.addCart);
 
 //register
 router.get("/register", guestMiddleware, userController.register);
