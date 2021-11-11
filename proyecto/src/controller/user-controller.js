@@ -3,18 +3,22 @@ const { validationResult } = require("express-validator");
 const db = require("../database/models");
 
 const controller = {
-    cart: (req, res) => {
-        res.render("users/cart");
+    cart: async (req, res) => {
+        let prod = await db.Cart.findAll({
+            where: { user_id: req.session.userLogged.id },
+            include: [{ association: "productId" }],
+        });
+        res.render("users/cart", {productos: prod});
     },
     addCart: async (req, res) => {
         if (res.locals.isLogged == true) {
             console.log("por crear");
-                await db.Cart.create({
+            await db.Cart.create({
                 user_id: Number(req.session.userLogged.id),
                 product_id: Number(req.params.id),
             });
             res.redirect("/");
-        }else{
+        } else {
             res.redirect("/user/login");
         }
     },

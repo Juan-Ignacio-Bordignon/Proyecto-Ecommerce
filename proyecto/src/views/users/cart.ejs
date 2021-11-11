@@ -5,54 +5,47 @@
         <title>Carrito</title>
     </head>
     <body>
-        <%- include("../partials/header") %> 
-        <%- include("../partials/slide-show")%>
+        <%- include("../partials/header") %> <%-
+        include("../partials/slide-show")%>
         <main id="main-content">
             <div class="box-position-relative padding-bottom">
                 <!-- El padding bottom es para que el
                 footer no pise a los botones y al total, 
                 que estan en una pocicion absoluta-->
-                <div class="flex justify-space-around">
-                    <article
+                <div class="flex justify-space-around" id="divCartMain">
+                    <% if(productos == "") {%>
+                        <script>
+                            let div = document.querySelector("#divCartMain");
+                            console.log(div)
+                            div.classList.add("block"); 
+                            div.classList.add("text-align-center");
+                        </script>
+                        <h2 class="block text-align-center">No hay productos en el carrito</h2>
+                        <a href="/" class="block text-align-center">Volver a la página de inicio</a>
+                    <% }else{ %> 
+                    <% for (producto of productos) {%>
+                    <a
+                        href="/product/detail/<%=producto.id%>"
                         class="
                             flex
                             product
                             align-center
                             justify-space-around
                             w-100
+                            text-decoration-none
+                            black-txt
                         "
                     >
-                        <img
-                            class="product-img"
-                            src="/images/MSI-Ventus-GeForce-RTX-3060-Ti.jpg"
-                            alt="3060 Ti"
-                        />
+                        <img class="product-img" src=<%= producto.img%> />
+                        alt=<%= producto.title %> />
                         <div class="flex direction-column">
-                            <h2>Tarjeta Gráfica</h2>
-                            <p>$160.000</p>
-                            <h3>Gigabyte rtx 3060 Ti</h3>
+                            <h3><%= producto.title %></h3>
+                            <p>$<%= toThousand(producto.price) %></p>
+                            <p><%= producto.type.name %></p>
                         </div>
-                    </article>
-                    <article
-                        class="
-                            flex
-                            product
-                            align-center
-                            justify-space-around
-                            w-100
-                        "
-                    >
-                        <img
-                            class="product-img"
-                            src="/images/Ryzen5-3600.jpg"
-                            alt="Ryzen 5 3600"
-                        />
-                        <div class="flex direction-column">
-                            <h2>Procesador</h2>
-                            <p>$30.000</p>
-                            <h3>Ryzen 5 3600</h3>
-                        </div>
-                    </article>
+                    </a>
+                    <% } %> 
+                    <% } %> 
                 </div>
                 <div
                     class="
