@@ -1,14 +1,18 @@
 const userService = require("../services/usersService.js");
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
+const sequelize = db.Sequelize
 
 const controller = {
     cart: async (req, res) => {
         let prod = await db.Cart.findAll({
             where: { user_id: req.session.userLogged.id },
-            include: [{ association: "productId" }],
+            include: [
+                { association: "product", include: "type" },
+            ],
         });
-        res.render("users/cart", {productos: prod});
+        console.log(prod);
+        res.render("users/cart", { productos: prod });
     },
     addCart: async (req, res) => {
         if (res.locals.isLogged == true) {

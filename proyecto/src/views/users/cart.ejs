@@ -25,7 +25,7 @@
                     <% }else{ %> 
                     <% for (producto of productos) {%>
                     <a
-                        href="/product/detail/<%=producto.id%>"
+                        href="/product/detail/<%=producto.product_id%>"
                         class="
                             flex
                             product
@@ -36,12 +36,12 @@
                             black-txt
                         "
                     >
-                        <img class="product-img" src=<%= producto.img%> />
-                        alt=<%= producto.title %> />
+                        <img class="product-img" src=<%= producto.product.img%> alt=<%= producto.title %> />
                         <div class="flex direction-column">
-                            <h3><%= producto.title %></h3>
-                            <p>$<%= toThousand(producto.price) %></p>
-                            <p><%= producto.type.name %></p>
+                            <h3><%= producto.product.title %></h3>
+                            <p>$<%= toThousand(producto.product.price) %></p>
+                            <p><%= producto.product.type.name %></p>
+                            <p><%= producto.count %></p>
                         </div>
                     </a>
                     <% } %> 
