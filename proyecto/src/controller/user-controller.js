@@ -1,7 +1,7 @@
 const userService = require("../services/usersService.js");
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
-const sequelize = db.Sequelize
+const sequelize = db.sequelize;
 
 const controller = {
     cart: async (req, res) => {
@@ -10,9 +10,19 @@ const controller = {
             include: [
                 { association: "product", include: "type" },
             ],
+            //group: "product_id",
+            /*attributes: {
+                include: [
+                  [sequelize.fn('COUNT', sequelize.col('product_id')), "count"]
+                ]
+            }*/
         });
-        console.log(prod);
-        res.render("users/cart", { productos: prod });
+        console.log(prod[0].count);
+        totalPrice = 0;
+        prod.map((producto) => {
+            totalPrice = totalPrice + Number(producto.product.price);
+        });
+        res.render("users/cart", { productos: prod, totalPrice: totalPrice});
     },
     addCart: async (req, res) => {
         if (res.locals.isLogged == true) {

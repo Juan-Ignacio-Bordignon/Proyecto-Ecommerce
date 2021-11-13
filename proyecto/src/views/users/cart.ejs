@@ -29,6 +29,7 @@
                         class="
                             flex
                             product
+                            cartItem
                             align-center
                             justify-space-around
                             w-100
@@ -43,8 +44,11 @@
                             <p><%= producto.product.type.name %></p>
                             <p><%= producto.count %></p>
                         </div>
+                        <div class="flex direction-column">
+                            <input type="number" value="<%= producto.count %>" >
+                        </div>
                     </a>
-                    <% } %> 
+                    <% } %>
                     <% } %> 
                 </div>
                 <div
@@ -58,7 +62,7 @@
                     "
                 >
                     <div class="flex-item">
-                        <h2>Total: $190.000</h2>
+                        <h2>Total: $<%= toThousand(totalPrice) %></h2>
                     </div>
                     <div class="flex cart-button-direction">
                         <div class="flex-item">

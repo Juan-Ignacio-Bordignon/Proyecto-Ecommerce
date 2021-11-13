@@ -14,3 +14,9 @@
 .cart-button-direction {
     flex-direction: row;
 }
+.cartItem{
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: none;
+}
