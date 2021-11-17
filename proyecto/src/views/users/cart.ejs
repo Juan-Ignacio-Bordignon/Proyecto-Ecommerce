@@ -24,8 +24,7 @@
                         <a href="/" class="block text-align-center">Volver a la página de inicio</a>
                     <% }else{ %> 
                     <% for (producto of productos) {%>
-                    <a
-                        href="/product/detail/<%=producto.product_id%>"
+                    <div
                         class="
                             flex
                             product
@@ -42,12 +41,12 @@
                             <h3><%= producto.product.title %></h3>
                             <p>$<%= toThousand(producto.product.price) %></p>
                             <p><%= producto.product.type.name %></p>
-                            <p><%= producto.count %></p>
+                            <h3><%= producto.count %></h3>
                         </div>
-                        <div class="flex direction-column">
+                        <div class="flex">
                             <input type="number" value="<%= producto.count %>" >
                         </div>
-                    </a>
+                    </div>
                     <% } %>
                     <% } %> 
                 </div>

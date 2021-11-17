@@ -7,31 +7,54 @@ const controller = {
     cart: async (req, res) => {
         let prod = await db.Cart.findAll({
             where: { user_id: req.session.userLogged.id },
-            include: [
-                { association: "product", include: "type" },
-            ],
-            //group: "product_id",
-            /*attributes: {
-                include: [
-                  [sequelize.fn('COUNT', sequelize.col('product_id')), "count"]
-                ]
-            }*/
+            include: [{ association: "product", include: "type" }],
+            group: "product_id",
         });
-        console.log(prod[0].count);
-        totalPrice = 0;
+        let totalPrice = 0;
         prod.map((producto) => {
-            totalPrice = totalPrice + Number(producto.product.price);
+            totalPrice = totalPrice + Number(producto.sub_total);
         });
-        res.render("users/cart", { productos: prod, totalPrice: totalPrice});
+        res.render("users/cart", { productos: prod, totalPrice: totalPrice });
     },
     addCart: async (req, res) => {
         if (res.locals.isLogged == true) {
             console.log("por crear");
-            await db.Cart.create({
-                user_id: Number(req.session.userLogged.id),
-                product_id: Number(req.params.id),
+            let exsist = await db.Cart.findOne({
+                where: {
+                    user_id: Number(req.session.userLogged.id),
+                    product_id: Number(req.params.id),
+                },
+                include: [{ association: "product", include: "type" }],
             });
-            res.redirect("/");
+            let producto = await db.Product.findOne({
+                where: {
+                    id: Number(req.params.id),
+                },
+            });
+            console.log(exsist);
+            if (exsist) {
+                await db.Cart.update(
+                    {
+                        quantity: exsist.quantity + 1,
+                        sub_total: Number(exsist.sub_total) + Number(producto.price),
+                    },
+                    {
+                        where: {
+                            user_id: Number(req.session.userLogged.id),
+                            product_id: Number(req.params.id),
+                        },
+                    }
+                );
+                res.redirect("/");
+            } else {
+                await db.Cart.create({
+                    user_id: Number(req.session.userLogged.id),
+                    product_id: Number(req.params.id),
+                    quantity: 1,
+                    sub_total: producto.price,
+                });
+                res.redirect("/");
+            }
         } else {
             res.redirect("/user/login");
         }

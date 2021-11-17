@@ -25,24 +25,26 @@ CREATE TABLE products(
   PRIMARY KEY(id),
   FOREIGN KEY (type_id) REFERENCES types (id)
 );
+CREATE TABLE orders(
+id INT(10) AUTO_INCREMENT NOT NULL,
+user_id INT(10) NOT NULL,
+total DECIMAL NOT NULL,
+createdAt DATE,
+updatedAt DATE,
+PRIMARY KEY(id),
+FOREIGN KEY (user_id) REFERENCES users (id)
+);
 CREATE TABLE carts(
   id INT(10) AUTO_INCREMENT NOT NULL,
   user_id INT(10) NOT NULL,
   product_id INT(10) NOT NULL,
+  quantity INT(6) NOT NULL,
+  sub_total DECIMAL NOT NULL,
+  order_id INT(10) NULL,
   PRIMARY KEY(id),
   FOREIGN KEY (product_id) REFERENCES products (id),
+  FOREIGN KEY (order_id) REFERENCES orders (id),
   FOREIGN KEY (user_id) REFERENCES users (id)
-);
-CREATE TABLE records(
-id INT(10) AUTO_INCREMENT NOT NULL,
-user_id INT(10) NOT NULL,
-product_id INT(10) NOT NULL,
-cuantity SMALLINT NOT NULL,
-createdAt DATE,
-updatedAt DATE,
-PRIMARY KEY(id),
-FOREIGN KEY (product_id) REFERENCES products (id),
-FOREIGN KEY (user_id) REFERENCES users (id)
 );
 INSERT INTO
   users

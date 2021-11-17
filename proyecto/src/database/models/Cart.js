@@ -9,6 +9,9 @@ module.exports = (sequelize, dataTypes) => {
             },
             user_id: { type: dataTypes.INTEGER },
             product_id: { type: dataTypes.INTEGER },
+            quantity: { type: dataTypes.INTEGER},
+            sub_total: {type: dataTypes.DECIMAL},
+            order_id: {type: dataTypes.INTEGER}
         },
         {
             tableName: "carts",
