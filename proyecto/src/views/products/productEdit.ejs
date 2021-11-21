@@ -9,6 +9,16 @@
         include("../partials/slide-show")%>
         <main id="main-content">
             <h2>Edición de producto</h2>
+            <div class="feedback">
+                <% if(typeof errors != "undefined") {%>
+                    <p>Errores</p>
+                    <ul>
+                        <% for(let i=0; i < errors.length; i++) {%>
+                            <li><%= errors[i].msg %> </li>
+                        <% } %>
+                    </ul>
+                <% } %>  
+            </div>
             <form action="/product/edit/<%= producto.id%>?_method=PATCH" method="POST" class="flex justify-space-around" enctype="multipart/form-data">
                 <article
                     class="

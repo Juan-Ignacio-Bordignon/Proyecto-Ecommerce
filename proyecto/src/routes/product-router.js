@@ -3,16 +3,18 @@ const router = express.Router();
 const controller = require("../controller/product-controller");
 const uploadFile = require("../middlewares/saveFileMiddleware");
 const adminMiddleware = require("../middlewares/adminMiddleware");
+const productCreateMiddleware = require("../middlewares/productCreateMiddleware");
+const productUpdateMiddleware = require("../middlewares/productUpdateMiddleware");
 
 //Create and save product
 router.get("/create", adminMiddleware, controller.creat);
-router.post("/create", uploadFile.single("img"), controller.save);
+router.post("/create", uploadFile.single("img"),productCreateMiddleware, controller.save);
 
 router.get("/detail/:id", controller.detail);
 
 //Edit and update
 router.get("/edit/:id", adminMiddleware, controller.edit);
-router.patch("/edit/:id", uploadFile.single("img"), controller.update);
+router.patch("/edit/:id", uploadFile.single("img"),productUpdateMiddleware, controller.update);
 
 //delete
 router.delete("/:id",controller.destroy);
