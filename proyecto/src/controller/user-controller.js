@@ -36,7 +36,8 @@ const controller = {
                 await db.Cart.update(
                     {
                         quantity: exsist.quantity + 1,
-                        sub_total: Number(exsist.sub_total) + Number(producto.price),
+                        sub_total:
+                            Number(exsist.sub_total) + Number(producto.price),
                     },
                     {
                         where: {
@@ -64,10 +65,16 @@ const controller = {
     },
     saveUser: async (req, res) => {
         let errors = validationResult(req);
-        if (errors.isEmpty()) {
+        if (errors.isEmpty() && !userService.findUserByEmail(req.body.email)) {
             await userService.createUser(req.body);
             res.redirect("/");
         } else {
+            if (userService.findUserByEmail(req.body.email)) {
+                let error = {
+                    msg: "El mail ya es usado por otro usuario",
+                };
+                errors.errors.push(error);
+            }
             res.render("users/register", {
                 errors: errors.errors,
                 old: req.body,

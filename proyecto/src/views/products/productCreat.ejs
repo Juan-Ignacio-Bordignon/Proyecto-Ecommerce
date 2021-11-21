@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include("../partials/head") %>
+
+<head>
+    <%- include("../partials/head") %>
         <title>Creando</title>
+<<<<<<< HEAD
     </head>
     <body>
         <%- include("../partials/header") %> <%-
@@ -22,14 +24,42 @@
             <form action="/product/create" method="POST" class="flex justify-space-around" enctype="multipart/form-data">
                 <article
                     class="
+=======
+        <script defer src="/js/createProduct.js"></script>
+</head>
+
+<body>
+    <%- include("../partials/header") %>
+        <%- include("../partials/slide-show")%>
+            <main id="main-content">
+                <h2>Creación de producto</h2>
+                <form action="/product/create" method="POST" class="flex justify-space-around"
+                    enctype="multipart/form-data">
+                    <article class="
+>>>>>>> 12d1414bc593f1b08290afd3dfc9adb5a29b961e
                         flex-detail
                         product-detail
                         align-center
                         justify-space-around
                         w-100
-                    "
-                >
+                    ">
 
+                        <div class="flex direction-column">
+                            <label class="form-label">Nombre producto:</label>
+                            <input class="form-input" type="text" name="title">
+                            <label class="form-label">Tipo de producto:</label>
+                            <select class="form-input" name="type_id">
+                                <% for(type of types) { %>
+                                    <option value=<%=type.id %>><%= type.name %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                            <label class="form-label">Precio del producto</label>
+                            <input class="form-input" type="number" name="price">
+                            <label class="form-label">Imagen producto:</label>
+                            <input class="form-input" type="file" name="img" accept=".jpg">
+
+<<<<<<< HEAD
                     <div class="flex direction-column">
                         <label class="form-label">Nombre producto:</label>
                         <input class="form-input" type="text" name="title" value="<%= locals.old && old.title ? old.title : "" %>">
@@ -43,9 +73,20 @@
                         <input class="form-input" type="number" name="price" value="<%= locals.old && old.price ? old.price : "" %>">
                         <label class="form-label">Imagen producto:</label>
                         <input class="form-input" type="file" name="img" accept=".jpg">
+=======
+                            <h1>Descripción</h1>
+>>>>>>> 12d1414bc593f1b08290afd3dfc9adb5a29b961e
 
-                        <h1>Descripción</h1>
+                            <textarea name="description"></textarea>
+                        </div>
+                    </article>
+                    <button type="submit">Enviar</button>
+                </form>
+            </main>
+            <%- include("../partials/footer") %>
+</body>
 
+<<<<<<< HEAD
                         <textarea name="description" ><%= locals.old && old.description ? old.description : "" %></textarea>
                     </div>
                 </article>
@@ -55,3 +96,6 @@
         <%- include("../partials/footer") %>
     </body>
 </html>
+=======
+</html>
+>>>>>>> 12d1414bc593f1b08290afd3dfc9adb5a29b961e

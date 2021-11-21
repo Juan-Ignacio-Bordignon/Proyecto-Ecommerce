@@ -1,88 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include("../partials/head") %>
+
+<head>
+    <%- include("../partials/head") %>
         <title>Register</title>
-    </head>
-    <body>
-        <%- include("../partials/header") %> <%-
-        include("../partials/slide-show") %>
-        <main id="main-content">
-            <div class="center">
-                <form
-                    action="/user/register"
-                    method="POST"
-                    class="main-form register"
-                >
-                    <h2 class="form-title">Registrarse:</h2>
-                    <div class="feedback">
-                        <% if(typeof errors != "undefined") {%>
-                            <p>Errores</p>
-                            <ul>
-                                <% for(let i=0; i < errors.length; i++) {%>
-                                    <li><%= errors[i].msg %> </li>
+        <script defer src="/js/register.js"></script>
+</head>
+
+<body>
+    <%- include("../partials/header") %>
+        <%- include("../partials/slide-show") %>
+            <main id="main-content">
+                <div class="center">
+                    <form action="/user/register" method="POST" class="main-form register">
+                        <h2 class="form-title">Registrarse:</h2>
+                        <div class="feedback">
+                            <% if(typeof errors !="undefined" ) {%>
+                                <p>Errores</p>
+                                <ul>
+                                    <% for(let i=0; i < errors.length; i++) {%>
+                                        <li>
+                                            <%= errors[i].msg %>
+                                        </li>
+                                        <% } %>
+                                </ul>
                                 <% } %>
-                            </ul>
-                        <% } %>  
-                    </div>
-                    <div class="form-box">
-                        <label class="form-label" for="user_name">
-                            Nombre de usuario:
-                        </label>
-                        <input
-                            class="form-input"
-                            id="user_name"
-                            name="user_name"
-                            type="text"
-                            placeholder="Nombre de usuario"
-                            value="<%= locals.old && old.user_name ? old.user_name : "" %>"
-                        />
-                    </div>
-                    <div class="form-box">
-                        <label class="form-label" for="email">Email:</label>
-                        <input
-                            class="form-input"
-                            id="email"
-                            name="email"
-                            type="email"
-                            placeholder="Email"
-                            value="<%= locals.old && old.email ? old.email : "" %>"
-                        />
-                    </div>
-                    <div class="form-box">
-                        <label class="form-label" for="password">
-                            Contraseña:
-                        </label>
-                        <input
-                            class="form-input"
-                            id="password"
-                            name="password"
-                            type="password"
-                            placeholder="Contraseña"
-                        />
-                    </div>
-                    <div class="form-box">
-                        <label class="form-label" for="confirmPassword">
-                            Confirmar contraseña:
-                        </label>
-                        <input
-                            class="form-input"
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            type="password"
-                            placeholder="Confrimar contraseña"
-                        />
-                    </div>
-                    <div class="flex justify-space-between">
-                        <button class="button-form" type="submit">
-                            Enviar
-                        </button>
-                        <button class="button-form" type="reset">Borrar</button>
-                    </div>
-                    <a href="/login">¿Ya tenes una cuenta?</a>
-                </form>
-            </div>
-        </main>
-        <%- include("../partials/footer") %>
-    </body>
+                        </div>
+                        <div class="form-box">
+                            <label class="form-label" for="user_name">
+                                Nombre de usuario:
+                            </label>
+                            <input class="form-input" id="user_name" name="user_name" type="text"
+                                placeholder="Nombre de usuario"
+                                value="<%= locals.old && old.user_name ? old.user_name : "" %>" />
+                        </div>
+                        <div class="form-box">
+                            <label class="form-label" for="email">Email:</label>
+                            <input class="form-input" id="email" name="email" type="email" placeholder="Email"
+                                value="<%= locals.old && old.email ? old.email : "" %>" />
+                        </div>
+                        <div class="form-box">
+                            <label class="form-label" for="password">
+                                Contraseña:
+                            </label>
+                            <input class="form-input" id="password" name="password" type="password"
+                                placeholder="Contraseña" />
+                        </div>
+                        <div class="form-box">
+                            <label class="form-label" for="confirmPassword">
+                                Confirmar contraseña:
+                            </label>
+                            <input class="form-input" id="confirmPassword" name="confirmPassword" type="password"
+                                placeholder="Confrimar contraseña" />
+                        </div>
+                        <div class="flex justify-space-between">
+                            <button class="button-form" type="submit">
+                                Enviar
+                            </button>
+                            <button class="button-form" type="reset">Borrar</button>
+                        </div>
+                        <a href="/login">¿Ya tenes una cuenta?</a>
+                    </form>
+                </div>
+            </main>
+            <%- include("../partials/footer") %>
+</body>
+
 </html>
