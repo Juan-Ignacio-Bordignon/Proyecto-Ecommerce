@@ -1,62 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include("../partials/head") %>
+
+<head>
+    <%- include("../partials/head") %>
+        <script defer src="/js/editProduct.js"></script>
         <title>Editando</title>
-    </head>
-    <body>
-        <%- include("../partials/header") %> <%-
-        include("../partials/slide-show")%>
-        <main id="main-content">
-            <h2>Edición de producto</h2>
-            <div class="feedback">
-                <% if(typeof errors != "undefined") {%>
-                    <p>Errores</p>
-                    <ul>
-                        <% for(let i=0; i < errors.length; i++) {%>
-                            <li><%= errors[i].msg %> </li>
+</head>
+
+<body>
+    <%- include("../partials/header") %>
+        <%- include("../partials/slide-show")%>
+            <main id="main-content">
+                <h2>Edición de producto</h2>
+                <div class="error-FE"></div>
+                <div class="feedback">
+                    <% if(typeof errors !="undefined" ) {%>
+                        <p>Errores</p>
+                        <ul>
+                            <% for(let i=0; i < errors.length; i++) {%>
+                                <li>
+                                    <%= errors[i].msg %>
+                                </li>
+                                <% } %>
+                        </ul>
                         <% } %>
-                    </ul>
-                <% } %>  
-            </div>
-            <form action="/product/edit/<%= producto.id%>?_method=PATCH" method="POST" class="flex justify-space-around" enctype="multipart/form-data">
-                <article
-                    class="
+                </div>
+                <form action="/product/edit/<%= producto.id%>?_method=PATCH" method="POST"
+                    class="flex justify-space-around" id="uploadForm" enctype="multipart/form-data">
+                    <article class="
                         flex-detail
                         product-detail
                         align-center
                         justify-space-around
                         w-100
-                    "
-                >
-                    <img
-                        class="product-img-detail"
-                        src=<%= producto.img %> 
+                    ">
+                        <img class="product-img-detail" src=<%=producto.img %>
                         alt="3060 Ti"
-                    />
+                        />
 
-                    <div class="flex direction-column">
-                        <label class="form-label">Nombre producto:</label>
-                        <input class="form-input" type="text" name="title" value="<%= producto.title %>">
-                        <label class="form-label">Tipo de producto:</label>
-                        <select class="form-input" name="type_id">
-                            <% for(type of types) { %>
-                                <option value=<%= type.id %> <%= type.id == producto.type_id ? "selected" : "" %> ><%= type.name %></option>
-                            <% } %>
-                        </select>
-                        <label class="form-label">Precio del producto</label>
-                        <input class="form-input" type="text" name="price" value="<%= producto.price %>">
-                        <label class="form-label">Imagen producto:</label>
-                        <input class="form-input" type="file" name="img" accept=".jpg">
+                        <div class="flex direction-column">
+                            <label class="form-label">Nombre producto:</label>
+                            <input class="form-input" type="text" name="title" id="title" value="<%= producto.title %>">
+                            <label class="form-label">Tipo de producto:</label>
+                            <select class="form-input" name="type_id" id="type_id">
+                                <% for(type of types) { %>
+                                    <option value=<%=type.id %>
+                                        <%= type.id==producto.type_id ? "selected" : "" %> ><%= type.name %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                            <label class="form-label">Precio del producto</label>
+                            <input class="form-input" type="text" name="price" id="price" value="<%= producto.price %>">
+                            <label class="form-label">Imagen producto:</label>
+                            <input class="form-input" type="file" name="img" id="img" accept=".jpg">
 
-                        <h1>Descripción</h1>
+                            <h1>Descripción</h1>
 
-                        <textarea name="description" ><%= producto.description %></textarea>
-                        <button type="submit">Enviar</button>
-                    </div>
-                </article>
-            </form>
-        </main>
-        <%- include("../partials/footer") %>
-    </body>
+                            <textarea name="description" id="description"><%= producto.description %></textarea>
+                            <button type="submit" id="buttonSubmit">Enviar</button>
+                        </div>
+                    </article>
+                </form>
+            </main>
+            <%- include("../partials/footer") %>
+</body>
+
 </html>
