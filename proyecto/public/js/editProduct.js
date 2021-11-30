@@ -15,7 +15,6 @@ window.onload = async function () {
     let pPrice = document.createElement("p");
     let pDescription = document.createElement("p");
 
-    console.log(price);
     function isNumber(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
     }
@@ -84,8 +83,6 @@ window.onload = async function () {
             pPrice.classList.remove("hide-error-fe");
             pPrice.classList.add("show-error-fe");
             buttonSubmit.disabled = true;
-            console.log("a");
-            console.log(price);
         } else {
             pPrice.classList.replace("show-error-fe", "hide-error-fe");
             buttonSubmit.disabled = false;

@@ -15,10 +15,16 @@ window.onload = async function () {
     let pPrice = document.createElement("p");
     let pDescription = document.createElement("p");
 
-    console.log(price);
     function isNumber(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
     }
+
+    buttonSubmit.disabled = true;
+
+    let validationImg = false;
+    let validationTitle = false;
+    let validationPrice = false;
+    let validationdescription = false;
 
     //validacion de imagen
 
@@ -36,10 +42,10 @@ window.onload = async function () {
             feedback.appendChild(pImg);
             pImg.classList.remove("hide-error-fe");
             pImg.classList.add("show-error-fe");
-            buttonSubmit.disabled = true;
+            validationImg = false;
         } else {
             pImg.classList.replace("show-error-fe", "hide-error-fe");
-            buttonSubmit.disabled = false;
+            validationImg = true;
         }
     };
 
@@ -53,10 +59,10 @@ window.onload = async function () {
             feedback.appendChild(pTitle);
             pTitle.classList.remove("hide-error-fe");
             pTitle.classList.add("show-error-fe");
-            buttonSubmit.disabled = true;
+            validationTitle = false;
         } else {
             pTitle.classList.replace("show-error-fe", "hide-error-fe");
-            buttonSubmit.disabled = false;
+            validationTitle = true;
         }
     };
 
@@ -64,12 +70,8 @@ window.onload = async function () {
 
     price.onchange = () => {
         let priceTrim = price.value.trim();
-
-        console.log(priceTrim);
-        console.log(priceTrim.length == 0);
-        console.log(priceTrim.length);
-
         let priceEmpty = false;
+
         if (priceTrim.length == 0) {
             priceEmpty = true;
         }
@@ -78,17 +80,16 @@ window.onload = async function () {
         if (!isNumber(Number(+price.value))) {
             isNotANumber = true;
         }
+
         if (priceEmpty || isNotANumber) {
             pPrice.textContent = "Debes incluir el precio (FE)";
             feedback.appendChild(pPrice);
             pPrice.classList.remove("hide-error-fe");
             pPrice.classList.add("show-error-fe");
-            buttonSubmit.disabled = true;
-            console.log("a");
-            console.log(price);
+            validationPrice = false;
         } else {
             pPrice.classList.replace("show-error-fe", "hide-error-fe");
-            buttonSubmit.disabled = false;
+            validationPrice = true;
         }
     };
 
@@ -101,10 +102,23 @@ window.onload = async function () {
             feedback.appendChild(pDescription);
             pDescription.classList.remove("hide-error-fe");
             pDescription.classList.add("show-error-fe");
-            buttonSubmit.disabled = true;
+            validationdescription = false;
         } else {
             pDescription.classList.replace("show-error-fe", "hide-error-fe");
+            validationdescription = true;
+        }
+    };
+
+    document.onchange = () => {
+        if (
+            validationImg &&
+            validationTitle &&
+            validationPrice &&
+            validationdescription
+        ) {
             buttonSubmit.disabled = false;
+        } else {
+            buttonSubmit.disabled = true;
         }
     };
 };
