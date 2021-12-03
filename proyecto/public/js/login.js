@@ -46,9 +46,10 @@ window.onload = async function () {
     // validacion de password
 
     password.onchange = () => {
-        if (password.value.length == 0) {
+        let trimedPassword = password.value.trim();
+        if (trimedPassword == 0) {
             feedback.appendChild(pPassword);
-            pPassword.textContent = "casilla de contraseña vacia (FE)";
+            pPassword.textContent = "Casilla de contraseña vacia (FE)";
             pPassword.classList.remove("hide-error-fe");
             pPassword.classList.add("show-error-fe");
             validPassword = false;
