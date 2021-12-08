@@ -1,9 +1,26 @@
 <mxfile host="65bd71144e">
     <diagram id="AAlBLkDTlZjXJHmCCLfy" name="Página-1">
+<<<<<<< HEAD
+        <mxGraphModel dx="1308" dy="540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="130" value="" style="edgeStyle=elbowEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERone;startFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="280" y="225" as="sourcePoint"/>
+                        <mxPoint x="470" y="135" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="310" y="310"/>
+                            <mxPoint x="370" y="290"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+=======
         <mxGraphModel dx="1087" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
+>>>>>>> 8d9a9d67a84338ac388d1791f828cd0242694d32
                 <mxCell id="144" value="products" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" parent="1" vertex="1">
                     <mxGeometry x="910" y="60" width="250" height="250" as="geometry"/>
                 </mxCell>
