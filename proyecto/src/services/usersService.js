@@ -26,6 +26,10 @@ const usersService = {
         const userToLogin = db.User.findOne({ where: { email: email } });
         return userToLogin;
     },
+    findUserById(id) {
+        const userToLogin = db.User.findOne({ where: { id: id } });
+        return userToLogin;
+    },
 };
 
 module.exports = usersService;
