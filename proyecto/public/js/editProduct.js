@@ -19,13 +19,6 @@ window.onload = async function () {
         return !isNaN(parseFloat(n)) && isFinite(n);
     }
 
-    buttonSubmit.disabled = true;
-
-    let validationImg = false;
-    let validationTitle = false;
-    let validationPrice = false;
-    let validationdescription = false;
-
     //validacion de imagen
 
     img.onchange = () => {
@@ -42,10 +35,10 @@ window.onload = async function () {
             feedback.appendChild(pImg);
             pImg.classList.remove("hide-error-fe");
             pImg.classList.add("show-error-fe");
-            validationImg = false;
+            buttonSubmit.disabled = true;
         } else {
             pImg.classList.replace("show-error-fe", "hide-error-fe");
-            validationImg = true;
+            buttonSubmit.disabled = false;
         }
     };
 
@@ -59,10 +52,10 @@ window.onload = async function () {
             feedback.appendChild(pTitle);
             pTitle.classList.remove("hide-error-fe");
             pTitle.classList.add("show-error-fe");
-            validationTitle = false;
+            buttonSubmit.disabled = true;
         } else {
             pTitle.classList.replace("show-error-fe", "hide-error-fe");
-            validationTitle = true;
+            buttonSubmit.disabled = false;
         }
     };
 
@@ -70,8 +63,12 @@ window.onload = async function () {
 
     price.onchange = () => {
         let priceTrim = price.value.trim();
-        let priceEmpty = false;
 
+        console.log(priceTrim);
+        console.log(priceTrim.length == 0);
+        console.log(priceTrim.length);
+
+        let priceEmpty = false;
         if (priceTrim.length == 0) {
             priceEmpty = true;
         }
@@ -80,16 +77,15 @@ window.onload = async function () {
         if (!isNumber(Number(+price.value))) {
             isNotANumber = true;
         }
-
         if (priceEmpty || isNotANumber) {
             pPrice.textContent = "Debes incluir el precio (FE)";
             feedback.appendChild(pPrice);
             pPrice.classList.remove("hide-error-fe");
             pPrice.classList.add("show-error-fe");
-            validationPrice = false;
+            buttonSubmit.disabled = true;
         } else {
             pPrice.classList.replace("show-error-fe", "hide-error-fe");
-            validationPrice = true;
+            buttonSubmit.disabled = false;
         }
     };
 
@@ -102,23 +98,10 @@ window.onload = async function () {
             feedback.appendChild(pDescription);
             pDescription.classList.remove("hide-error-fe");
             pDescription.classList.add("show-error-fe");
-            validationdescription = false;
+            buttonSubmit.disabled = true;
         } else {
             pDescription.classList.replace("show-error-fe", "hide-error-fe");
-            validationdescription = true;
-        }
-    };
-
-    document.onchange = () => {
-        if (
-            validationImg &&
-            validationTitle &&
-            validationPrice &&
-            validationdescription
-        ) {
             buttonSubmit.disabled = false;
-        } else {
-            buttonSubmit.disabled = true;
         }
     };
 };

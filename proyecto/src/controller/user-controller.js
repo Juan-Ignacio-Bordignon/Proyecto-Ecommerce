@@ -88,7 +88,7 @@ const controller = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             let userToLogin = await userService.finduser(req.body);
-            if (userToLogin == undefined) {
+            if (userToLogin == null) {
                 res.render("users/login", {
                     errors: [{ msg: "credenciales invalidas" }],
                 });

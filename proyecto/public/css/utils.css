@@ -28,12 +28,11 @@ body {
 .flex-item {
     display: flex;
 }
-.flex-detail{
+.flex-detail {
     display: flex;
     flex-wrap: wrap;
-    
 }
-.flex-detail-text{
+.flex-detail-text {
     display: flex;
     justify-content: space-between;
     width: 30%;
@@ -59,9 +58,15 @@ body {
 .hide {
     display: none;
 }
-.block{
+.block {
     display: block;
 }
-.text-align-center{
+.text-align-center {
     text-align: center;
+}
+.show-error-fe {
+    display: initial !important;
+}
+.hide-error-fe {
+    display: none;
 }

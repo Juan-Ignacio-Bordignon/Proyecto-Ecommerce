@@ -3,9 +3,9 @@ const db = require("../database/models");
 const { validationResult } = require("express-validator");
 
 const controller = {
-    creat: async (req, res) => {
+    create: async (req, res) => {
         const types = await db.Type.findAll();
-        res.render("products/productCreat", { types });
+        res.render("products/productCreate", { types });
     },
     save: async (req, res) => {
         let errors = validationResult(req);
@@ -17,7 +17,7 @@ const controller = {
             res.redirect("/");
         } else {
             const types = await db.Type.findAll();
-            res.render("products/productCreat", {
+            res.render("products/productCreate", {
                 errors: errors.errors,
                 old: req.body,
                 types: types,
@@ -41,7 +41,11 @@ const controller = {
         } else {
             const types = await db.Type.findAll();
             const producto = await productService.findOneById(req.params.id);
-            res.render("products/productEdit", { producto: producto, errors: errors.errors,types: types });
+            res.render("products/productEdit", {
+                producto: producto,
+                errors: errors.errors,
+                types: types,
+            });
         }
     },
     detail: async (req, res) => {

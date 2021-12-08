@@ -3,9 +3,7 @@
         <div class="flex justify-space-between align-center hide-md">
             <input type="checkbox" class="toggle-check" id="toggle" hidden />
             <label class="toggle" for="toggle">
-                <i
-                    class="fas fa-ellipsis-v burger-menu font-size-20 black.txt"
-                ></i>
+                <i class="fas fa-ellipsis-v burger-menu font-size-20 black.txt"></i>
             </label>
             <div class="container-menu">
                 <nav class="menu">
@@ -25,18 +23,10 @@
                 <label class="" for="search">
                     <i class="fas fa-search"></i>
                 </label>
-                <input
-                    id="search"
-                    type="text"
-                    name="search"
-                    placeholder="Motherboards, gráficas, etc."
-                />
+                <input id="search" type="text" name="search" placeholder="Motherboards, gráficas, etc." />
             </form>
         </div>
-        <a
-            class="cart text-decoration-none font-size-20 black-txt"
-            href="/user/cart"
-        >
+        <a class="cart text-decoration-none font-size-20 black-txt" href="/user/cart">
             <i class="fas fa-shopping-cart"></i>
         </a>
         <% if (locals.isLogged) {%>
@@ -49,44 +39,30 @@
             " href="/product/create" data-bs-toggle="collapse" role="button" aria-controls="userMenu">
                     Crear producto
                 </a>
-        <% } %> 
-        <a
-            class="
+                <% } %>
+                    <a class="
                 link-header
                 text-decoration-none
                 font-size-20
                 black-txt
-            "
-            href="#userMenu"
-            data-bs-toggle="collapse"
-            role="button"
-            aria-controls="userMenu"
-        >
-            <%= locals.userLogged.user_name %>
-        </a>
-        <div class="collapse collapse-horizontal" id="userMenu">
-        </div>
-        <% } else{%>
-        <a
-            class="link-header text-decoration-none font-size-20 black-txt"
-            href="/user/login"
-        >
-            Log in
-        </a>
-        <a
-            class="
+            " href="#userMenu" data-bs-toggle="collapse" role="button" aria-controls="userMenu">
+                        <%= locals.userLogged.user_name %>
+                    </a>
+                    <div class="collapse collapse-horizontal" id="userMenu">
+                    </div>
+                    <% } else{%>
+                        <a class="link-header text-decoration-none font-size-20 black-txt" href="/user/login">
+                            Log in
+                        </a>
+                        <a class="
                 link-header
                 text-decoration-none
                 font-size-20
                 black-txt
-                hide
-                show-md
-            "
-            href="/user/register"
-        >
-            Registrarse
-        </a>
-        <% } %>
+            " href="/user/register">
+                            Registrarse
+                        </a>
+                        <% } %>
     </div>
     <nav id="main-nav" class="hide show-md">
         <ul class="w-50 margin-auto flex justify-space-between">
