@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-// const productController = require("../../controller/api/api-product-controller");
 
 //          Users
 //Controler
@@ -10,8 +9,10 @@ router.get("/users", userController.allUsers);
 router.get("/users/:id", userController.userById);
 
 //          Products
-
-/*router.use("/product,    ");
-router.use("/product/:id,   ");*/
+//Controler
+const productController = require("../../controller/api/api-product-controller");
+//Routes
+router.use("/product/:id", productController.productById);
+router.use("/product", productController.allProducts);
 
 module.exports = router;

@@ -26,13 +26,13 @@ CREATE TABLE products(
   FOREIGN KEY (type_id) REFERENCES types (id)
 );
 CREATE TABLE orders(
-id INT(10) AUTO_INCREMENT NOT NULL,
-user_id INT(10) NOT NULL,
-total DECIMAL NOT NULL,
-createdAt DATE,
-updatedAt DATE,
-PRIMARY KEY(id),
-FOREIGN KEY (user_id) REFERENCES users (id)
+  id INT(10) AUTO_INCREMENT NOT NULL,
+  user_id INT(10) NOT NULL,
+  total DECIMAL NOT NULL,
+  createdAt DATE,
+  updatedAt DATE,
+  PRIMARY KEY(id),
+  FOREIGN KEY (user_id) REFERENCES users (id)
 );
 CREATE TABLE carts(
   id INT(10) AUTO_INCREMENT NOT NULL,
@@ -65,7 +65,7 @@ VALUES(
 INSERT INTO
   types
 VALUES(DEFAULT, "Placa madre"),
-  (DEFAULT, "Precesador"),
+  (DEFAULT, "Procesador"),
   (DEFAULT, "Ram"),
   (DEFAULT, "SSD"),
   (DEFAULT, "HDD"),
