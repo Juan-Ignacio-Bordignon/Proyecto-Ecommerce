@@ -1,8 +1,6 @@
 import React from "react";
 import logoDH from "../../assets/images/logo-DH.png";
-import { NavLink } from "react-router-dom";
-
-import "./sideBarStyles.css";
+import { Link } from "react-router-dom";
 
 function SideBar() {
   return (
@@ -10,42 +8,56 @@ function SideBar() {
       className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion"
       id="accordionSidebar"
     >
-      <NavLink
+      <Link
         className="sidebar-brand d-flex align-items-center justify-content-center"
         to="/"
       >
         <div className="sidebar-brand-icon">
           <img className="w-100" src={logoDH} alt="Digital House" />
         </div>
-      </NavLink>
+      </Link>
 
       <hr className="sidebar-divider my-0" />
-      <li className="nav-item">
-        <NavLink className="nav-link" activeClassName="active" to="/dashboard">
+
+      <li className="nav-item active">
+        <Link className="nav-link" to="/dashboard">
           <i className="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard - DH movies</span>
-        </NavLink>
+          <span>Dashboard</span>
+        </Link>
       </li>
+
       <hr className="sidebar-divider" />
+
       <div className="sidebar-heading">Actions</div>
+
       <li className="nav-item">
-        <NavLink className="nav-link" activeClassName="active" to="/pages">
+        <Link className="nav-link collapsed" to="/pages">
           <i className="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </NavLink>
+          <span>Ultimo producto</span>
+        </Link>
       </li>
+
       <li className="nav-item">
-        <NavLink className="nav-link" activeClassName="active" to="/charts">
+        <Link className="nav-link" to="/charts">
           <i className="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span>
-        </NavLink>
+          <span>Tipos en DB</span>
+        </Link>
       </li>
+
       <li className="nav-item">
-        <NavLink className="nav-link" activeClassName="active" to="/tables">
+        <Link className="nav-link" to="/tables">
           <i className="fas fa-fw fa-table"></i>
-          <span>Tables</span>
-        </NavLink>
+          <span>Productos</span>
+        </Link>
       </li>
+
+      <li className="nav-item">
+        <Link className="nav-link" to="/users">
+          <i className="fas fa-fw fa-table"></i>
+          <span>Usuarios</span>
+        </Link>
+      </li>
+
       <hr className="sidebar-divider d-none d-md-block" />
     </ul>
   );

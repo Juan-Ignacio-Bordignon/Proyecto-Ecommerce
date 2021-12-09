@@ -13,7 +13,6 @@ const controller = {
 
         users.map((user) => {
             delete user.dataValues.password;
-            delete user.dataValues.admin;
             count += 1;
         });
         listOfUsers = {

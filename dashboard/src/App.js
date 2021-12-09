@@ -1,32 +1,34 @@
 import "./assets/css/app.css";
 import SideBar from "./components/sideBar/sideBar";
-import Footer from "./components/contentWrapper/footer/footer";
-import TopNavBar from "./components/contentWrapper/topNavBar/topNavBar";
 import ContentWrapper from "./components/contentWrapper/contentWrapper";
-import { Switch, Route, Redirect } from "react-router-dom";
-import ContentRowTop from "./components/contentWrapper/contentRowTop/contentRowTop";
-import { MoviesInDb } from "./components/contentWrapper/moviesInDb";
-import { GenresInDb } from "./components/contentWrapper/genresInDb";
-import { Error404 } from "./components/404";
+import TopNavBar from "./components/contentWrapper/topNavBar/topNavBar";
+import Footer from "./components/contentWrapper/footer/footer";
+
+import { Switch, Route } from "react-router-dom";
+import ProductsTable from "./components/contentWrapper/productsTable/productsTable";
+import GenresInDb from "./components/contentWrapper/contentCard/typesInDb/typesInDb";
+import MovieDetail from "./components/contentWrapper/contentCard/lastProductDetail/lastProductDetail";
+import UsersTable from "./components/contentWrapper/usersTable/usersTable"
+import Error404 from "./components/errors/404";
 
 function App() {
   return (
     <div id="wrapper">
       <SideBar />
-      <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content-wrapper" className="d-flex flex-column">
         <div id="content">
           <TopNavBar />
           {/*<ContentWrapper />*/}
           <Switch>
-            <Route path="/dashboard" exact component={ContentWrapper} />
-            <Route path="/pages" exact component={ContentRowTop} />
-            <Route path="/charts" exact component={MoviesInDb} />
-            <Route path="/tables" exact component={GenresInDb} />
-            <Redirect from="/" exact to="/dashboard" />
-            <Route path="*" component={Error404} />
+            <Route path="/dashboard" exact={true} component={ContentWrapper} />
+            <Route path="/pages" exact={true} component={MovieDetail} />
+            <Route path="/charts" exact={true} component={GenresInDb} />
+            <Route path="/tables" exact={true} component={ProductsTable} />
+            <Route path="/users" exact={true} component={UsersTable} />
+            <Route path="/" exact={true} component={ContentWrapper} />
+            <Route component={Error404} />
           </Switch>
         </div>
-
         <Footer />
       </div>
     </div>
