@@ -13,7 +13,7 @@ function SideBar() {
         to="/"
       >
         <div className="sidebar-brand-icon">
-          <img className="w-75" src={logo} alt="Digital House" />
+          <img className="w-75" src={logo} alt="logo" />
         </div>
       </Link>
 
