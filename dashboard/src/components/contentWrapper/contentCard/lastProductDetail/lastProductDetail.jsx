@@ -21,7 +21,7 @@ class LastProductDetail extends Component {
           <img
             className="img-fluid px-3 px-sm-4 mt-3 mb-4"
             style={{ width: "40rem" }}
-            src={`http://localhost:3000/${this.state.lastProduct.img}`}
+            src={`http://localhost:3001/${this.state.lastProduct.img}`}
             alt="Star Wars - Mandalorian"
           />
         </div>
