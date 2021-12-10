@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function SideBar() {
   return (
     <ul
-      className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion"
+      className="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion"
       id="accordionSidebar"
     >
       <Link
