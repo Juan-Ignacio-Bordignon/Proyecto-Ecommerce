@@ -11,8 +11,8 @@ class ProductTable extends Component {
       return <div>Cargando...</div>;
     }
     return (
-      <table>
-        <thead>
+      <table class="table">
+        <thead class="thead-dark">
           <tr>
             <th>ID</th>
             <th>Titulo</th>
