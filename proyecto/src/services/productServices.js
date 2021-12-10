@@ -54,7 +54,13 @@ const produsctService = {
             include: [{ association: "type" }],
         });
         return product;
-    }
+    },
+    findAllAndDeleted() {
+        const product = db.Product.findAll({
+            include: [{ association: "type" }],
+        });
+        return product;
+    },
 };
 
 module.exports = produsctService;

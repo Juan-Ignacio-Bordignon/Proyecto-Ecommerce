@@ -4,7 +4,7 @@ const { validationResult } = require("express-validator");
 
 const controller = {
     allProducts: async (req, res) => {
-        const products = await productService.findAll();
+        const products = await productService.findAllAndDeleted();
         const categories = await db.Type.findAll();
 
         const count = products.length;
