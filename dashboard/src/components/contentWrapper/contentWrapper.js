@@ -3,6 +3,11 @@ import ContentRowTop from "./contentRowTop/contentRowTop";
 import MovieDetail from "./contentCard/lastProductDetail/lastProductDetail";
 import ProductsTable from "./productsTable/productsTable";
 
+if(sessionStorage.getItem("loged")){
+  console.log(sessionStorage.getItem("loged"))
+}
+
+
 export default function ContentWrapper() {
   return (
     <div className="container-fluid">

@@ -7,6 +7,7 @@ let userController = require("../../controller/api/api-users-controller");
 //Routes
 router.get("/users", userController.allUsers);
 router.get("/users/:id", userController.userById);
+router.post("/users/login", userController.proccesLogin)
 
 //          Products
 //Controler

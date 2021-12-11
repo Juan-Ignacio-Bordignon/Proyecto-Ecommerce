@@ -9,6 +9,7 @@ import ProductsTable from "./components/contentWrapper/productsTable/productsTab
 import GenresInDb from "./components/contentWrapper/contentCard/typesInDb/typesInDb";
 import MovieDetail from "./components/contentWrapper/contentCard/lastProductDetail/lastProductDetail";
 import UsersTable from "./components/contentWrapper/usersTable/usersTable"
+import Login from "./components/contentWrapper/login/login"
 import Error404 from "./components/errors/404";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/charts" exact={true} component={GenresInDb} />
             <Route path="/tables" exact={true} component={ProductsTable} />
             <Route path="/users" exact={true} component={UsersTable} />
+            <Route path="/login" exact={true} component={Login}/>
             <Route path="/" exact={true} component={ContentWrapper} />
             <Route component={Error404} />
           </Switch>

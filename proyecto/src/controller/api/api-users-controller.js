@@ -33,6 +33,21 @@ const controller = {
             res.json({});
         }
     },
+    proccesLogin: async (req, res) => {
+        if (req.body && req.body != null) {
+            console.log(req.body)
+            let userToLogin = await usersService.finduser(req.body);
+            if (userToLogin == null) {
+                const errors = [{ msg: "credenciales invalidas" }];
+                res.json(errors);
+            }
+            delete userToLogin.password;
+            res.json(userToLogin);
+        } else {
+            const errors = [{ msg: "credenciales invalidas" }];
+            res.json(errors);
+        }
+    },
 };
 
 module.exports = controller;

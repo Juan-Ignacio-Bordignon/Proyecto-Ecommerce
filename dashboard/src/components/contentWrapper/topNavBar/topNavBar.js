@@ -1,4 +1,13 @@
+import { Link } from "react-router-dom";
 import defaultProfilePic from "../../../assets/images/jordan-walke.png";
+
+function link() {
+  return <Link className="nav-link dropdown-toggle" to={"/login"}>Log in</Link>;
+}
+function user() {
+  return <div >{JSON.parse(sessionStorage.getItem("loged")).user_name}</div>;
+}
+
 
 export default function TopNavBar(props) {
   return (
@@ -28,17 +37,11 @@ export default function TopNavBar(props) {
         <div className="topbar-divider d-none d-sm-block"></div>
 
         <li className="nav-item dropdown no-arrow">
-          <a className="nav-link dropdown-toggle" href="/" id="userDropdown">
+          <div className="nav-link dropdown-toggle" href="/" id="userDropdown">
             <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-              Jordan Walke
+              {sessionStorage.getItem("loged") ? user() : link()}
             </span>
-            <img
-              className="img-profile rounded-circle"
-              src={defaultProfilePic}
-              alt="Jordan Walke - Creador de React"
-              width="60"
-            />
-          </a>
+          </div>
         </li>
       </ul>
     </nav>
