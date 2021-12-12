@@ -13,7 +13,8 @@ router.post("/users/login", userController.proccesLogin)
 //Controler
 const productController = require("../../controller/api/api-product-controller");
 //Routes
-router.use("/product/:id", productController.productById);
-router.use("/product", productController.allProducts);
+router.get("/product", productController.allProducts);
+router.get("/product/type", productController.type);
+router.get("/product/:id", productController.productById);
 
 module.exports = router;

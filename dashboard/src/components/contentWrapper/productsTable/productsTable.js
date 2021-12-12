@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 const productURL = "/api/product";
 
 class ProductTable extends Component {
@@ -19,6 +20,7 @@ class ProductTable extends Component {
             <th>Precio</th>
             <th>A la venta</th>
             <th>Tipo</th>
+            <th>Editar</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +32,7 @@ class ProductTable extends Component {
                 <td>{product.price}</td>
                 <td>{product.deleted === 0 ? "si" : "no"}</td>
                 <td>{product.type.name}</td>
+                <td><Link to={`/edit/${product.id}`}>Editar producto: {product.id}</Link></td>
               </tr>
             );
           })}

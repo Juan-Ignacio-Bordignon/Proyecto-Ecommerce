@@ -1,6 +1,5 @@
 const productService = require("../../services/productServices");
 const db = require("../../database/models");
-const { validationResult } = require("express-validator");
 
 const controller = {
     allProducts: async (req, res) => {
@@ -26,13 +25,17 @@ const controller = {
     },
     productById: async (req, res) => {
         const product = await productService.findOneById(req.params.id);
-        console.log(product);
         const response = {
-            ...product.dataValues,
-            URLImage: `http:localhost:3000${product.img}`,
+            ...product,
         };
-        res.json(response);
+        res.json(product);
     },
+    type: async (req,res) =>{
+        const types = await db.Type.findAll();
+        res.json({
+            types: types
+        })
+    }
 };
 
 module.exports = controller;

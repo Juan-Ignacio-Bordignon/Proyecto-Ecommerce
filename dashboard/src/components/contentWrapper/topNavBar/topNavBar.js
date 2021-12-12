@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import defaultProfilePic from "../../../assets/images/jordan-walke.png";
 
 function link() {
   return <Link className="nav-link dropdown-toggle" to={"/login"}>Log in</Link>;
