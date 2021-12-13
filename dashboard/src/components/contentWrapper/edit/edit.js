@@ -41,9 +41,9 @@ class Edit extends Component {
                   className="form-control"
                   type="text"
                   name="title"
-                  value={this.state.product.title}
                   ref={this.inputTitle}
-                />
+                  defaultValue={this.state.product.title}
+                ></input>
               </div>
               <div>
                 <label className="form-label">Precio del producto</label>
@@ -51,7 +51,7 @@ class Edit extends Component {
                   className="form-control"
                   type="text"
                   name="price"
-                  value={this.state.product.price}
+                  defaultValue={this.state.product.price}
                   ref={this.inputPrice}
                 />
               </div>
@@ -120,8 +120,8 @@ class Edit extends Component {
                   name="description"
                   id="description"
                   className="form-control"
-                  value={this.state.product.description}
                   ref={this.inputDescription}
+                  defaultValue={this.state.product.description}
                 ></textarea>
               </div>
               <br></br>
@@ -165,15 +165,17 @@ class Edit extends Component {
     console.log(data);
     const response = await fetch(`/api/product/edit/${this.state.product.id}`,{
       method: "POST",
-      body: JSON.stringify(data),
       headers:{
-        'Content-Type': 'application/json'
+        'Content-Type': 'aplication/json'
       }});
-    if(response.errors){
-      this.setState({errors: response.errors})
+      const result = await response.json();
+      console.log(result)
+    if(result.errors){
+      this.setState({errors: result.errors})
+      console.log(this.state.errors)
       return
     }
-    window.location.replace("/tables")
+    //window.location.replace("/tables")
   }
   typeIdComparison(id) {
     return id === this.state.product.type_id;
@@ -181,10 +183,16 @@ class Edit extends Component {
   error() {
     return (
       <div className="alert alert-danger" role="alert">
-        {this.state.errors}
+        <ul>
+          {this.state.errors.map((error)=>{return<li>{error.msg}</li>})}
+        </ul>
       </div>
     );
   }
 }
 
 export default Edit;
+
+/*.map((error)=>{
+          return <li>{error}</li>
+        })*/
