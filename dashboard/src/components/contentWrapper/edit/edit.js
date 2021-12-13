@@ -165,17 +165,15 @@ class Edit extends Component {
     console.log(data);
     const response = await fetch(`/api/product/edit/${this.state.product.id}`,{
       method: "POST",
+      body: JSON.stringify(data),
       headers:{
-        'Content-Type': 'aplication/json'
+        'Content-Type': 'application/json'
       }});
-      const result = await response.json();
-      console.log(result)
-    if(result.errors){
-      this.setState({errors: result.errors})
-      console.log(this.state.errors)
+    if(response.errors){
+      this.setState({errors: response.errors})
       return
     }
-    //window.location.replace("/tables")
+    window.location.replace("/tables")
   }
   typeIdComparison(id) {
     return id === this.state.product.type_id;
@@ -192,7 +190,3 @@ class Edit extends Component {
 }
 
 export default Edit;
-
-/*.map((error)=>{
-          return <li>{error}</li>
-        })*/

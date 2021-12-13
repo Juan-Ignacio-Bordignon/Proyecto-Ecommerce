@@ -39,6 +39,7 @@ const controller = {
     },
     update: async (req, res) => {
         let errors = validationResult(req);
+        console.log(req.body)
         if (errors.isEmpty()) {
             const updatedproduct = await productService.editOneApi(
                 req.params.id,
