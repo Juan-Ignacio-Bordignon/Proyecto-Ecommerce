@@ -71,10 +71,6 @@ function Login() {
             ref={password}
           />
         </div>
-        <div className="mb-3">
-          <input type="checkbox" name="remember" value="remember" />
-          <label>Recorda mi usuario</label>
-        </div>
         <button type="submit">Enviar</button>
       </form>
     </div>

@@ -1,5 +1,6 @@
 const productService = require("../../services/productServices");
 const db = require("../../database/models");
+const { validationResult } = require("express-validator");
 
 const controller = {
     allProducts: async (req, res) => {
@@ -35,6 +36,21 @@ const controller = {
         res.json({
             types: types
         })
+    },
+    update: async (req, res) => {
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            const updatedproduct = await productService.editOneApi(
+                req.params.id,
+                req.body,
+                req.file
+            );
+            res.redirect("/");
+        } else {
+            res.json({
+                errors: errors.errors,
+            });
+        }
     }
 };
 

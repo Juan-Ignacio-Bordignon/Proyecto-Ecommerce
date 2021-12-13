@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 
 const typeURL = "/api/product/type";
 const productURL = `/api/product/`;
@@ -7,17 +7,22 @@ class Edit extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.inputTitle = createRef();
+    this.inputPrice = createRef();
+    this.inputImg = createRef();
+    this.inputType = createRef();
+    this.inputDeleted = createRef();
+    this.inputDescription = createRef();
   }
   render() {
-    if ((!this.state.product)||(!this.state.types)) {
-        return <div>Cargando...</div>;
+    if (!this.state.product || !this.state.types) {
+      return <div>Cargando...</div>;
     }
     return (
       <div className="card-body">
         <h2>Edición de producto</h2>
+        {this.state.errors ? this.error() : ""}
         <form
-          action="/product/edit/"
-          method="POST"
           className=""
           id="uploadForm"
           enctype="multipart/form-data"
@@ -36,8 +41,8 @@ class Edit extends Component {
                   className="form-control"
                   type="text"
                   name="title"
-                  id="title"
                   value={this.state.product.title}
+                  ref={this.inputTitle}
                 />
               </div>
               <div>
@@ -46,8 +51,8 @@ class Edit extends Component {
                   className="form-control"
                   type="text"
                   name="price"
-                  id="price"
                   value={this.state.product.price}
+                  ref={this.inputPrice}
                 />
               </div>
               <div>
@@ -60,6 +65,7 @@ class Edit extends Component {
                   name="img"
                   id="img"
                   accept=".jpg"
+                  ref={this.inputImg}
                 />
               </div>
               <div>
@@ -70,9 +76,17 @@ class Edit extends Component {
                   aria-label=".form-select-lg example"
                   name="type_id"
                   id="type_id"
+                  ref={this.inputType}
                 >
                   {this.state.types.map((type) => {
-                    return <option selected={this.typeIdComparison(type.id)} value={type.id} >{type.name}</option>;
+                    return (
+                      <option
+                        selected={this.typeIdComparison(type.id)}
+                        value={type.id}
+                      >
+                        {type.name}
+                      </option>
+                    );
                   })}
                 </select>
               </div>
@@ -84,9 +98,20 @@ class Edit extends Component {
                   aria-label=".form-select-lg example"
                   name="deleted"
                   id="deleted"
+                  ref={this.inputDeleted}
                 >
-                  <option value={0} selected={0 === this.state.product.deleted ? true : false}>Visible</option>
-                  <option value={1} selected={1 === this.state.product.deleted ? true : false}>No visible</option>
+                  <option
+                    value={0}
+                    selected={0 === this.state.product.deleted ? true : false}
+                  >
+                    Visible
+                  </option>
+                  <option
+                    value={1}
+                    selected={1 === this.state.product.deleted ? true : false}
+                  >
+                    No visible
+                  </option>
                 </select>
               </div>
               <div>
@@ -96,6 +121,7 @@ class Edit extends Component {
                   id="description"
                   className="form-control"
                   value={this.state.product.description}
+                  ref={this.inputDescription}
                 ></textarea>
               </div>
               <br></br>
@@ -109,16 +135,15 @@ class Edit extends Component {
     );
   }
   componentDidMount() {
+    if(!sessionStorage.getItem("loged")){window.location.replace("/login")}
     this.fetchProduct();
     this.fetchTypes();
-    console.log(this.state.types);
   }
   async fetchTypes() {
     const result = await fetch(typeURL);
     const response = await result.json();
     const types = response.types;
     this.setState({ types: types });
-    console.log(this.state.types);
   }
   async fetchProduct() {
     const { id } = this.props.match.params;
@@ -126,14 +151,39 @@ class Edit extends Component {
     const result = await fetch(url);
     const response = await result.json();
     this.setState({ product: response });
-    console.log(this.state.product);
   }
-  onSubmit(event) {
+  onSubmit = async (event)=> {
     event.preventDefault();
-    console.log("Formulario enviado");
+    const data={
+      title: this.inputTitle.current.value,
+      price: this.inputPrice.current.value,
+      img: this.state.product.img,
+      type_id: this.inputType.current.value,
+      deleted: this.inputDeleted.current.value,
+      description: this.inputDescription.current.value
+    };
+    console.log(data);
+    const response = await fetch(`/api/product/edit/${this.state.product.id}`,{
+      method: "POST",
+      body: JSON.stringify(data),
+      headers:{
+        'Content-Type': 'application/json'
+      }});
+    if(response.errors){
+      this.setState({errors: response.errors})
+      return
+    }
+    window.location.replace("/tables")
   }
   typeIdComparison(id) {
     return id === this.state.product.type_id;
+  }
+  error() {
+    return (
+      <div className="alert alert-danger" role="alert">
+        {this.state.errors}
+      </div>
+    );
   }
 }
 

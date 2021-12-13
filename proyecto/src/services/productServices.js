@@ -28,7 +28,7 @@ const produsctService = {
                 price: Number(payload.price),
                 type_id: payload.type_id,
                 desc: payload.desc,
-                image: image ? image.filename : "",
+                img: image ? image.filename : "",
             },
             {
                 where: { id: id },
@@ -60,6 +60,21 @@ const produsctService = {
             include: [{ association: "type" }],
         });
         return product;
+    },
+    editOneApi(id, payload, image) {
+        db.Product.update(
+            {
+                title: payload.title,
+                price: Number(payload.price),
+                type_id: payload.type_id,
+                desc: payload.desc,
+                deleted: payload.deleted,
+                img: image ? image.filename : payload.img,
+            },
+            {
+                where: { id: id },
+            }
+        );
     },
 };
 

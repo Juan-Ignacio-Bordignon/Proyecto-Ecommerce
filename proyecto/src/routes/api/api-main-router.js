@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const middlewareUpdate = require("../../middlewares/productUpdateMiddleware")
 
 //          Users
 //Controler
@@ -16,5 +17,6 @@ const productController = require("../../controller/api/api-product-controller")
 router.get("/product", productController.allProducts);
 router.get("/product/type", productController.type);
 router.get("/product/:id", productController.productById);
+router.post("/product/edit/:id", middlewareUpdate, productController.update);
 
 module.exports = router;
