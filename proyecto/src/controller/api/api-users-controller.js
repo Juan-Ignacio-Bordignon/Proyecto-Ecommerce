@@ -38,7 +38,7 @@ const controller = {
             console.log(req.body)
             let userToLogin = await usersService.finduser(req.body);
             if (userToLogin == null) {
-                const errors = [{ msg: "credenciales invalidas" }];
+                const errors = { msg: "credenciales invalidas" };
                 res.json(errors);
             }
             delete userToLogin.password;
