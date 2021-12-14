@@ -65,11 +65,14 @@ const controller = {
     },
     saveUser: async (req, res) => {
         let errors = validationResult(req);
-        if (errors.isEmpty() && !userService.findUserByEmail(req.body.email)) {
+        if (
+            errors.isEmpty() &&
+            userService.findUserByEmail(req.body.email) != null
+        ) {
             await userService.createUser(req.body);
             res.redirect("/");
         } else {
-            if (userService.findUserByEmail(req.body.email)) {
+            if (userService.findUserByEmail(req.body.email) == null) {
                 let error = {
                     msg: "El mail ya es usado por otro usuario",
                 };

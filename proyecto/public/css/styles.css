@@ -77,6 +77,7 @@
     padding: 10px;
     margin: 8px 3px;
 }
+
 .cart-button-direction {
     flex-direction: column;
 }
@@ -364,6 +365,14 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
     padding: 10px;
     color: #ffffff;
 }
+.button-form-disable {
+    background-color: #888888;
+    border: none;
+    border-radius: 5px;
+    width: 30%;
+    padding: 10px;
+    color: #ffffff;
+}
 .login .button-form {
     width: 100%;
 }
@@ -372,6 +381,18 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
 }
 
 .detail.button-form {
+    width: 90%;
+    border-radius: 5px;
+    max-width: 160px;
+}
+.login .button-form-disable {
+    width: 100%;
+}
+.register .button-form-disable {
+    width: 40%;
+}
+
+.detail.button-form-disable {
     width: 90%;
     border-radius: 5px;
     max-width: 160px;

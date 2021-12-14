@@ -20,11 +20,21 @@ window.onload = async function () {
     }
 
     buttonSubmit.disabled = true;
+    buttonSubmit.classList.replace("button-form", "button-form-disable");
     document.onchange = () => {
         if (validEmail && validPassword) {
             buttonSubmit.disabled = false;
+            buttonSubmit.classList.replace(
+                "button-form-disable",
+                "button-form"
+            );
         } else {
             buttonSubmit.disabled = true;
+
+            buttonSubmit.classList.replace(
+                "button-form",
+                "button-form-disable"
+            );
         }
     };
 

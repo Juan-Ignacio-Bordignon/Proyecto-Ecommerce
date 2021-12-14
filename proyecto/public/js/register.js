@@ -36,6 +36,7 @@ window.onload = async function () {
     }
 
     buttonSubmit.disabled = true;
+    buttonSubmit.classList.replace("button-form", "button-form-disable");
     document.onchange = () => {
         if (
             validEmail &&
@@ -44,8 +45,17 @@ window.onload = async function () {
             validUserName
         ) {
             buttonSubmit.disabled = false;
+
+            buttonSubmit.classList.replace(
+                "button-form-disable",
+                "button-form"
+            );
         } else {
             buttonSubmit.disabled = true;
+            buttonSubmit.classList.replace(
+                "button-form",
+                "button-form-disable"
+            );
         }
     };
 
