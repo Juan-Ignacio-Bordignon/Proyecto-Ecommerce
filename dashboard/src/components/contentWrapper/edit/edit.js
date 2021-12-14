@@ -181,7 +181,7 @@ class Edit extends Component {
       this.setState({errors: response.errors})
       return
     }
-    //window.location.replace("/tables")
+    window.location.replace("/tables")
   }
   imgHandler = (e)=>{
     this.setState({file: e.target.files[0]})
