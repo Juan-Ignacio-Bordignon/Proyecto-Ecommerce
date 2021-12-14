@@ -25,7 +25,6 @@ class Edit extends Component {
         <form
           className=""
           id="uploadForm"
-          enctype="multipart/form-data"
           onSubmit={this.onSubmit}
         >
           <article className="">
@@ -66,6 +65,7 @@ class Edit extends Component {
                   id="img"
                   accept=".jpg"
                   ref={this.inputImg}
+                  onChange={this.imgHandler}
                 />
               </div>
               <div>
@@ -154,26 +154,37 @@ class Edit extends Component {
   }
   onSubmit = async (event)=> {
     event.preventDefault();
+    const formdata = new FormData();
+    formdata.append("img", this.state.file);
+
     const data={
       title: this.inputTitle.current.value,
       price: this.inputPrice.current.value,
-      img: this.state.product.img,
       type_id: this.inputType.current.value,
       deleted: this.inputDeleted.current.value,
       description: this.inputDescription.current.value
     };
     console.log(data);
+    console.log(this.state.file)
+    const responseFile = await fetch(`/api/product/edit/img/${this.state.product.id}`,{
+      method: "POST",
+      body: formdata
+    })
+    console.log(responseFile);
     const response = await fetch(`/api/product/edit/${this.state.product.id}`,{
       method: "POST",
       body: JSON.stringify(data),
       headers:{
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       }});
     if(response.errors){
       this.setState({errors: response.errors})
       return
     }
     window.location.replace("/tables")
+  }
+  imgHandler = (e)=>{
+    this.setState({file: e.target.files[0]})
   }
   typeIdComparison(id) {
     return id === this.state.product.type_id;

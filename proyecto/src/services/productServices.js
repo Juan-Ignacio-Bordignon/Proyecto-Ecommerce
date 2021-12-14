@@ -28,7 +28,7 @@ const produsctService = {
                 price: Number(payload.price),
                 type_id: payload.type_id,
                 desc: payload.desc,
-                img: image ? image.filename : "",
+                img: image ? "/images/" + image.filename : "",
             },
             {
                 where: { id: id },
@@ -61,7 +61,7 @@ const produsctService = {
         });
         return product;
     },
-    editOneApi(id, payload, image) {
+    editOneApi(id, payload) {
         db.Product.update(
             {
                 title: payload.title,
@@ -69,13 +69,23 @@ const produsctService = {
                 type_id: payload.type_id,
                 desc: payload.desc,
                 deleted: payload.deleted,
-                img: image ? image.filename : payload.img,
             },
             {
                 where: { id: id },
             }
         );
     },
+    editoneApiImg(id, image){
+        console.log(image);
+        db.Product.update(
+            {
+                img: image ? "/images/" + image.filename : null,
+            },
+            {
+                where: { id: id },
+            }
+        )
+    }
 };
 
 module.exports = produsctService;
