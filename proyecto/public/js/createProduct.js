@@ -19,8 +19,6 @@ window.onload = async function () {
         return !isNaN(parseFloat(n)) && isFinite(n);
     }
 
-    buttonSubmit.disabled = true;
-
     let validationImg = false;
     let validationTitle = false;
     let validationPrice = false;
@@ -118,7 +116,7 @@ window.onload = async function () {
         ) {
             buttonSubmit.disabled = false;
         } else {
-            buttonSubmit.disabled = true;
+
         }
     };
 };

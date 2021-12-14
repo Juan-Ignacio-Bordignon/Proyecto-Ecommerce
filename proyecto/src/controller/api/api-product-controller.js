@@ -39,7 +39,6 @@ const controller = {
     },
     update: async (req, res) => {
         let errors = validationResult(req);
-        console.log(req.body)
         if (errors.isEmpty()) {
             const updatedproduct = await productService.editOneApi(
                 req.params.id,
@@ -51,6 +50,14 @@ const controller = {
             res.json({
                 errors: errors.errors,
             });
+        }
+    },
+    updateImg: async (req,res) =>{
+        if(req.file){
+            await productService.editoneApiImg(req.params.id, req.file);
+            res.json({msg: "Imagen guardada"})
+        }else{
+            res.json({msg: "No hay imagen"})
         }
     }
 };
