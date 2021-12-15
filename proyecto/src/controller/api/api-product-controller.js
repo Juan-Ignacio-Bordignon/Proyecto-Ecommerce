@@ -45,13 +45,25 @@ const controller = {
                 req.body,
                 req.file
             );
-            res.redirect("/");
         } else {
             res.json({
                 errors: errors.errors,
             });
         }
     },
+    create: async (req,res)=>{
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            const newProduct = await productService.createOne(
+                req.body,
+                req.file
+            );
+        } else {
+            res.json({
+                errors: errors.errors,
+            });
+        }
+    }
 };
 
 module.exports = controller;

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const middlewareUpdate = require("../../middlewares/productUpdateMiddleware");
+const middlewareCreate = require("../../middlewares/productCreateMiddleware")
 const uploadFile = require("../../middlewares/saveFileMiddleware");
 
 //          Users
@@ -19,5 +20,6 @@ router.get("/product", productController.allProducts);
 router.get("/product/type", productController.type);
 router.get("/product/:id", productController.productById);
 router.post("/product/edit/:id",uploadFile.single("img"), middlewareUpdate, productController.update);
+router.post("/product/create",uploadFile.single("img"), middlewareCreate, productController.create);
 
 module.exports = router;

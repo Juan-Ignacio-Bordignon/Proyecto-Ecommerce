@@ -12,6 +12,7 @@ import UsersTable from "./components/contentWrapper/usersTable/usersTable"
 import Login from "./components/contentWrapper/login/login"
 import Error404 from "./components/errors/404";
 import Edit from "./components/contentWrapper/edit/edit";
+import Create from "./components/contentWrapper/create/create";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/tables" exact={true} component={ProductsTable} />
             <Route path="/users" exact={true} component={UsersTable} />
             <Route path="/login" exact={true} component={Login}/>
+            <Route path="/create" exact={true} component={Create}/>
             <Route path="/edit/:id" component={Edit}></Route>
             <Route path="/" exact={true} component={ContentWrapper} />
             <Route component={Error404} />
