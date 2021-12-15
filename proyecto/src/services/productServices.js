@@ -61,7 +61,7 @@ const produsctService = {
         });
         return product;
     },
-    editOneApi(id, payload) {
+    editOneApi(id, payload, image) {
         db.Product.update(
             {
                 title: payload.title,
@@ -69,23 +69,13 @@ const produsctService = {
                 type_id: payload.type_id,
                 desc: payload.desc,
                 deleted: payload.deleted,
+                img: image ? "/images/" + image.filename : payload.img,
             },
             {
                 where: { id: id },
             }
         );
     },
-    editoneApiImg(id, image){
-        console.log(image);
-        db.Product.update(
-            {
-                img: image ? "/images/" + image.filename : null,
-            },
-            {
-                where: { id: id },
-            }
-        )
-    }
 };
 
 module.exports = produsctService;

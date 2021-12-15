@@ -18,11 +18,6 @@ const productController = require("../../controller/api/api-product-controller")
 router.get("/product", productController.allProducts);
 router.get("/product/type", productController.type);
 router.get("/product/:id", productController.productById);
-router.post("/product/edit/:id", middlewareUpdate, productController.update);
-router.post(
-    "/product/edit/img/:id",
-    uploadFile.single("img"),
-    productController.updateImg
-);
+router.post("/product/edit/:id",uploadFile.single("img"), middlewareUpdate, productController.update);
 
 module.exports = router;

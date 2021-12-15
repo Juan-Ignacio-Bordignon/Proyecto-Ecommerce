@@ -52,14 +52,6 @@ const controller = {
             });
         }
     },
-    updateImg: async (req,res) =>{
-        if(req.file){
-            await productService.editoneApiImg(req.params.id, req.file);
-            res.json({msg: "Imagen guardada"})
-        }else{
-            res.json({msg: "No hay imagen"})
-        }
-    }
 };
 
 module.exports = controller;

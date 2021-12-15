@@ -22,11 +22,7 @@ class Edit extends Component {
       <div className="card-body">
         <h2>Edición de producto</h2>
         {this.state.errors ? this.error() : ""}
-        <form
-          className=""
-          id="uploadForm"
-          onSubmit={this.onSubmit}
-        >
+        <form className="" id="uploadForm" onSubmit={this.onSubmit}>
           <article className="">
             <img
               className=""
@@ -65,7 +61,6 @@ class Edit extends Component {
                   id="img"
                   accept=".jpeg, .jpg, .png, .gif, .bmp"
                   ref={this.inputImg}
-                  onChange={this.imgHandler}
                 />
               </div>
               <div>
@@ -135,7 +130,9 @@ class Edit extends Component {
     );
   }
   componentDidMount() {
-    if(!sessionStorage.getItem("loged")){window.location.replace("/login")}
+    if (!sessionStorage.getItem("loged")) {
+      window.location.replace("/login");
+    }
     this.fetchProduct();
     this.fetchTypes();
   }
@@ -152,40 +149,19 @@ class Edit extends Component {
     const response = await result.json();
     this.setState({ product: response });
   }
-  onSubmit = async (event)=> {
+  onSubmit = async (event) => {
     event.preventDefault();
-    const formdata = new FormData();
-    formdata.append("img", this.state.file);
-
-    const data={
-      title: this.inputTitle.current.value,
-      price: this.inputPrice.current.value,
-      type_id: this.inputType.current.value,
-      deleted: this.inputDeleted.current.value,
-      description: this.inputDescription.current.value
-    };
-    console.log(data);
-    console.log(this.state.file)
-    const responseFile = await fetch(`/api/product/edit/img/${this.state.product.id}`,{
+    const formdata = new FormData(event.currentTarget);
+    const response = await fetch(`/api/product/edit/${this.state.product.id}`, {
       method: "POST",
-      body: formdata
-    })
-    console.log(responseFile);
-    const response = await fetch(`/api/product/edit/${this.state.product.id}`,{
-      method: "POST",
-      body: JSON.stringify(data),
-      headers:{
-        'Content-Type': 'application/json',
-      }});
-    if(response.errors){
-      this.setState({errors: response.errors})
-      return
+      body: formdata,
+    });
+    if (response.errors) {
+      this.setState({ errors: response.errors });
+      return;
     }
-    window.location.replace("/tables")
-  }
-  imgHandler = (e)=>{
-    this.setState({file: e.target.files[0]})
-  }
+    window.location.replace("/tables");
+  };
   typeIdComparison(id) {
     return id === this.state.product.type_id;
   }
@@ -193,7 +169,9 @@ class Edit extends Component {
     return (
       <div className="alert alert-danger" role="alert">
         <ul>
-          {this.state.errors.map((error)=>{return<li>{error.msg}</li>})}
+          {this.state.errors.map((error) => {
+            return <li>{error.msg}</li>;
+          })}
         </ul>
       </div>
     );
