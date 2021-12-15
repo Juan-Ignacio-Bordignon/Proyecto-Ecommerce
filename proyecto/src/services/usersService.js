@@ -13,7 +13,7 @@ const usersService = {
         let userToFind = await db.User.findOne({
             where: { email: user.email },
         });
-        if (userToFind !== null) {
+        if (userToFind != null) {
             if (bcrypt.compareSync(user.password, userToFind.password)) {
                 userToLogin = userToFind;
             }

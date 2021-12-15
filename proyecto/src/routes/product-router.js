@@ -30,6 +30,6 @@ router.patch(
 router.delete("/:id", controller.destroy);
 
 //search
-router.get("/results", controller.seacrh);
+router.get("/results", controller.search);
 
 module.exports = router;

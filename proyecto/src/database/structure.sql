@@ -61,6 +61,13 @@ VALUES(
     "juanibordil@gmail.com",
     "$2a$10$otJjZB4dcgnt6.G0EAEXeuZJqoMuTlMXUFeRuJnV.wvM3vAyL22bm",
     1
+  ),
+  (
+    DEFAULT,
+    'Pablo Perez',
+    'qwe@qwe.com',
+    '$2a$10$HWGehePpXekQ9jp2hvyw1eNnE7FMPvRQHpLjGVZYtLyom0xklNnDa',
+    0
   );
 INSERT INTO
   types
@@ -111,5 +118,50 @@ VALUES(
     "La gran calidad del Redragon Kumara K552, y su precio económico lo vuelven un atractivo ideal para que te diviertas frente a la pantalla. Su ergonomía, su base antidelizante y su rápido tiempo de respuesta permite que tus juegos favoritos se sientan más cerca que nunca, al alcance de tus manos.",
     6439,
     "/images/Redragon-Kumara-K552.jpg",
+    0
+  ),
+  (
+    DEFAULT,
+    "HAVIT GAMER 4BOT MS-72BL",
+    9,
+    "Mouse gamer. Sensor: Optico. Resolucion: 1200 DPI.",
+    579,
+    "/images/HAVIT-GAMER-4BOT-MS-72BL.jpg",
+    0
+  ),
+  (
+    DEFAULT,
+    "Wesdar X10 Gris",
+    9,
+    "Mouse Gaming , 2400 Dpi , 6 Botones inteligentes.",
+    2285,
+    "/images/Wesdar-X10-Gris.jpg",
+    0
+  ),
+  (
+    DEFAULT,
+    "Kotion G9000",
+    11,
+    "¡Experimentá la adrenalina de sumergirte en la escena de otra manera! Tener auriculares específicos para jugar cambia completamente tu experiencia en cada partida. Con los Kotion Each G9000 no te perdés ningún detalle y escuchás el audio tal y como fue diseñado por los creadores. El formato perfecto para vos, al ser headset vas a poder escuchar tu música preferida, mantener llamadas telefónicas y jugar en línea desde tu pc sin perderte ningún detalle.",
+    2599,
+    "/images/Kotion-G9000.jpg",
+    0
+  ),
+  (
+    DEFAULT,
+    "Redragon Themis H220n",
+    11,
+    "Un auricular con un sonido brillante y claro, con una estructura liviana y cómoda, el Themis es un auricular pensado para jugar cómodamente.",
+    2279,
+    "/images/Redragon-Themis-H220n.jpg",
+    0
+  ),
+  (
+    DEFAULT,
+    "Redragon Hylas H260",
+    11,
+    "¡Experimentá la adrenalina de sumergirte en la escena de otra manera! Tener auriculares específicos para jugar cambia completamente tu experiencia en cada partida. Con los Kotion Each G9000 no te perdés ningún detalle y escuchás el audio tal y como fue diseñado por los creadores. El formato perfecto para vos, al ser headset vas a poder escuchar tu música preferida, mantener llamadas telefónicas y jugar en línea desde tu pc sin perderte ningún detalle.",
+    2469,
+    "/images/Redragon-Hylas-H260.jpg",
     0
   );
