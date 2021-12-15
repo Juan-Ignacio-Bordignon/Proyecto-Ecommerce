@@ -63,7 +63,7 @@ class Edit extends Component {
                   type="file"
                   name="img"
                   id="img"
-                  accept=".jpg"
+                  accept=".jpeg, .jpg, .png, .gif, .bmp"
                   ref={this.inputImg}
                   onChange={this.imgHandler}
                 />
