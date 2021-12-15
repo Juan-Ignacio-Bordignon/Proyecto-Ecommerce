@@ -1,12 +1,26 @@
 import { Link } from "react-router-dom";
 
 function link() {
-  return <Link className="nav-link dropdown-toggle" to={"/login"}>Log in</Link>;
+  return (
+    <Link className="nav-link dropdown-toggle" to={"/login"}>
+      Log in
+    </Link>
+  );
 }
 function user() {
-  return <div >{JSON.parse(sessionStorage.getItem("loged")).user_name}</div>;
+  return <div>{JSON.parse(sessionStorage.getItem("loged")).user_name}</div>;
 }
-
+function create() {
+  return (
+    <li className="nav-item dropdown no-arrow mx-1">
+      <span className="nav-link dropdown-toggle" href="/" id="alertsDropdown">
+        <Link className="nav-link dropdown-toggle" to={"/create"}>
+          Crear producto
+        </Link>
+      </span>
+    </li>
+  );
+}
 
 export default function TopNavBar(props) {
   return (
@@ -19,6 +33,9 @@ export default function TopNavBar(props) {
       </button>
 
       <ul className="navbar-nav ml-auto">
+
+      {sessionStorage.getItem("loged") ? create() : ""}
+
         <li className="nav-item dropdown no-arrow mx-1">
           <a className="nav-link dropdown-toggle" href="/" id="alertsDropdown">
             <i className="fas fa-bell fa-fw"></i>
@@ -27,7 +44,11 @@ export default function TopNavBar(props) {
         </li>
 
         <li className="nav-item dropdown no-arrow mx-1">
-          <a className="nav-link dropdown-toggle" href="/" id="messagesDropdown">
+          <a
+            className="nav-link dropdown-toggle"
+            href="/"
+            id="messagesDropdown"
+          >
             <i className="fas fa-envelope fa-fw"></i>
             <span className="badge badge-danger badge-counter">7</span>
           </a>
