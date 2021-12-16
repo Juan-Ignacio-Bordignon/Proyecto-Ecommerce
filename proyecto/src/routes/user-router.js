@@ -9,7 +9,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
 
 //cart
 router.get("/cart", userController.cart);
-router.get("/cart/:id", authMiddleware,userController.addCart);
+router.get("/cart/:id", authMiddleware, userController.addCart);
 
 //register
 router.get("/register", guestMiddleware, userController.register);
@@ -19,4 +19,6 @@ router.post("/register", validationRegister, userController.saveUser);
 router.get("/login", guestMiddleware, userController.login);
 router.post("/login", validationLogin, userController.proccesLogin);
 
+//logout
+router.get("/logout", userController.logout);
 module.exports = router;
