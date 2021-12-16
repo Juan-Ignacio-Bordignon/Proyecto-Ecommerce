@@ -3,7 +3,7 @@ import ContentCard from "../contentCard";
 
 const typesURL = "/api/product";
 
-class GenresInDb extends Component {
+class TypesInDb extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -43,4 +43,4 @@ class GenresInDb extends Component {
   }
 }
 
-export default GenresInDb;
+export default TypesInDb;

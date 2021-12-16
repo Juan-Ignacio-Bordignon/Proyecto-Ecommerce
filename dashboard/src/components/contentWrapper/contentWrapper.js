@@ -1,7 +1,7 @@
-import CategoriesInDb from "./contentCard/typesInDb/typesInDb";
 import ContentRowTop from "./contentRowTop/contentRowTop";
-import MovieDetail from "./contentCard/lastProductDetail/lastProductDetail";
+import LastProduct from "./contentCard/lastProductDetail/lastProductDetail";
 import ProductsTable from "./productsTable/productsTable";
+import TypesInDb from "./contentCard/typesInDb/typesInDb";
 
 if(sessionStorage.getItem("loged")){
   console.log(sessionStorage.getItem("loged"))
@@ -18,9 +18,8 @@ export default function ContentWrapper() {
       <ContentRowTop />
 
       <div className="row">
-          <MovieDetail />
-
-          <CategoriesInDb />
+          <LastProduct></LastProduct>
+          <TypesInDb></TypesInDb>
       </div>
       <ProductsTable />
     </div>
