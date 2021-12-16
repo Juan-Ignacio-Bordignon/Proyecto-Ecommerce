@@ -67,12 +67,12 @@ const controller = {
         let errors = validationResult(req);
         if (
             errors.isEmpty() &&
-            userService.findUserByEmail(req.body.email) != null
+            userService.findUserByEmail(req.body.email) == null
         ) {
             await userService.createUser(req.body);
-            res.redirect("/");
+            res.redirect("users/login");
         } else {
-            if (userService.findUserByEmail(req.body.email) == null) {
+            if (userService.findUserByEmail(req.body.email) != null) {
                 let error = {
                     msg: "El mail ya es usado por otro usuario",
                 };
@@ -93,7 +93,7 @@ const controller = {
             let userToLogin = await userService.finduser(req.body);
             if (userToLogin == null) {
                 res.render("users/login", {
-                    errors: [{ msg: "credenciales invalidas" }],
+                    errors: [{ msg: "Credenciales invalidas" }],
                 });
             }
             delete userToLogin.password;

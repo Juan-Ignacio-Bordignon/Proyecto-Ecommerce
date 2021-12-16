@@ -33,11 +33,14 @@
                             <input class="form-input" id="user_name" name="user_name" type="text"
                                 placeholder="Nombre de usuario"
                                 value="<%= locals.old && old.user_name ? old.user_name : "" %>" />
+                            <p class="hide-error-fe" id="user_name_error">El nombre de usuario debe contener más de 2
+                                caracteres.</p>
                         </div>
                         <div class="form-box">
                             <label class="form-label" for="email">Email:</label>
                             <input class="form-input" id="email" name="email" type="email" placeholder="Email"
                                 value="<%= locals.old && old.email ? old.email : "" %>" />
+                            <p class="hide-error-fe" id="email_error">Dirección de email invalida.</p>
                         </div>
                         <div class="form-box">
                             <label class="form-label" for="password">
@@ -45,6 +48,10 @@
                             </label>
                             <input class="form-input" id="password" name="password" type="password"
                                 placeholder="Contraseña" />
+                            <p class="hide-error-fe" id="password_empty_error">Casilla de contraseña vacia.</p>
+                            <p class="hide-error-fe" id="password_weak_error">La contraseña debe tener entre 8 y 15
+                                caracteres, conteniendo 1 letra minúscula, 1 letra mayúscula, un número y un carácter
+                                especial (!@#$%^&*).</p>
                         </div>
                         <div class="form-box">
                             <label class="form-label" for="confirmPassword">
@@ -52,6 +59,9 @@
                             </label>
                             <input class="form-input" id="confirmPassword" name="confirmPassword" type="password"
                                 placeholder="Confirmar contraseña" />
+                            <p class="hide-error-fe" id="password_confirm_error">La contraseña de verificación no
+                                coincide.</p>
+
                         </div>
                         <div class="flex justify-space-between">
                             <button class="button-form" id="buttonSubmit" type="submit">

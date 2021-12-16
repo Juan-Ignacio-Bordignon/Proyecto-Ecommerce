@@ -1,5 +1,4 @@
 window.onload = async function () {
-    const feedback = document.querySelector(".feedback");
     const buttonSubmit = document.querySelector("#buttonSubmit");
     const userName = document.querySelector("#user_name");
     const email = document.querySelector("#email");
@@ -11,10 +10,11 @@ window.onload = async function () {
     let validPassword = false;
     let validConfirmPassword = false;
 
-    let pUserName = document.createElement("p");
-    let pEmail = document.createElement("p");
-    let pPassword = document.createElement("p");
-    let pConfirmPassword = document.createElement("p");
+    let pUserName = document.querySelector("#user_name_error");
+    let pEmail = document.querySelector("#email_error");
+    let pPasswordEmpty = document.querySelector("#password_empty_error");
+    let pPasswordWeak = document.querySelector("#password_weak_error");
+    let pConfirmPassword = document.querySelector("#password_confirm_error");
 
     function ValidateEmail(inputText) {
         let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -61,12 +61,9 @@ window.onload = async function () {
 
     // validacion de userName
 
-    userName.onchange = () => {
+    userName.onkeydown = () => {
         let trimedUserName = userName.value.trim();
-        if (trimedUserName.length < 2) {
-            feedback.appendChild(pUserName);
-            pUserName.textContent =
-                "El nombre de usuario debe contener al menos 2 caracteres (FE)";
+        if (trimedUserName.length <= 1) {
             pUserName.classList.remove("hide-error-fe");
             pUserName.classList.add("show-error-fe");
             validUserName = false;
@@ -78,10 +75,8 @@ window.onload = async function () {
 
     // validacion de email
 
-    email.onchange = () => {
+    email.onkeydown = () => {
         if (!ValidateEmail(email)) {
-            feedback.appendChild(pEmail);
-            pEmail.textContent = "Dirección de email invalida (FE)";
             pEmail.classList.remove("hide-error-fe");
             pEmail.classList.add("show-error-fe");
             validEmail = false;
@@ -93,33 +88,26 @@ window.onload = async function () {
 
     // validacion de password
 
-    password.onchange = () => {
+    password.onkeydown = () => {
         let trimedPassword = password.value.trim();
         if (trimedPassword == 0) {
-            feedback.appendChild(pPassword);
-            pPassword.textContent = "Casilla de contraseña vacia (FE)";
-            pPassword.classList.remove("hide-error-fe");
-            pPassword.classList.add("show-error-fe");
+            pPasswordEmpty.classList.remove("hide-error-fe");
+            pPasswordEmpty.classList.add("show-error-fe");
             validPassword = false;
         } else if (strongPassword(trimedPassword)) {
-            pPassword.classList.replace("show-error-fe", "hide-error-fe");
+            pPasswordEmpty.classList.replace("show-error-fe", "hide-error-fe");
+            pPasswordWeak.classList.replace("show-error-fe", "hide-error-fe");
             validPassword = true;
         } else {
-            feedback.appendChild(pPassword);
-            pPassword.textContent =
-                "La contraseña debe tener entre 8 y 15 caracteres, conteniendo 1 letra minúscula, 1 letra mayúscula, un número y un carácter especial (!@#$%^&*) (FE)";
-            pPassword.classList.remove("hide-error-fe");
-            pPassword.classList.add("show-error-fe");
+            pPasswordWeak.classList.remove("hide-error-fe");
+            pPasswordWeak.classList.add("show-error-fe");
             validPassword = false;
         }
     };
-    confirmPassword.onchange = () => {
+    confirmPassword.onkeydown = () => {
         let trimedPassword = password.value.trim();
         let trimedConfirmPassword = confirmPassword.value.trim();
-        if (trimedPassword !== trimedConfirmPassword) {
-            feedback.appendChild(pConfirmPassword);
-            pConfirmPassword.textContent =
-                "La contraseña de verificación no coincide (FE)";
+        if (trimedPassword != trimedConfirmPassword) {
             pConfirmPassword.classList.remove("hide-error-fe");
             pConfirmPassword.classList.add("show-error-fe");
             validConfirmPassword = false;

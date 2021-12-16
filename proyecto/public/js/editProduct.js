@@ -8,22 +8,63 @@ window.onload = async function () {
     const feedback = document.querySelector(".feedback");
 
     const allowedExtension = ["jpeg", "jpg", "png", "gif", "bmp"];
-    let result = -1; //para la validacion de la imagen
-    let pTitle = document.createElement("p");
-    let pImg = document.createElement("p");
-    let pType = document.createElement("p");
-    let pPrice = document.createElement("p");
-    let pDescription = document.createElement("p");
 
+    let pTitle = document.querySelector("#title_error");
+    let pImg = document.querySelector("#img_error");
+    let pPrice = document.querySelector("#price_error");
+    let pDescription = document.querySelector("#description_error");
     function isNumber(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
     }
+
+    let validTitle = true;
+    let validPrice = true;
+    let validImage = true;
+    let validDescription = true;
+
+    // validacion del titulo
+
+    title.onkeydown = () => {
+        let titleTrim = title.value.trim();
+        if (titleTrim.length < 5) {
+            pTitle.classList.remove("hide-error-fe");
+            pTitle.classList.add("show-error-fe");
+            validTitle = false;
+        } else {
+            pTitle.classList.replace("show-error-fe", "hide-error-fe");
+            validTitle = true;
+        }
+    };
+
+    //validacion de precio
+
+    price.onkeydown = () => {
+        let priceTrim = price.value.trim();
+        let priceEmpty = false;
+        let isNotANumber = false;
+
+        if (priceTrim.length == 0) {
+            priceEmpty = true;
+        }
+
+        if (!isNumber(Number(+price.value))) {
+            isNotANumber = true;
+        }
+        if (priceEmpty || isNotANumber) {
+            pPrice.classList.remove("hide-error-fe");
+            pPrice.classList.add("show-error-fe");
+            validPrice = false;
+        } else {
+            pPrice.classList.replace("show-error-fe", "hide-error-fe");
+            validPrice = true;
+        }
+    };
 
     //validacion de imagen
 
     img.onchange = () => {
         img = document.querySelector("#img");
-        console.log(img);
+        let result = -1;
 
         for (const extension of allowedExtension) {
             if (result == -1) {
@@ -31,77 +72,45 @@ window.onload = async function () {
             }
         }
         if (result == -1) {
-            pImg.textContent = "Tipo de imagen invalida (FE)";
-            feedback.appendChild(pImg);
             pImg.classList.remove("hide-error-fe");
             pImg.classList.add("show-error-fe");
-            buttonSubmit.disabled = true;
+            validImage = false;
         } else {
             pImg.classList.replace("show-error-fe", "hide-error-fe");
-            buttonSubmit.disabled = false;
-        }
-    };
-
-    // validacion del titulo
-
-    title.onchange = () => {
-        let titleTrim = title.value.trim();
-        if (titleTrim.length < 5) {
-            pTitle.textContent =
-                "El nombre del producto debe tener como minimo 5 caracteres (FE)";
-            feedback.appendChild(pTitle);
-            pTitle.classList.remove("hide-error-fe");
-            pTitle.classList.add("show-error-fe");
-            buttonSubmit.disabled = true;
-        } else {
-            pTitle.classList.replace("show-error-fe", "hide-error-fe");
-            buttonSubmit.disabled = false;
-        }
-    };
-
-    //validacion de precio
-
-    price.onchange = () => {
-        let priceTrim = price.value.trim();
-
-        console.log(priceTrim);
-        console.log(priceTrim.length == 0);
-        console.log(priceTrim.length);
-
-        let priceEmpty = false;
-        if (priceTrim.length == 0) {
-            priceEmpty = true;
-        }
-
-        let isNotANumber = false;
-        if (!isNumber(Number(+price.value))) {
-            isNotANumber = true;
-        }
-        if (priceEmpty || isNotANumber) {
-            pPrice.textContent = "Debes incluir el precio (FE)";
-            feedback.appendChild(pPrice);
-            pPrice.classList.remove("hide-error-fe");
-            pPrice.classList.add("show-error-fe");
-            buttonSubmit.disabled = true;
-        } else {
-            pPrice.classList.replace("show-error-fe", "hide-error-fe");
-            buttonSubmit.disabled = false;
+            validImage = true;
         }
     };
 
     //validacion de descripcion
 
-    description.onchange = () => {
+    description.onkeydown = () => {
         if (description.value.length < 20) {
-            pDescription.textContent =
-                "La descripción del producto debe tener como minimo 20 caracteres (FE)";
+            pDescription.textContent = "";
             feedback.appendChild(pDescription);
             pDescription.classList.remove("hide-error-fe");
             pDescription.classList.add("show-error-fe");
-            buttonSubmit.disabled = true;
+            validDescription = false;
         } else {
             pDescription.classList.replace("show-error-fe", "hide-error-fe");
+            validDescription = true;
+        }
+    };
+
+    buttonSubmit.disabled = false;
+    buttonSubmit.classList.replace("button-form", "button-form-disable");
+    document.onchange = () => {
+        if (validTitle && validPrice && validImage && validDescription) {
             buttonSubmit.disabled = false;
+            buttonSubmit.classList.replace(
+                "button-form-disable",
+                "button-form"
+            );
+        } else {
+            buttonSubmit.disabled = true;
+            buttonSubmit.classList.replace(
+                "button-form",
+                "button-form-disable"
+            );
         }
     };
 };

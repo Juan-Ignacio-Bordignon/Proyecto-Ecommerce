@@ -41,6 +41,8 @@
                         <div class="flex direction-column">
                             <label class="form-label">Nombre producto:</label>
                             <input class="form-input" type="text" name="title" id="title" value="<%= producto.title %>">
+                            <p class="hide-error-fe" id="title_error">El nombre del producto debe tener como minimo 5
+                                caracteres.</p>
                             <label class="form-label">Tipo de producto:</label>
                             <select class="form-input" name="type_id" id="type_id">
                                 <% for(type of types) { %>
@@ -51,12 +53,16 @@
                             </select>
                             <label class="form-label">Precio del producto</label>
                             <input class="form-input" type="text" name="price" id="price" value="<%= producto.price %>">
+                            <p class="hide-error-fe" id="price_error">Debes incluir el precio.</p>
                             <label class="form-label">Imagen producto:</label>
-                            <input class="form-input" type="file" name="img" id="img" accept=".jpeg, .jpg, .png, .gif, .bmp">
-
+                            <input class="form-input" type="file" name="img" id="img"
+                                accept=".jpeg, .jpg, .png, .gif, .bmp">
+                            <p class="hide-error-fe" id="img_error">Tipo de imagen invalida.</p>
                             <h1>Descripción</h1>
 
                             <textarea name="description" id="description"><%= producto.description %></textarea>
+                            <p class="hide-error-fe" id="description_error">La descripción del producto debe tener como
+                                minimo 20 caracteres.</p>
                             <button type="submit" id="buttonSubmit" class="detail button-form w-100">Enviar</button>
                         </div>
                     </article>
