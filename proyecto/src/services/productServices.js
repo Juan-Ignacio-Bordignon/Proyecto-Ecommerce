@@ -1,5 +1,6 @@
 const db = require("../database/models");
 const Op = db.Sequelize.Op;
+const defaultImageProduct = "/images/default-img-product.png";
 
 const produsctService = {
     findAll() {
@@ -18,7 +19,7 @@ const produsctService = {
     createOne(payload, image) {
         const product = db.Product.create({
             ...payload,
-            img: image ? "/images/" + image.filename : "",
+            img: image ? "/images/" + image.filename : defaultImageProduct,
         });
     },
     editOne(id, payload, image) {
@@ -28,7 +29,7 @@ const produsctService = {
                 price: Number(payload.price),
                 type_id: payload.type_id,
                 desc: payload.desc,
-                img: image ? "/images/" + image.filename : "",
+                img: image ? "/images/" + image.filename : payload.img,
             },
             {
                 where: { id: id },
