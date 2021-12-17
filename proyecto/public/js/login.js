@@ -39,6 +39,16 @@ window.onload = async function () {
 
     // validacion de email
 
+    email.onchange = () => {
+        if (!ValidateEmail(email)) {
+            pEmail.classList.remove("hide-error-fe");
+            pEmail.classList.add("show-error-fe");
+            validEmail = false;
+        } else {
+            validEmail = true;
+            pEmail.classList.replace("show-error-fe", "hide-error-fe");
+        }
+    };
     email.onkeydown = () => {
         if (!ValidateEmail(email)) {
             pEmail.classList.remove("hide-error-fe");
@@ -52,6 +62,17 @@ window.onload = async function () {
 
     // validacion de password
 
+    password.onchange = () => {
+        let trimedPassword = password.value.trim();
+        if (trimedPassword == 0) {
+            pPasswordEmpty.classList.remove("hide-error-fe");
+            pPasswordEmpty.classList.add("show-error-fe");
+            validPassword = false;
+        } else {
+            pPasswordEmpty.classList.replace("show-error-fe", "hide-error-fe");
+            validPassword = true;
+        }
+    };
     password.onkeydown = () => {
         let trimedPassword = password.value.trim();
         if (trimedPassword == 0) {

@@ -24,6 +24,17 @@ window.onload = async function () {
 
     // validacion del titulo
 
+    title.onchange = () => {
+        let titleTrim = title.value.trim();
+        if (titleTrim.length < 5) {
+            pTitle.classList.remove("hide-error-fe");
+            pTitle.classList.add("show-error-fe");
+            validTitle = false;
+        } else {
+            pTitle.classList.replace("show-error-fe", "hide-error-fe");
+            validTitle = true;
+        }
+    };
     title.onkeydown = () => {
         let titleTrim = title.value.trim();
         if (titleTrim.length < 5) {
@@ -38,6 +49,27 @@ window.onload = async function () {
 
     //validacion de precio
 
+    price.onchange = () => {
+        let priceTrim = price.value.trim();
+        let priceEmpty = false;
+        let isNotANumber = false;
+
+        if (priceTrim.length == 0) {
+            priceEmpty = true;
+        }
+
+        if (!isNumber(Number(+price.value))) {
+            isNotANumber = true;
+        }
+        if (priceEmpty || isNotANumber) {
+            pPrice.classList.remove("hide-error-fe");
+            pPrice.classList.add("show-error-fe");
+            validPrice = false;
+        } else {
+            pPrice.classList.replace("show-error-fe", "hide-error-fe");
+            validPrice = true;
+        }
+    };
     price.onkeydown = () => {
         let priceTrim = price.value.trim();
         let priceEmpty = false;
@@ -83,6 +115,18 @@ window.onload = async function () {
 
     //validacion de descripcion
 
+    description.onchange = () => {
+        if (description.value.length < 20) {
+            pDescription.textContent = "";
+            feedback.appendChild(pDescription);
+            pDescription.classList.remove("hide-error-fe");
+            pDescription.classList.add("show-error-fe");
+            validDescription = false;
+        } else {
+            pDescription.classList.replace("show-error-fe", "hide-error-fe");
+            validDescription = true;
+        }
+    };
     description.onkeydown = () => {
         if (description.value.length < 20) {
             pDescription.textContent = "";

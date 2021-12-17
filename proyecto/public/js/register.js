@@ -61,6 +61,17 @@ window.onload = async function () {
 
     // validacion de userName
 
+    userName.onchange = () => {
+        let trimedUserName = userName.value.trim();
+        if (trimedUserName.length <= 1) {
+            pUserName.classList.remove("hide-error-fe");
+            pUserName.classList.add("show-error-fe");
+            validUserName = false;
+        } else {
+            validUserName = true;
+            pUserName.classList.replace("show-error-fe", "hide-error-fe");
+        }
+    };
     userName.onkeydown = () => {
         let trimedUserName = userName.value.trim();
         if (trimedUserName.length <= 1) {
@@ -75,7 +86,7 @@ window.onload = async function () {
 
     // validacion de email
 
-    email.onkeydown = () => {
+    email.onchange = () => {
         if (!ValidateEmail(email)) {
             pEmail.classList.remove("hide-error-fe");
             pEmail.classList.add("show-error-fe");
@@ -86,8 +97,49 @@ window.onload = async function () {
         }
     };
 
+    email.onkeydown = () => {
+        if (!ValidateEmail(email)) {
+            pEmail.classList.remove("hide-error-fe");
+            pEmail.classList.add("show-error-fe");
+            validEmail = false;
+        } else {
+            validEmail = true;
+            pEmail.classList.replace("show-error-fe", "hide-error-fe");
+        }
+    };
     // validacion de password
 
+    password.onchange = () => {
+        let trimedPassword = password.value.trim();
+        if (trimedPassword == 0) {
+            pPasswordEmpty.classList.remove("hide-error-fe");
+            pPasswordEmpty.classList.add("show-error-fe");
+            validPassword = false;
+        } else if (strongPassword(trimedPassword)) {
+            pPasswordEmpty.classList.replace("show-error-fe", "hide-error-fe");
+            pPasswordWeak.classList.replace("show-error-fe", "hide-error-fe");
+            validPassword = true;
+        } else {
+            pPasswordWeak.classList.remove("hide-error-fe");
+            pPasswordWeak.classList.add("show-error-fe");
+            validPassword = false;
+        }
+    };
+    confirmPassword.onchange = () => {
+        let trimedPassword = password.value.trim();
+        let trimedConfirmPassword = confirmPassword.value.trim();
+        if (trimedPassword != trimedConfirmPassword) {
+            pConfirmPassword.classList.remove("hide-error-fe");
+            pConfirmPassword.classList.add("show-error-fe");
+            validConfirmPassword = false;
+        } else {
+            pConfirmPassword.classList.replace(
+                "show-error-fe",
+                "hide-error-fe"
+            );
+            validConfirmPassword = true;
+        }
+    };
     password.onkeydown = () => {
         let trimedPassword = password.value.trim();
         if (trimedPassword == 0) {
