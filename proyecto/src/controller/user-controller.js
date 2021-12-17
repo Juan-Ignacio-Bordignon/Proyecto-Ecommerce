@@ -16,6 +16,48 @@ const controller = {
         });
         res.render("users/cart", { productos: prod, totalPrice: totalPrice });
     },
+    cartBuy: async (req, res) => {
+        if (res.locals.isLogged == true) {
+            let exsist = await db.Cart.findOne({
+                where: {
+                    user_id: Number(req.session.userLogged.id),
+                    product_id: Number(req.params.id),
+                },
+                include: [{ association: "product", include: "type" }],
+            });
+            let producto = await db.Product.findOne({
+                where: {
+                    id: Number(req.params.id),
+                },
+            });
+            if (exsist) {
+                await db.Cart.update(
+                    {
+                        quantity: exsist.quantity + 1,
+                        sub_total:
+                            Number(exsist.sub_total) + Number(producto.price),
+                    },
+                    {
+                        where: {
+                            user_id: Number(req.session.userLogged.id),
+                            product_id: Number(req.params.id),
+                        },
+                    }
+                );
+                res.redirect("/user/cart");
+            } else {
+                await db.Cart.create({
+                    user_id: Number(req.session.userLogged.id),
+                    product_id: Number(req.params.id),
+                    quantity: 1,
+                    sub_total: producto.price,
+                });
+                res.redirect("/user/cart");
+            }
+        } else {
+            res.redirect("/user/login");
+        }
+    },
     addCart: async (req, res) => {
         if (res.locals.isLogged == true) {
             console.log("por crear");

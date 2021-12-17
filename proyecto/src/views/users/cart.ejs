@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include("../partials/head") %>
+
+<head>
+    <%- include("../partials/head") %>
         <title>Carrito</title>
-    </head>
-    <body>
-        <%- include("../partials/header") %> <%-
-        include("../partials/slide-show")%>
-        <main id="main-content">
-            <div class="box-position-relative padding-bottom">
-                <!-- El padding bottom es para que el
+</head>
+
+<body>
+    <%- include("../partials/header") %>
+        <%- include("../partials/slide-show")%>
+            <main id="main-content">
+                <div class="box-position-relative padding-bottom">
+                    <!-- El padding bottom es para que el
                 footer no pise a los botones y al total, 
                 que estan en una pocicion absoluta-->
-                <div class="flex justify-space-around" id="divCartMain">
-                    <% if(productos == "") {%>
-                        <script>
-                            let div = document.querySelector("#divCartMain");
-                            console.log(div)
-                            div.classList.add("block"); 
-                            div.classList.add("text-align-center");
-                        </script>
-                        <h2 class="block text-align-center">No hay productos en el carrito</h2>
-                        <a href="/" class="block text-align-center">Volver a la página de inicio</a>
-                    <% }else{ %> 
-                    <% for (producto of productos) {%>
-                    <div
-                        class="
+                    <div class="flex justify-space-around" id="divCartMain">
+                        <% if(productos=="" ) {%>
+                            <script>
+                                let div = document.querySelector("#divCartMain");
+                                console.log(div)
+                                div.classList.add("block");
+                                div.classList.add("text-align-center");
+                            </script>
+                            <h2 class="block text-align-center">No hay productos en el carrito</h2>
+                            <a href="/" class="block text-align-center">Volver a la página de inicio</a>
+                            <% }else{ %>
+                                <% for (producto of productos) {%>
+                                    <div class="
                             flex
                             product
                             cartItem
@@ -34,50 +35,54 @@
                             w-100
                             text-decoration-none
                             black-txt
-                        "
-                    >
-                        <img class="product-img" src=<%= producto.product.img%> alt=<%= producto.title %> />
-                        <div class="flex direction-column">
-                            <h3><%= producto.product.title %></h3>
-                            <p>$<%= toThousand(producto.product.price) %></p>
-                            <p><%= producto.product.type.name %></p>
-                            <h3><%= producto.count %></h3>
-                        </div>
-                        <div class="flex">
-                            <input type="number" value="<%= producto.count %>" >
-                        </div>
+                        ">
+                                        <img class="product-img" src=<%=producto.product.img%> alt=<%= producto.title %>
+                                            />
+                                            <div class="flex direction-column">
+                                                <h3>
+                                                    <%= producto.product.title %>
+                                                </h3>
+                                                <p>$<%= toThousand(producto.product.price) %>
+                                                </p>
+                                                <p>
+                                                    <%= producto.product.type.name %>
+                                                </p>
+                                            </div>
+                                            <div class="flex">
+                                                <input type="number" value="<%= producto.quantity %>">
+                                            </div>
+                                    </div>
+                                    <% } %>
+                                        <% } %>
                     </div>
-                    <% } %>
-                    <% } %> 
-                </div>
-                <div
-                    class="
+                    <div class="
                         flex
                         box-position-absolute
                         padding-top
                         align-center
                         w-100
                         justify-content-space-around
-                    "
-                >
-                    <div class="flex-item">
-                        <h2>Total: $<%= toThousand(totalPrice) %></h2>
-                    </div>
-                    <div class="flex cart-button-direction">
+                    ">
                         <div class="flex-item">
-                            <button class="button-cart" type="submit">
-                                Comprar
-                            </button>
+                            <h2>Total: $<%= toThousand(totalPrice) %>
+                            </h2>
                         </div>
-                        <div class="flex-item">
-                            <button class="button-cart" type="button">
-                                Vaciar el carrito
-                            </button>
+                        <div class="flex cart-button-direction">
+                            <div class="flex-item">
+                                <button class="button-cart" type="submit">
+                                    Comprar
+                                </button>
+                            </div>
+                            <div class="flex-item">
+                                <button class="button-cart" type="button">
+                                    Vaciar el carrito
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
-        <%- include("../partials/footer") %>
-    </body>
+            </main>
+            <%- include("../partials/footer") %>
+</body>
+
 </html>
