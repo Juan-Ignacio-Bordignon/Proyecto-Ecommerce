@@ -9,48 +9,47 @@
 
 <body>
     <%- include("../partials/header") %>
-        <%- include("../partials/slide-show") %>
-            <main id="main-content">
-                <div class="center">
-                    <div class="feedback">
-                        <% if(typeof errors !="undefined" ) {%>
-                            <p>Errores</p>
-                            <ul>
-                                <% for(let i=0; i < errors.length; i++) {%>
-                                    <li>
-                                        <%= errors[i].msg %>
-                                    </li>
-                                    <% } %>
-                            </ul>
-                            <% } %>
-                    </div>
-                    <form action="/user/login" method="POST" class="main-form login">
-                        <h2 class="form-title">Log in:</h2>
-                        <div class="form-box">
-                            <label class="form-label" for="user-name">
-                                Email:
-                            </label>
-                            <input class="form-input" id="email" type="email" name="email" placeholder="Email" />
-                            <p class="hide-error-fe" id="email_error">Dirección de email invalida.</p>
-                        </div>
-                        <div class="form-box">
-                            <label class="form-label" for="password">
-                                Contraseña:
-                            </label>
-                            <input class="form-input" id="password" type="password" name="password"
-                                placeholder="Contraseña" />
-                            <p class="hide-error-fe" id="password_empty_error">Casilla de contraseña vacia.</p>
-                        </div>
-                        <div class="form-box">
-                            <input type="checkbox" name="remember" value="remember">
-                            <label>Recorda mi usuario</label>
-                        </div>
-                        <button class="button-form" id="buttonSubmit" type="submit">Enviar</button>
-                        <a href="/register">¿No tienes cuenta?</a>
-                    </form>
+        <main id="main-content">
+            <div class="center">
+                <div class="feedback">
+                    <% if(typeof errors !="undefined" ) {%>
+                        <p>Errores</p>
+                        <ul>
+                            <% for(let i=0; i < errors.length; i++) {%>
+                                <li>
+                                    <%= errors[i].msg %>
+                                </li>
+                                <% } %>
+                        </ul>
+                        <% } %>
                 </div>
-            </main>
-            <%- include("../partials/footer") %>
+                <form action="/user/login" method="POST" class="main-form login">
+                    <h2 class="form-title">Log in:</h2>
+                    <div class="form-box">
+                        <label class="form-label" for="user-name">
+                            Email:
+                        </label>
+                        <input class="form-input" id="email" type="email" name="email" placeholder="Email" />
+                        <p class="hide-error-fe" id="email_error">Dirección de email invalida.</p>
+                    </div>
+                    <div class="form-box">
+                        <label class="form-label" for="password">
+                            Contraseña:
+                        </label>
+                        <input class="form-input" id="password" type="password" name="password"
+                            placeholder="Contraseña" />
+                        <p class="hide-error-fe" id="password_empty_error">Casilla de contraseña vacia.</p>
+                    </div>
+                    <div class="form-box">
+                        <input type="checkbox" name="remember" value="remember">
+                        <label>Recorda mi usuario</label>
+                    </div>
+                    <button class="button-form" id="buttonSubmit" type="submit">Enviar</button>
+                    <a href="/register">¿No tienes cuenta?</a>
+                </form>
+            </div>
+        </main>
+        <%- include("../partials/footer") %>
 </body>
 
 </html>

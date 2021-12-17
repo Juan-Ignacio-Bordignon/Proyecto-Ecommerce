@@ -10,9 +10,12 @@
     position: relative;
     z-index: 10;
 }
-.flex-detail{
+.flex-detail {
     flex-wrap: nowrap;
 }
-.max-width-340px{
+.max-width-340px {
     max-width: 340px;
+}
+.margin-right-30 {
+    margin-right: 30px;
 }

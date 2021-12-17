@@ -55,9 +55,16 @@
     transform: translateX(0);
 }
 /*~~~~~~~~~~~~~~~~~~CARTS~~~~~~~~~~~~~~~~  */
-.main-logo {
+/*.main-logo {
     width: 30%;
+}*/
+.margin-left-right-8 {
+    margin: 0px 8px;
 }
+.align-items-center {
+    align-items: center;
+}
+
 .box-position-relative {
     position: relative;
 }
