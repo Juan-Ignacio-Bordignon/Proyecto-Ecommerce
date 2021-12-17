@@ -47,7 +47,7 @@ class Create extends Component {
                   Imagen producto:
                 </label>
                 <input
-                  class="form-control"
+                  class="form-control-file"
                   type="file"
                   name="img"
                   id="img"
@@ -66,13 +66,7 @@ class Create extends Component {
                   ref={this.inputType}
                 >
                   {this.state.types.map((type) => {
-                    return (
-                      <option
-                        value={type.id}
-                      >
-                        {type.name}
-                      </option>
-                    );
+                    return <option value={type.id}>{type.name}</option>;
                   })}
                 </select>
               </div>
@@ -115,12 +109,12 @@ class Create extends Component {
       body: formdata,
     });
     const result = await response.json();
-    console.log(result)
+    console.log(result);
     if (result.errors) {
       this.setState({ errors: result.errors });
       return;
     }
-    console.log(response)
+    console.log(response);
     window.location.replace("/tables");
   };
   error() {
