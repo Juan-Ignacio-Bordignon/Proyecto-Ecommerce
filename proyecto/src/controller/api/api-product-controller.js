@@ -45,6 +45,7 @@ const controller = {
                 req.body,
                 req.file
             );
+            res.json({})
         } else {
             res.json({
                 errors: errors.errors,
@@ -58,6 +59,7 @@ const controller = {
                 req.body,
                 req.file
             );
+            res.json({})
         } else {
             res.json({
                 errors: errors.errors,
