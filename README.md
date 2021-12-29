@@ -1,3 +1,6 @@
+# Explicación del proyecto:
+	Este es un proyecto que realice durante la cursada de programación web full stack de Digital House, junto con Tomás Fabrizio.
+	Aún quedan cosas por mejorar que iré subiendo a GitHub para completar este proyecto.
 
 # Temática del sitio:
 	Venta de piezas de hardware y computadoras ya armadas.
